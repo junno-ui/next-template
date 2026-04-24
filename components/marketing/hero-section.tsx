@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Icon } from "@iconify/react"
@@ -20,19 +21,23 @@ const trustedLogos = [
 /*  Dashboard sidebar nav items                                               */
 /* -------------------------------------------------------------------------- */
 const sidebarItems = [
-  { icon: "mdi:view-dashboard-outline", label: "Dashboard", active: true },
-  { icon: "mdi:package-variant-closed", label: "Products", active: false },
-  { icon: "mdi:cart-outline", label: "Orders", active: false },
-  { icon: "mdi:bullhorn-outline", label: "Campaigns", active: false },
-  { icon: "mdi:account-group-outline", label: "Customers", active: false },
-  { icon: "mdi:chart-bar", label: "Analytics", active: false },
-  { icon: "mdi:cog-outline", label: "Settings", active: false },
+  { id: "dashboard", icon: "mdi:view-dashboard-outline", label: "Dashboard" },
+  { id: "products", icon: "mdi:package-variant-closed", label: "Products" },
+  { id: "orders", icon: "mdi:cart-outline", label: "Orders" },
+  { id: "campaigns", icon: "mdi:bullhorn-outline", label: "Campaigns" },
+  { id: "customers", icon: "mdi:account-group-outline", label: "Customers" },
+  { id: "analytics", icon: "mdi:chart-bar", label: "Analytics" },
+  { id: "settings", icon: "mdi:cog-outline", label: "Settings" },
 ]
 
 /* -------------------------------------------------------------------------- */
 /*  Component                                                                 */
 /* -------------------------------------------------------------------------- */
 export default function HeroSection() {
+  const [activeTab, setActiveTab] = React.useState("dashboard")
+  const [activePeriod, setActivePeriod] = React.useState("Weekly")
+  const [isSearching, setIsSearching] = React.useState(false)
+
   return (
     <section id="home" className="relative overflow-hidden">
       {/* ── Animated gradient background ───────────────────────────────── */}
@@ -49,7 +54,7 @@ export default function HeroSection() {
       {/* ── Hero Content ────────────────────────────────────────────────── */}
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 pt-28 pb-12">
         {/* Welcome badge */}
-        <div className="animate-fade-up mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.06] px-4 py-1.5 text-xs font-medium tracking-wide text-primary backdrop-blur-sm sm:text-sm">
+        <div className="animate-fade-up mb-8 inline-flex cursor-default items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.06] px-4 py-1.5 text-xs font-medium tracking-wide text-primary backdrop-blur-sm transition-all hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 sm:text-sm">
           <span className="relative flex size-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
             <span className="relative inline-flex size-2 rounded-full bg-primary" />
@@ -97,7 +102,7 @@ export default function HeroSection() {
           </a>
         </div>
 
-        {/* ── Dashboard Preview ─────────────────────────────────────────── */}
+        {/* ── Dashboard Preview (Interactive) ───────────────────────────── */}
         <div className="animate-slide-up-fade delay-500 relative mx-auto mt-16 w-full max-w-5xl">
           {/* Glow behind the dashboard */}
           <div
@@ -110,26 +115,36 @@ export default function HeroSection() {
               {/* ── Sidebar ──────────────────────────────────────────── */}
               <aside className="hidden w-48 shrink-0 border-r border-border/20 bg-card/60 md:block">
                 <div className="flex items-center gap-2 border-b border-border/20 px-4 py-3.5">
-                  <div className="flex size-6 items-center justify-center rounded-md bg-primary/15">
+                  <div className="flex size-6 items-center justify-center rounded-md bg-primary/15 transition-transform hover:rotate-12">
                     <Icon icon="mdi:chart-timeline-variant-shimmer" className="size-3.5 text-primary" />
                   </div>
                   <span className="text-xs font-semibold text-foreground">Pixar Marketing</span>
                 </div>
                 <nav className="flex flex-col gap-0.5 p-2">
-                  {sidebarItems.map((item) => (
-                    <div
-                      key={item.label}
-                      className={cn(
-                        "flex items-center gap-2.5 rounded-lg px-3 py-2 text-[11px] font-medium transition-all duration-200",
-                        item.active
-                          ? "bg-primary/10 text-primary"
-                          : "text-muted-foreground/70 hover:bg-muted/30 hover:text-muted-foreground"
-                      )}
-                    >
-                      <Icon icon={item.icon} className="size-3.5" />
-                      {item.label}
-                    </div>
-                  ))}
+                  {sidebarItems.map((item) => {
+                    const isActive = activeTab === item.id;
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => setActiveTab(item.id)}
+                        className={cn(
+                          "flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-[11px] font-medium transition-all duration-200 active:scale-95",
+                          isActive
+                            ? "bg-primary/10 text-primary shadow-sm shadow-primary/5"
+                            : "text-muted-foreground/70 hover:bg-muted/50 hover:text-foreground"
+                        )}
+                      >
+                        <Icon 
+                          icon={item.icon} 
+                          className={cn(
+                            "size-3.5 transition-transform",
+                            isActive ? "scale-110" : "group-hover:scale-110"
+                          )} 
+                        />
+                        {item.label}
+                      </button>
+                    )
+                  })}
                 </nav>
               </aside>
 
@@ -138,26 +153,50 @@ export default function HeroSection() {
                 {/* Top bar */}
                 <div className="mb-4 flex items-center justify-between">
                   <div>
-                    <h3 className="text-sm font-semibold text-foreground">Dashboard</h3>
+                    <h3 className="text-sm font-semibold text-foreground transition-all">
+                      {sidebarItems.find(i => i.id === activeTab)?.label || "Dashboard"}
+                    </h3>
                     <p className="text-[10px] text-muted-foreground/60">Here is a friendly report and perfect data here</p>
                   </div>
                   <div className="hidden items-center gap-2 sm:flex">
-                    <div className="flex h-7 w-36 items-center gap-1.5 rounded-lg border border-border/20 bg-muted/30 px-2.5 text-[10px] text-muted-foreground/50">
-                      <Icon icon="mdi:magnify" className="size-3" />
-                      Search...
-                    </div>
+                    {/* Search Mock */}
+                    <button 
+                      onClick={() => setIsSearching(!isSearching)}
+                      className={cn(
+                        "flex h-7 items-center gap-1.5 rounded-lg border border-border/20 px-2.5 text-[10px] transition-all duration-300",
+                        isSearching ? "w-48 bg-background text-foreground ring-1 ring-primary/20" : "w-36 bg-muted/30 text-muted-foreground/50 hover:bg-muted/50"
+                      )}
+                    >
+                      <Icon icon="mdi:magnify" className="size-3 shrink-0" />
+                      <span className="truncate">{isSearching ? "Search campaigns..." : "Search..."}</span>
+                    </button>
+
+                    {/* Period Toggle Mock */}
                     <div className="flex gap-0.5 rounded-lg border border-border/20 bg-muted/20 p-0.5">
-                      {["Monthly", "Weekly", "Daily"].map((p, i) => (
-                        <span key={p} className={cn("rounded-md px-2 py-1 text-[10px] font-medium transition-colors", i === 0 ? "bg-primary/15 text-primary" : "text-muted-foreground/50")}>{p}</span>
+                      {["Monthly", "Weekly", "Daily"].map((p) => (
+                        <button 
+                          key={p} 
+                          onClick={() => setActivePeriod(p)}
+                          className={cn(
+                            "rounded-md px-2 py-1 text-[10px] font-medium transition-all duration-200 active:scale-95", 
+                            activePeriod === p 
+                              ? "bg-primary/15 text-primary shadow-sm" 
+                              : "text-muted-foreground/50 hover:bg-muted/50 hover:text-foreground"
+                          )}
+                        >
+                          {p}
+                        </button>
                       ))}
                     </div>
+
+                    {/* Action Icons */}
                     <div className="flex items-center gap-1">
-                      <div className="flex size-7 items-center justify-center rounded-lg border border-border/20 text-muted-foreground/50 transition-colors hover:text-muted-foreground">
+                      <button className="flex size-7 items-center justify-center rounded-lg border border-border/20 text-muted-foreground/50 transition-all hover:bg-muted/50 hover:text-foreground active:scale-95">
                         <Icon icon="mdi:bell-outline" className="size-3.5" />
-                      </div>
-                      <div className="flex size-7 items-center justify-center rounded-full bg-primary/15">
+                      </button>
+                      <button className="flex size-7 items-center justify-center rounded-full bg-primary/15 ring-1 ring-primary/20 transition-all hover:scale-105 hover:bg-primary/25 active:scale-95">
                         <Icon icon="mdi:account" className="size-3.5 text-primary" />
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -170,22 +209,27 @@ export default function HeroSection() {
                     { label: "Clicked", value: "$12,344", change: "▲ 12%", icon: "mdi:cursor-default-click-outline" },
                     { label: "Subscribe", value: "$41,010", change: "▲ 8%", icon: "mdi:account-plus-outline" },
                   ].map((stat) => (
-                    <div key={stat.label} className="group rounded-lg border border-border/15 bg-muted/20 p-3 transition-all duration-200 hover:border-border/30 hover:bg-muted/30">
-                      <div className="flex items-center justify-between">
-                        <p className="text-[10px] text-muted-foreground/60">{stat.label}</p>
-                        <Icon icon={stat.icon} className="size-3 text-muted-foreground/30 transition-colors group-hover:text-muted-foreground/50" />
+                    <button 
+                      key={stat.label} 
+                      className="group flex flex-col items-start rounded-lg border border-border/15 bg-muted/20 p-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-primary/[0.02] hover:shadow-md hover:shadow-primary/5 active:scale-[0.98]"
+                    >
+                      <div className="flex w-full items-center justify-between">
+                        <p className="text-[10px] text-muted-foreground/60 transition-colors group-hover:text-foreground/80">{stat.label}</p>
+                        <div className="rounded-full p-1 transition-colors group-hover:bg-primary/10">
+                          <Icon icon={stat.icon} className="size-3 text-muted-foreground/30 transition-colors group-hover:text-primary" />
+                        </div>
                       </div>
-                      <p className="mt-1 text-lg font-bold text-foreground">{stat.value}</p>
-                      <p className={cn("mt-0.5 text-[10px] font-medium", stat.change.startsWith("▲") ? "text-primary" : "text-red-400")}>{stat.change}</p>
-                    </div>
+                      <p className="mt-1 text-lg font-bold text-foreground transition-transform group-hover:translate-x-0.5">{stat.value}</p>
+                      <p className={cn("mt-0.5 text-[10px] font-medium transition-transform group-hover:translate-x-0.5", stat.change.startsWith("▲") ? "text-primary" : "text-red-400")}>{stat.change}</p>
+                    </button>
                   ))}
                 </div>
 
                 {/* Charts row */}
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-5">
-                  <div className="rounded-lg border border-border/15 bg-muted/20 p-3 sm:col-span-3">
+                  <div className="group rounded-lg border border-border/15 bg-muted/20 p-3 transition-all hover:border-border/30 hover:bg-card/40 sm:col-span-3">
                     <div className="mb-3 flex items-center justify-between">
-                      <p className="text-[11px] font-semibold text-foreground">Performance Overview</p>
+                      <p className="text-[11px] font-semibold text-foreground transition-colors group-hover:text-primary">Performance Overview</p>
                       <div className="flex gap-2">
                         <span className="flex items-center gap-1 text-[9px] text-muted-foreground/60"><span className="size-1.5 rounded-full bg-primary" />Revenue</span>
                         <span className="flex items-center gap-1 text-[9px] text-muted-foreground/60"><span className="size-1.5 rounded-full bg-chart-2" />Expenses</span>
@@ -194,8 +238,8 @@ export default function HeroSection() {
                     <div className="flex h-28 items-end gap-1.5">
                       {[{h1:45,h2:30},{h1:65,h2:40},{h1:55,h2:35},{h1:80,h2:50},{h1:70,h2:45},{h1:60,h2:38},{h1:90,h2:55},{h1:75,h2:48},{h1:85,h2:52},{h1:65,h2:42},{h1:70,h2:35},{h1:95,h2:60}].map((bar, i) => (
                         <div key={i} className="flex flex-1 items-end gap-[1px]">
-                          <div className="flex-1 rounded-t-sm bg-primary/30 transition-all duration-200 hover:bg-primary/50" style={{ height: `${bar.h1}%` }} />
-                          <div className="flex-1 rounded-t-sm bg-chart-2/25 transition-all duration-200 hover:bg-chart-2/40" style={{ height: `${bar.h2}%` }} />
+                          <div className="flex-1 rounded-t-sm bg-primary/30 transition-all duration-300 hover:bg-primary" style={{ height: `${bar.h1}%` }} />
+                          <div className="flex-1 rounded-t-sm bg-chart-2/25 transition-all duration-300 hover:bg-chart-2" style={{ height: `${bar.h2}%` }} />
                         </div>
                       ))}
                     </div>
@@ -204,8 +248,8 @@ export default function HeroSection() {
                     </div>
                   </div>
 
-                  <div className="rounded-lg border border-border/15 bg-muted/20 p-3 sm:col-span-2">
-                    <p className="mb-3 text-[11px] font-semibold text-foreground">Top Seller by Country</p>
+                  <div className="group rounded-lg border border-border/15 bg-muted/20 p-3 transition-all hover:border-border/30 hover:bg-card/40 sm:col-span-2">
+                    <p className="mb-3 text-[11px] font-semibold text-foreground transition-colors group-hover:text-primary">Top Seller by Country</p>
                     <div className="flex flex-col gap-2">
                       {[
                         { country: "United States", flag: "🇺🇸", pct: 42, color: "bg-primary" },
@@ -213,15 +257,15 @@ export default function HeroSection() {
                         { country: "Japan", flag: "🇯🇵", pct: 18, color: "bg-chart-3" },
                         { country: "France", flag: "🇫🇷", pct: 12, color: "bg-chart-4" },
                       ].map(c => (
-                        <div key={c.country}>
-                          <div className="mb-1 flex items-center justify-between">
-                            <span className="flex items-center gap-1.5 text-[10px] text-muted-foreground/70"><span>{c.flag}</span>{c.country}</span>
+                        <button key={c.country} className="flex w-full flex-col text-left transition-transform hover:translate-x-1 active:scale-95">
+                          <div className="mb-1 flex w-full items-center justify-between">
+                            <span className="flex items-center gap-1.5 text-[10px] text-muted-foreground/70 transition-colors group-hover:text-foreground"><span>{c.flag}</span>{c.country}</span>
                             <span className="text-[10px] font-medium text-foreground/80">{c.pct}%</span>
                           </div>
-                          <div className="h-1.5 overflow-hidden rounded-full bg-muted/30">
+                          <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted/30">
                             <div className={cn("h-full rounded-full transition-all duration-700", c.color)} style={{ width: `${c.pct}%` }} />
                           </div>
-                        </div>
+                        </button>
                       ))}
                     </div>
                   </div>
@@ -243,13 +287,13 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
             {trustedLogos.map((logo) => (
-              <div
+              <button
                 key={logo.name}
-                className="group flex items-center gap-2 text-muted-foreground/30 transition-all duration-300 hover:text-muted-foreground/60 hover:scale-105"
+                className="group flex items-center gap-2 text-muted-foreground/30 transition-all duration-300 hover:text-muted-foreground/60 hover:scale-105 active:scale-95"
               >
                 <Icon icon={logo.icon} className="size-5 transition-transform duration-300 group-hover:scale-110" />
                 <span className="text-sm font-semibold tracking-tight">{logo.name}</span>
-              </div>
+              </button>
             ))}
           </div>
         </div>
