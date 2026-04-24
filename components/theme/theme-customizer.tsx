@@ -31,13 +31,17 @@ export function ThemeCustomizer() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" size="sm" className="gap-2">
+        <Button
+          variant="outline"
+          size="sm"
+          className="gap-2 rounded-full border-border/70 bg-card/90 px-4 text-foreground shadow-lg backdrop-blur-md hover:bg-accent hover:text-accent-foreground"
+        >
           <Paintbrush className="h-4 w-4" />
           Customize
         </Button>
       </SheetTrigger>
 
-      <SheetContent className="w-[400px] sm:w-[540px] overflow-y-auto">
+      <SheetContent className="w-[400px] overflow-y-auto border-border bg-popover text-popover-foreground sm:w-[540px]">
         <SheetHeader>
           <SheetTitle>Theme Customizer</SheetTitle>
           <SheetDescription>

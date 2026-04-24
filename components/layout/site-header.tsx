@@ -5,6 +5,7 @@ import Link from "next/link"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { Sparkles } from "lucide-react"
 
 export function SiteHeader() {
   const [isScrolled, setIsScrolled] = React.useState(false)
@@ -20,16 +21,19 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full backdrop-blur-lg transition-all duration-300",
+        "sticky top-0 z-40 w-full backdrop-blur-xl transition-all duration-300",
         isScrolled
-          ? "border-b border-border bg-background/80 shadow-sm"
+          ? "border-b border-border/70 bg-background/85 shadow-sm"
           : "bg-transparent"
       )}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
         <div className="flex items-center gap-6 md:gap-10">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="inline-block font-heading font-bold text-xl tracking-tight">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="inline-flex size-6 items-center justify-center rounded-full bg-primary/15 text-primary">
+              <Sparkles className="size-3.5" />
+            </span>
+            <span className="inline-block font-heading text-base font-semibold tracking-tight">
               {siteConfig.name}
             </span>
           </Link>
@@ -46,10 +50,9 @@ export function SiteHeader() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Button variant="ghost" className="hidden md:inline-flex">
-            Sign In
+          <Button className="rounded-full px-6">
+            Contact
           </Button>
-          <Button>Get Started</Button>
         </div>
       </div>
     </header>

@@ -8,20 +8,24 @@ export const siteConfig = {
   },
   mainNav: [
     {
+      title: "Home",
+      href: "#home",
+    },
+    {
+      title: "About Us",
+      href: "#about",
+    },
+    {
       title: "Features",
       href: "#features",
     },
     {
-      title: "Pricing",
-      href: "#pricing",
-    },
-    {
-      title: "Testimonials",
-      href: "#testimonials",
-    },
-    {
       title: "FAQ",
       href: "#faq",
+    },
+    {
+      title: "Contact",
+      href: "#contact",
     },
   ],
 }
