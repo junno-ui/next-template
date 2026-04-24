@@ -5,7 +5,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -37,39 +36,33 @@ export default function SiteHeader() {
   }, [])
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled ? "py-2" : "py-4"
-      )}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4 sm:px-6">
       <nav
         className={cn(
-          "mx-auto flex max-w-5xl items-center justify-between rounded-full border px-2 py-1.5 pl-5 transition-all duration-500",
+          "flex w-full max-w-2xl items-center justify-between rounded-2xl border px-4 py-2 transition-all duration-500",
           scrolled
-            ? "border-border/40 bg-background/80 shadow-lg shadow-black/10 backdrop-blur-xl"
-            : "border-border/20 bg-background/40 backdrop-blur-md",
-          "mx-4 sm:mx-6 lg:mx-auto"
+            ? "border-border/30 bg-background/70 shadow-xl shadow-black/[0.08] backdrop-blur-2xl dark:shadow-black/25"
+            : "border-border/10 bg-background/30 backdrop-blur-lg"
         )}
       >
-        {/* Logo */}
+        {/* Logo — icon only on mobile, icon + text on desktop */}
         <Link
           href="/"
-          className="flex items-center gap-2.5 transition-opacity hover:opacity-80"
+          className="flex items-center gap-2 transition-opacity hover:opacity-70"
         >
-          <div className="flex size-8 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20">
+          <div className="flex size-7 items-center justify-center rounded-lg bg-primary/10">
             <Icon
               icon="mdi:chart-timeline-variant-shimmer"
-              className="size-4 text-primary"
+              className="size-3.5 text-primary"
             />
           </div>
-          <span className="text-sm font-semibold tracking-tight text-foreground">
+          <span className="hidden text-sm font-semibold tracking-tight text-foreground sm:inline">
             {siteConfig.name}
           </span>
         </Link>
 
-        {/* Desktop Nav Links */}
-        <div className="hidden items-center gap-1 lg:flex">
+        {/* Center nav links — floating pill style */}
+        <div className="hidden items-center gap-0.5 lg:flex">
           {navItems.map((item) => {
             const isActive =
               item.href === "/"
@@ -82,94 +75,100 @@ export default function SiteHeader() {
                 key={item.label}
                 href={item.href}
                 className={cn(
-                  buttonVariants({ variant: "ghost", size: "sm" }),
-                  "rounded-full text-sm transition-colors hover:bg-transparent",
+                  "relative rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors",
                   isActive
                     ? "text-foreground"
-                    : "text-muted-foreground/80 hover:text-foreground"
+                    : "text-muted-foreground/60 hover:text-foreground"
                 )}
               >
-                {item.label}
+                {isActive && (
+                  <span className="absolute inset-0 rounded-lg bg-muted/50" />
+                )}
+                <span className="relative">{item.label}</span>
               </Link>
             )
           })}
         </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden items-center lg:flex">
+        {/* Right side — CTA + mobile trigger */}
+        <div className="flex items-center gap-2">
           <Link
             href="/#contact"
-            className={cn(
-              buttonVariants({ size: "sm" }),
-              "rounded-full px-5 text-sm font-medium shadow-md shadow-primary/20 transition-all hover:shadow-lg hover:shadow-primary/30"
-            )}
+            className="hidden rounded-lg bg-primary px-4 py-1.5 text-[13px] font-medium text-primary-foreground shadow-sm shadow-primary/20 transition-all hover:bg-primary/90 hover:shadow-md hover:shadow-primary/30 lg:inline-flex"
           >
             Contact
           </Link>
-        </div>
 
-        {/* Mobile Menu */}
-        <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-          <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon-sm"
-              className="rounded-full lg:hidden"
-              aria-label="Open navigation menu"
-            >
-              <Icon icon="mdi:menu" className="size-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent
-            side="right"
-            className="w-72 border-border/30 bg-background p-0"
-          >
-            <SheetHeader className="border-b border-border/30 px-6 py-5">
-              <SheetTitle className="flex items-center gap-2.5 text-left">
-                <div className="flex size-8 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20">
-                  <Icon
-                    icon="mdi:chart-timeline-variant-shimmer"
-                    className="size-4 text-primary"
-                  />
-                </div>
-                {siteConfig.name}
-              </SheetTitle>
-            </SheetHeader>
-
-            <div className="flex flex-col gap-1 px-4 py-4">
-              {navItems.map((item, i) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={cn(
-                    "flex items-center rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground",
-                    "animate-in fade-in slide-in-from-right-2"
-                  )}
-                  style={{
-                    animationDelay: `${i * 50}ms`,
-                    animationFillMode: "both",
-                  }}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-
-            <div className="mt-auto flex flex-col gap-2 border-t border-border/30 px-4 py-4">
-              <Link
-                href="/#contact"
-                onClick={() => setMobileOpen(false)}
-                className={cn(
-                  buttonVariants(),
-                  "w-full justify-center rounded-lg"
-                )}
+          {/* Mobile menu trigger */}
+          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                className="rounded-lg lg:hidden"
+                aria-label="Open menu"
               >
-                Contact
-              </Link>
-            </div>
-          </SheetContent>
-        </Sheet>
+                <Icon icon="mdi:menu" className="size-[18px]" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              className="w-64 border-border/20 bg-background/95 p-0 backdrop-blur-2xl"
+            >
+              <SheetHeader className="border-b border-border/10 px-5 py-4">
+                <SheetTitle className="flex items-center gap-2 text-left text-sm">
+                  <div className="flex size-6 items-center justify-center rounded-md bg-primary/10">
+                    <Icon
+                      icon="mdi:chart-timeline-variant-shimmer"
+                      className="size-3 text-primary"
+                    />
+                  </div>
+                  {siteConfig.name}
+                </SheetTitle>
+              </SheetHeader>
+
+              <div className="flex flex-col gap-0.5 p-3">
+                {navItems.map((item, i) => {
+                  const isActive =
+                    item.href === "/"
+                      ? pathname === "/"
+                      : pathname.startsWith(item.href.replace(/\/#.*/, "")) &&
+                        item.href !== "/"
+
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={cn(
+                        "rounded-lg px-3 py-2 text-sm font-medium transition-colors animate-in fade-in slide-in-from-right-1",
+                        isActive
+                          ? "bg-muted/50 text-foreground"
+                          : "text-muted-foreground hover:bg-muted/30 hover:text-foreground"
+                      )}
+                      style={{
+                        animationDelay: `${i * 40}ms`,
+                        animationFillMode: "both",
+                      }}
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                })}
+              </div>
+
+              <div className="mt-auto border-t border-border/10 p-3">
+                <Link
+                  href="/#contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex w-full items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm shadow-primary/20"
+                >
+                  Contact
+                </Link>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </nav>
     </header>
   )
