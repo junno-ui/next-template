@@ -1,178 +1,250 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Check } from "lucide-react"
+"use client"
 
-export function HeroSection() {
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import { Icon } from "@iconify/react"
+
+const features = [
+  {
+    icon: "mdi:folder-outline",
+    title: "Smart Organization",
+    description:
+      "Streamline your workflow and boost productivity with our intuitive organization tools.",
+    color: "text-primary",
+    bg: "bg-primary/10",
+  },
+  {
+    icon: "mdi:cellphone-link",
+    title: "Cross-Device Syncing",
+    description:
+      "Seamlessly sync your bookmarks across all devices, ensuring access to your sites no matter the device.",
+    color: "text-primary",
+    bg: "bg-primary/10",
+  },
+  {
+    icon: "mdi:magnify",
+    title: "Full-Text Search",
+    description:
+      "Quickly find bookmarks by title, tags, or through a powerful full-text search of page contents.",
+    color: "text-primary",
+    bg: "bg-primary/10",
+  },
+  {
+    icon: "mdi:tag-outline",
+    title: "Tagging System",
+    description:
+      "Organize your bookmarks with custom tags for effortless retrieval and organization.",
+    color: "text-primary",
+    bg: "bg-primary/10",
+  },
+]
+
+export default function HeroSection() {
   return (
-    <section
-      id="home"
-      className="relative isolate overflow-hidden bg-background pb-20 pt-16 text-foreground lg:pb-28"
-    >
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_0%,var(--primary),transparent_38%),radial-gradient(circle_at_80%_14%,var(--ring),transparent_35%)] opacity-20" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[420px] bg-primary/15 blur-3xl" />
+    <section className="relative overflow-hidden">
+      {/* Ambient background glow */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10"
+        aria-hidden="true"
+      >
+        <div className="absolute top-0 left-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/4 rounded-full bg-primary/[0.04] blur-3xl" />
+        <div className="absolute right-0 bottom-0 h-[400px] w-[600px] translate-x-1/4 rounded-full bg-primary/[0.03] blur-3xl" />
+      </div>
 
-      <div className="container mx-auto space-y-14 px-4 md:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1.35fr_0.95fr]">
-          <div className="space-y-8">
-            <span className="inline-flex items-center rounded-full border border-border bg-card/40 px-3 py-1 text-xs text-muted-foreground">
-              Welcome to PowerMarketing
-            </span>
+      {/* Hero Content */}
+      <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 pt-24 pb-16">
+        {/* Announcement Badge */}
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/50 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm transition-colors hover:border-border hover:text-foreground">
+          <span className="relative flex size-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
+            <span className="relative inline-flex size-2 rounded-full bg-primary" />
+          </span>
+          Now in public beta — see what&apos;s new
+          <Icon icon="mdi:arrow-right" className="size-3.5" />
+        </div>
 
-            <div className="space-y-5">
-              <h1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-                Optimize Your
-                <br />
-                Digital Marketing Strategy
-              </h1>
-              <p className="max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                Track campaign performance, analyze key metrics, and make data-driven decisions
-                all in one intuitive dashboard.
-              </p>
-            </div>
+        {/* Heading */}
+        <h1 className="mx-auto max-w-3xl text-center text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
+          Driving excellence{" "}
+          <span className="bg-gradient-to-r from-foreground/80 to-foreground/40 bg-clip-text text-transparent">
+            in all aspects
+          </span>{" "}
+          of your business.
+        </h1>
 
-            <div className="flex flex-wrap items-center gap-3">
-              <Button variant="outline" className="h-10 rounded-full px-5">
-                Explore Features
-              </Button>
-              <Button className="h-10 rounded-full px-5">
-                Try for free now
-              </Button>
-            </div>
+        {/* Subheading */}
+        <p className="mx-auto mt-6 max-w-xl text-center text-base leading-relaxed text-muted-foreground sm:text-lg">
+          Push the boundaries of innovation and optimization with our platform.
+          Excel in your operations and deliver exceptional value to your
+          customers.
+        </p>
 
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border/70 pt-4 text-xs text-muted-foreground">
-              <span className="text-foreground/80">Trusted by 300+ businesses</span>
-              {["instagram", "shopify", "hubspot", "cnbc", "stripe"].map((brand) => (
-                <span key={brand} className="uppercase tracking-[0.14em]">
-                  {brand}
-                </span>
-              ))}
-            </div>
-          </div>
+        {/* CTAs */}
+        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
+          <a
+            href="#"
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "rounded-full px-6 gap-2 shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-shadow"
+            )}
+          >
+            Get Started Free
+            <Icon icon="mdi:arrow-right" className="size-4" />
+          </a>
+          <a
+            href="#"
+            className={cn(
+              buttonVariants({ variant: "outline", size: "lg" }),
+              "rounded-full px-6 gap-2"
+            )}
+          >
+            <Icon icon="mdi:play-circle-outline" className="size-4" />
+            Watch Demo
+          </a>
+        </div>
 
-          <div id="pricing" className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-            {[
-              { plan: "Startup", price: "$60", note: "For small teams launching to market." },
-              {
-                plan: "Scaleup",
-                price: "$100",
-                note: "For growing businesses with high ambitions.",
-                featured: true,
-              },
-              { plan: "Enterprise", price: "Custom", note: "For teams needing advanced control." },
-            ].map((tier) => (
-              <article
-                key={tier.plan}
-                className={`rounded-2xl border p-4 ${
-                  tier.featured
-                    ? "border-primary/45 bg-gradient-to-b from-primary/15 to-card/40"
-                    : "border-border bg-card/40"
-                }`}
+        {/* Social proof */}
+        <div className="mt-10 flex items-center gap-3 text-sm text-muted-foreground">
+          <div className="flex -space-x-2">
+            {[0, 1, 2, 3].map((i) => (
+              <div
+                key={i}
+                className="flex size-7 items-center justify-center rounded-full border-2 border-background bg-muted text-[10px] font-medium text-muted-foreground"
               >
-                <p className="text-xs text-muted-foreground">{tier.plan}</p>
-                <div className="mt-2 flex items-end gap-1">
-                  <p className="text-3xl font-semibold">{tier.price}</p>
-                  {tier.price !== "Custom" ? (
-                    <span className="pb-1 text-xs text-muted-foreground">/month</span>
-                  ) : null}
-                </div>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{tier.note}</p>
-                <ul className="mt-3 space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center gap-2">
-                    <Check className="size-3.5 text-primary" />
-                    Analytics reporting
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="size-3.5 text-primary" />
-                    Dashboard access
-                  </li>
-                </ul>
-                <Button variant="outline" className="mt-4 h-8 w-full rounded-full text-xs">
-                  Choose this plan
-                </Button>
-              </article>
+                {String.fromCharCode(65 + i)}
+              </div>
             ))}
           </div>
+          <span>
+            Trusted by <strong className="text-foreground">2,500+</strong>{" "}
+            teams
+          </span>
         </div>
 
-        <div id="about" className="grid gap-4 md:grid-cols-4">
-          <article className="rounded-2xl border border-border bg-card/40 p-5">
-            <p className="text-xs text-muted-foreground">Delivered</p>
-            <p className="mt-3 text-3xl font-semibold">$12,199</p>
-            <p className="mt-2 text-xs text-primary">Last month +3.6%</p>
-          </article>
-          <article className="rounded-2xl border border-border bg-card/40 p-5">
-            <p className="text-xs text-muted-foreground">Track Performance at a Glance</p>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Monitor key metrics in one place for faster optimization.
-            </p>
-          </article>
-          <article className="rounded-2xl border border-border bg-card/40 p-5 md:col-span-2">
-            <div className="flex items-center justify-between">
-              <p className="text-xs text-muted-foreground">Realtime Analytics</p>
-              <p className="text-[11px] text-muted-foreground">Updated 5m ago</p>
+        {/* Hero Dashboard Preview */}
+        <div className="relative mx-auto mt-16 w-full max-w-4xl">
+          {/* Glow behind the card */}
+          <div
+            className="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-br from-primary/10 via-transparent to-primary/5 blur-2xl"
+            aria-hidden="true"
+          />
+
+          <div className="overflow-hidden rounded-xl border border-border/60 bg-card shadow-2xl shadow-black/[0.06] dark:shadow-black/30">
+            {/* Mock window chrome */}
+            <div className="flex items-center gap-2 border-b border-border/60 bg-muted/40 px-4 py-3">
+              <div className="flex gap-1.5">
+                <span className="block size-2.5 rounded-full bg-red-400/70" />
+                <span className="block size-2.5 rounded-full bg-yellow-400/70" />
+                <span className="block size-2.5 rounded-full bg-green-400/70" />
+              </div>
+              <div className="mx-auto flex h-6 w-64 items-center justify-center rounded-md bg-background/60 px-3 text-xs text-muted-foreground">
+                <Icon icon="mdi:lock" className="mr-1.5 size-3 opacity-50" />
+                app.techloop.dev
+              </div>
             </div>
-            <div className="mt-4 flex h-24 items-end gap-2">
-              {[26, 42, 28, 52, 44, 71, 63].map((bar, index) => (
+
+            {/* Dashboard placeholder */}
+            <div className="grid grid-cols-3 gap-4 p-6">
+              {/* Stat cards */}
+              {[
+                { label: "Total Revenue", value: "$45,231", change: "+20.1%" },
+                { label: "Subscriptions", value: "+2,350", change: "+180.1%" },
+                { label: "Active Now", value: "+573", change: "+201" },
+              ].map((stat) => (
                 <div
-                  key={`${bar}-${index}`}
-                  className="w-full rounded-t-sm bg-gradient-to-t from-primary/35 to-primary/80"
-                  style={{ height: `${bar}%` }}
-                />
-              ))}
-            </div>
-          </article>
-        </div>
-
-        <div id="features" className="grid gap-4 md:grid-cols-3">
-          <article className="rounded-2xl border border-border bg-card/40 p-5 md:col-span-2">
-            <div className="mb-4 flex items-center justify-between">
-              <p className="text-sm font-medium">Performance Overview</p>
-              <p className="text-xs text-muted-foreground">Last 7 days</p>
-            </div>
-            <div className="flex h-32 items-end gap-3">
-              {[35, 48, 64, 57, 72, 68, 76].map((bar, index) => (
-                <div key={index} className="w-full rounded-t-md bg-muted/40">
-                  <div
-                    className="w-full rounded-t-md bg-gradient-to-t from-primary/65 to-primary"
-                    style={{ height: `${bar}%` }}
-                  />
+                  key={stat.label}
+                  className="rounded-lg border border-border/50 bg-background p-4"
+                >
+                  <p className="text-xs text-muted-foreground">{stat.label}</p>
+                  <p className="mt-1 text-xl font-bold text-foreground">
+                    {stat.value}
+                  </p>
+                  <p className="mt-0.5 text-xs text-emerald-500">
+                    {stat.change}
+                  </p>
                 </div>
               ))}
-            </div>
-          </article>
-          <article className="rounded-2xl border border-border bg-card/40 p-5">
-            <p className="text-sm font-medium">Campaign Overview</p>
-            <div className="relative mx-auto mt-4 size-32 rounded-full bg-[conic-gradient(var(--primary)_0_45%,var(--ring)_45%_75%,var(--muted-foreground)_75%_100%)] p-4">
-              <div className="flex size-full items-center justify-center rounded-full bg-background text-center text-xs text-muted-foreground">
-                12,563
-                <br />
-                Active users
+
+              {/* Chart placeholder */}
+              <div className="col-span-2 flex h-40 items-end gap-2 rounded-lg border border-border/50 bg-background p-4">
+                {[40, 65, 45, 80, 55, 70, 90, 60, 75, 85, 50, 95].map(
+                  (h, i) => (
+                    <div
+                      key={i}
+                      className="flex-1 rounded-t bg-primary/20 transition-all hover:bg-primary/40"
+                      style={{ height: `${h}%` }}
+                    />
+                  )
+                )}
+              </div>
+
+              {/* Activity list */}
+              <div className="flex flex-col gap-2 rounded-lg border border-border/50 bg-background p-4">
+                <p className="text-xs font-medium text-foreground">
+                  Recent Activity
+                </p>
+                {["New user signup", "Payment received", "Report generated"].map(
+                  (item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-2 text-xs text-muted-foreground"
+                    >
+                      <span className="size-1.5 rounded-full bg-primary/50" />
+                      {item}
+                    </div>
+                  )
+                )}
               </div>
             </div>
-            <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
-              <div className="rounded-lg border border-border bg-muted/25 p-2 text-muted-foreground">
-                CTR 4.8%
-              </div>
-              <div className="rounded-lg border border-border bg-muted/25 p-2 text-muted-foreground">
-                CAC -12%
-              </div>
-            </div>
-          </article>
+          </div>
+        </div>
+      </div>
+
+      {/* Features Section */}
+      <div
+        id="features"
+        className="mx-auto max-w-5xl px-6 py-24"
+      >
+        <div className="mb-12 text-center">
+          <p className="text-sm font-medium tracking-wide text-primary/80 uppercase">
+            Features
+          </p>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Everything you need to move faster
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
+            A suite of powerful tools designed to help your team collaborate,
+            organize, and ship without friction.
+          </p>
         </div>
 
-        <div
-          id="contact"
-          className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-border bg-card/40 px-5 py-4"
-        >
-          <div>
-            <p className="text-sm font-medium">Trusted by 300+ businesses</p>
-            <p className="mt-1 text-xs text-muted-foreground">
-              Ready to grow your brand with confidence?
-            </p>
-          </div>
-          <Button className="h-10 rounded-full px-5">
-            Book a demo
-            <ArrowRight className="size-4" />
-          </Button>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {features.map((feature) => (
+            <div
+              key={feature.title}
+              className="group relative flex items-start gap-4 rounded-xl border border-border/50 bg-card/50 p-6 transition-all duration-300 hover:border-border hover:bg-card hover:shadow-md hover:shadow-black/[0.03] dark:hover:shadow-white/[0.02]"
+            >
+              <div
+                className={cn(
+                  "flex size-10 shrink-0 items-center justify-center rounded-lg transition-colors",
+                  feature.bg
+                )}
+              >
+                <Icon
+                  icon={feature.icon}
+                  className={cn("size-5", feature.color)}
+                />
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-foreground">
+                  {feature.title}
+                </h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

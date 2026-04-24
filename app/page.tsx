@@ -1,15 +1,17 @@
-import { SiteHeader } from "@/components/layout/site-header"
-import { HeroSection } from "@/components/marketing/hero-section"
+import CenteredPill from "@/components/layout/site-header"
+import { SiteFooter } from "@/components/layout/site-footer"
+import Hero6 from "@/components/marketing/hero-section"
 import { ThemeCustomizer } from "@/components/theme"
 
 export default function Home() {
   return (
     <div className="relative flex min-h-screen flex-col bg-background text-foreground">
-      <SiteHeader />
+      <CenteredPill />
       <main className="flex-1">
-        <HeroSection />
+        <Hero6 />
       </main>
-      <div className="fixed bottom-5 right-5 z-50">
+      <SiteFooter />
+      <div className="fixed right-5 bottom-5 z-50">
         <ThemeCustomizer />
       </div>
     </div>
