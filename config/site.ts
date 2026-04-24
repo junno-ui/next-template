@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "TechLoop",
-  description: "A premium SaaS landing page template built with shadcn/ui and Next.js App Router.",
+  name: "Pixar Marketing",
+  description: "Track campaign performance, analyze key metrics, and make data-driven decisions—all in one intuitive dashboard.",
   url: "https://example.com",
   links: {
     twitter: "https://twitter.com",
