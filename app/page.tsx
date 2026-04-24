@@ -1,18 +1,20 @@
-import { Button } from "@/components/ui/button"
+import { SiteHeader } from "@/components/layout/site-header"
+import { SiteFooter } from "@/components/layout/site-footer"
+import { HeroSection } from "@/components/marketing/hero-section"
+import { ThemeCustomizer } from "@/components/theme"
 
-export default function Page() {
+export default function Home() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
+    <div className="relative flex min-h-screen flex-col">
+      <SiteHeader />
+      <main className="flex-1">
+        <HeroSection />
+      </main>
+      <SiteFooter />
+
+      {/* Floating theme customizer */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <ThemeCustomizer />
       </div>
     </div>
   )
