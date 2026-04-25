@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils"
 import { Icon } from "@iconify/react"
 import { buttonVariants } from "@/components/ui/button"
+import React from "react"
 
 /* -------------------------------------------------------------------------- */
 /*  Bento Feature Cards Data                                                  */
@@ -211,40 +212,52 @@ const visuals: Record<string, React.ReactNode> = {
 /* -------------------------------------------------------------------------- */
 export default function FeaturesSection() {
   return (
-    <section id="features" className="relative py-24">
-      {/* Ambient glow */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10"
-        aria-hidden="true"
-      >
-        <div className="absolute top-0 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-primary/[0.04] blur-[120px]" />
+    <section id="features" className="relative overflow-hidden py-28">
+      {/* ── Background ── */}
+      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        {/* Hex-dots pattern */}
+        <div className="absolute inset-0 bg-hex-dots opacity-60" />
+        {/* Fade edges */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        {/* Glow orbs */}
+        <div className="animate-drift absolute top-[-10%] left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[100px]" />
+        <div
+          className="animate-drift absolute bottom-[-5%] right-[-10%] h-[400px] w-[600px] rounded-full bg-chart-2/[0.05] blur-[90px]"
+          style={{ animationDelay: "8s", animationDirection: "reverse" }}
+        />
       </div>
 
       <div className="mx-auto max-w-5xl px-6">
         {/* Section header */}
         <div className="mb-14 text-center">
-          <p className="mb-2 text-xs font-medium tracking-widest text-primary uppercase">
+          <p className="animate-fade-up mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
             Features
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            All you need to do business
+          <h2 className="animate-fade-up delay-100 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Everything you need to{" "}
+            <span className="gradient-text-primary">do business</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
+          <p className="animate-fade-up delay-200 mx-auto mt-4 max-w-xl text-[15px] text-muted-foreground">
             Track campaign performance, analyze key metrics, and make
             data-driven decisions — all in one intuitive dashboard.
           </p>
         </div>
 
         {/* Bento grid */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-4">
-          {bentoCards.map((card) => (
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+          {bentoCards.map((card, i) => (
             <div
               key={card.id}
               className={cn(
-                "group relative flex flex-col rounded-2xl border border-border/20 bg-card/40 p-5 transition-all duration-300 hover:border-border/40 hover:bg-card/70",
+                "group relative flex flex-col overflow-hidden rounded-2xl border border-border/20 bg-card/50 p-5 transition-all duration-300",
+                "hover:-translate-y-0.5 hover:border-primary/20 hover:bg-card/80 hover:shadow-lg hover:shadow-primary/5",
                 card.span
               )}
+              style={{ animationDelay: `${200 + i * 80}ms` }}
             >
+              {/* Subtle inner glow on hover */}
+              <div className="pointer-events-none absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-primary/[0.04] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <h3 className="text-sm font-semibold text-foreground">
                 {card.title}
               </h3>
@@ -257,16 +270,16 @@ export default function FeaturesSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 text-center">
+        <div className="mt-14 text-center">
           <a
             href="#contact"
             className={cn(
               buttonVariants({ variant: "outline" }),
-              "rounded-full border-border/30 px-8 text-sm hover:bg-muted/30"
+              "group rounded-full border-border/30 px-8 text-sm transition-all hover:border-primary/30 hover:bg-muted/30"
             )}
           >
-            Contact us
-            <Icon icon="mdi:arrow-right" className="ml-1.5 size-4" />
+            Talk to us
+            <Icon icon="solar:arrow-right-bold" className="ml-1.5 size-4 transition-transform group-hover:translate-x-0.5" />
           </a>
         </div>
       </div>
