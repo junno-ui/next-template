@@ -8,13 +8,13 @@ const footerLinks = {
     { label: "Analytics", href: "/products/analytics" },
     { label: "Automation", href: "/products/automation" },
     { label: "Reports", href: "/products/reports" },
-    { label: "Pricing", href: "/#pricing" },
+    { label: "Pricing", href: "/pricing" },
   ],
   Company: [
     { label: "About", href: "/about" },
     { label: "Blog", href: "/blog" },
     { label: "Careers", href: "/careers" },
-    { label: "Contact", href: "/#contact" },
+    { label: "Contact", href: "/contact" },
   ],
   Legal: [
     { label: "Terms", href: "/terms" },

@@ -11,38 +11,38 @@ import React from "react"
 const bentoCards = [
   {
     id: "delivered",
-    title: "Delivered",
+    title: "Executive Snapshot",
     stat: "$12,199",
     sub: "Last week: ▲ 0.8%",
     description:
-      "Track Performance at a Glance — Monitor key metrics in real time and make data-driven decisions with ease.",
+      "See revenue, pipeline health, and momentum at a glance with a layout built for confident decision-making.",
     span: "md:col-span-2 md:row-span-2",
     visual: "stat-card",
   },
   {
     id: "analytics",
-    title: "Real-Time Analytics",
+    title: "Live Signal Tracking",
     stat: null,
     description:
-      "Gain deeper insights into customer behavior and campaign performance, enabling you to optimize strategies on the go.",
+      "Surface the changes that matter most so teams react earlier and waste less time on noisy dashboards.",
     span: "md:col-span-2",
     visual: "line-chart",
   },
   {
     id: "data-insights",
-    title: "Data Insights for Smarter Decisions",
+    title: "Sharper Team Decisions",
     stat: null,
     description:
-      "Leverage in-depth analytics to uncover trends, optimize performance, and drive better business outcomes with confidence.",
+      "Blend analytics, reporting, and visual clarity into one premium experience for operators and stakeholders.",
     span: "md:col-span-2",
     visual: "area-chart",
   },
   {
     id: "campaign",
-    title: "Campaign Performance in One View",
+    title: "Campaign Health In One View",
     stat: null,
     description:
-      "Track key metrics and trends in real time from a single dashboard.",
+      "Track channels, attribution, and outcomes without jumping across disconnected tools.",
     span: "md:col-span-2",
     visual: "donut-chart",
   },
@@ -235,12 +235,12 @@ export default function FeaturesSection() {
             Features
           </p>
           <h2 className="animate-fade-up delay-100 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Everything you need to{" "}
-            <span className="gradient-text-primary">do business</span>
+            A cleaner product surface for{" "}
+            <span className="gradient-text-primary">modern growth teams</span>
           </h2>
           <p className="animate-fade-up delay-200 mx-auto mt-4 max-w-xl text-[15px] text-muted-foreground">
-            Track campaign performance, analyze key metrics, and make
-            data-driven decisions — all in one intuitive dashboard.
+            Each block is tuned to feel lighter, clearer, and more premium while still
+            staying practical for everyday work.
           </p>
         </div>
 
@@ -278,7 +278,7 @@ export default function FeaturesSection() {
               "group rounded-full border-border/30 px-8 text-sm transition-all hover:border-primary/30 hover:bg-muted/30"
             )}
           >
-            Talk to us
+            Talk to our team
             <Icon icon="solar:arrow-right-bold" className="ml-1.5 size-4 transition-transform group-hover:translate-x-0.5" />
           </a>
         </div>

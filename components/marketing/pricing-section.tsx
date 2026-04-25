@@ -9,16 +9,16 @@ const plans = [
   {
     name: "Startup",
     price: "$60",
-    description: "For small teams and startups looking to stand and grow efficiently.",
-    features: ["Essential campaign tracking", "5 active dashboards", "Email support", "Basic analytics"],
+    description: "For lean teams that need a polished launch without extra complexity.",
+    features: ["Essential campaign tracking", "5 active dashboards", "Email support", "Clean reporting"],
     cta: "Choose this plan",
     highlighted: false,
   },
   {
     name: "Scaleup",
     price: "$100",
-    description: "For growing businesses that need advanced insights and automation.",
-    features: ["Advanced campaign tracking", "Unlimited dashboards", "Priority support", "Predictive analytics"],
+    description: "For fast-moving teams ready for deeper insights and workflow automation.",
+    features: ["Advanced campaign tracking", "Unlimited dashboards", "Priority support", "AI signal scoring"],
     cta: "Choose this plan",
     highlighted: true,
   },
@@ -46,10 +46,10 @@ export default function PricingSection() {
         <div className="mb-12 text-center">
           <p className="animate-fade-up mb-2 text-xs font-medium tracking-widest text-primary uppercase">Pricing</p>
           <h2 className="animate-fade-up delay-100 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Plans for Every Business Need
+            Pricing that stays simple as you grow
           </h2>
           <p className="animate-fade-up delay-200 mx-auto mt-4 max-w-lg text-sm text-muted-foreground">
-            Track campaign performance, analyze key metrics, and scale your business with the perfect plan.
+            Clear packaging, premium defaults, and room to scale when your workflow gets more complex.
           </p>
 
           <div className="animate-fade-up delay-300 mt-8 inline-flex items-center gap-0.5 rounded-full border border-border/30 bg-muted/20 p-1">
@@ -96,7 +96,7 @@ export default function PricingSection() {
                 ) : (
                   <div className="flex items-baseline gap-1">
                     <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                    <span className="text-sm text-muted-foreground">/month</span>
+                    <span className="text-sm text-muted-foreground">/mo</span>
                   </div>
                 )}
               </div>
@@ -119,7 +119,7 @@ export default function PricingSection() {
               </ul>
 
               <a
-                href="#"
+                href="#contact"
                 className={cn(
                   "mt-auto w-full justify-center rounded-xl py-2.5 text-center text-sm font-medium transition-all duration-200 active:scale-[0.98]",
                   plan.highlighted

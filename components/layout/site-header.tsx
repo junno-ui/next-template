@@ -3,8 +3,9 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { Icon } from "@iconify/react"
+
+import { AuthPopover } from "@/components/layout/auth-popover"
 import {
   Sheet,
   SheetContent,
@@ -18,92 +19,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Icon } from "@iconify/react"
 import { BrandLogo, BrandMark } from "@/components/layout/brand-logo"
-
-
-// ─── Navigation data ────────────────────────────────────────────────────────
-
-const navItems = [
-  {
-    label: "Products",
-    href: "/products",
-    icon: "solar:box-minimalistic-bold-duotone",
-    children: [
-      {
-        label: "Analytics",
-        href: "/products/analytics",
-        description: "Track performance and business insights",
-        icon: "solar:chart-2-bold-duotone",
-        color: "text-blue-500",
-        bg: "bg-blue-500/10",
-        hoverBg: "group-hover:bg-blue-500",
-      },
-      {
-        label: "Automation",
-        href: "/products/automation",
-        description: "Automate repetitive workflows",
-        icon: "solar:magic-stick-3-bold-duotone",
-        color: "text-violet-500",
-        bg: "bg-violet-500/10",
-        hoverBg: "group-hover:bg-violet-500",
-      },
-      {
-        label: "Reports",
-        href: "/products/reports",
-        description: "Generate beautiful reports faster",
-        icon: "solar:document-text-bold-duotone",
-        color: "text-emerald-500",
-        bg: "bg-emerald-500/10",
-        hoverBg: "group-hover:bg-emerald-500",
-      },
-    ],
-  },
-  {
-    label: "Solutions",
-    href: "/solutions",
-    icon: "solar:lamp-charge-bold-duotone",
-    children: [
-      {
-        label: "For Startups",
-        href: "/solutions/startups",
-        description: "Move faster with simple tools",
-        icon: "solar:rocket-bold-duotone",
-        color: "text-orange-500",
-        bg: "bg-orange-500/10",
-        hoverBg: "group-hover:bg-orange-500",
-      },
-      {
-        label: "For Agencies",
-        href: "/solutions/agencies",
-        description: "Manage clients and campaigns",
-        icon: "solar:users-group-rounded-bold-duotone",
-        color: "text-sky-500",
-        bg: "bg-sky-500/10",
-        hoverBg: "group-hover:bg-sky-500",
-      },
-      {
-        label: "Enterprise",
-        href: "/solutions/enterprise",
-        description: "Scale securely across your team",
-        icon: "solar:buildings-2-bold-duotone",
-        color: "text-primary",
-        bg: "bg-primary/10",
-        hoverBg: "group-hover:bg-primary",
-      },
-    ],
-  },
-  {
-    label: "Pricing",
-    href: "/#pricing",
-    icon: "solar:tag-price-bold-duotone",
-  },
-  {
-    label: "Blog",
-    href: "/blog",
-    icon: "solar:notebook-bookmark-bold-duotone",
-  },
-]
+import { Button } from "@/components/ui/button"
+import { navItems } from "@/config/navigation"
+import { cn } from "@/lib/utils"
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
 
@@ -386,10 +305,10 @@ export default function SiteHeader() {
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4 sm:px-6 pointer-events-none">
       <nav
         className={cn(
-          "pointer-events-auto flex w-full max-w-5xl items-center justify-between gap-4 rounded-2xl px-3 py-2 transition-all duration-500",
+          "pointer-events-auto flex w-full max-w-6xl items-center justify-between gap-4 rounded-[1.7rem] px-3 py-2.5 transition-all duration-500",
           scrolled
-            ? "border border-border/30 bg-background/85 shadow-2xl shadow-black/[0.08] backdrop-blur-2xl dark:shadow-black/30"
-            : "border border-transparent bg-background/20 backdrop-blur-xl"
+            ? "border border-border/30 bg-background/86 shadow-2xl shadow-black/[0.08] backdrop-blur-2xl dark:shadow-black/30"
+            : "border border-white/20 bg-background/30 backdrop-blur-xl dark:border-white/8"
         )}
       >
         {/* ── Brand ── */}
@@ -427,23 +346,7 @@ export default function SiteHeader() {
 
         {/* ── Right: CTAs + mobile trigger ── */}
         <div className="flex items-center gap-2">
-          {/* Sign in */}
-          <Link
-            href="/login"
-            className="hidden items-center gap-1.5 rounded-xl px-3 py-2 text-[13px] font-medium text-muted-foreground transition-all duration-200 hover:bg-muted/50 hover:text-foreground lg:inline-flex"
-          >
-            <Icon icon="solar:user-bold-duotone" className="size-4 text-muted-foreground/60" />
-            Sign in
-          </Link>
-
-          {/* Get started */}
-          <Link
-            href="/#contact"
-            className="hidden items-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-[13px] font-semibold text-primary-foreground shadow-sm shadow-primary/30 transition-all duration-200 hover:bg-primary/90 hover:shadow-md hover:shadow-primary/40 hover:-translate-y-px active:translate-y-0 lg:inline-flex"
-          >
-            Get started
-            <Icon icon="solar:arrow-right-bold" className="size-3.5" />
-          </Link>
+          <AuthPopover className="hidden lg:inline-flex" />
 
           {/* Mobile hamburger */}
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -451,7 +354,7 @@ export default function SiteHeader() {
               <Button
                 variant="ghost"
                 size="icon-sm"
-                className="rounded-xl lg:hidden"
+                className="rounded-xl border border-white/30 bg-background/65 shadow-sm backdrop-blur-xl dark:border-white/10 lg:hidden"
                 aria-label="Open navigation menu"
               >
                 <Icon
@@ -495,22 +398,7 @@ export default function SiteHeader() {
 
               {/* Footer CTAs */}
               <div className="mt-auto space-y-2 border-t border-border/10 p-3">
-                <Link
-                  href="/login"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-border/30 bg-muted/40 px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:bg-muted/60"
-                >
-                  <Icon icon="solar:user-bold-duotone" className="size-4 text-muted-foreground" />
-                  Sign in
-                </Link>
-                <Link
-                  href="/#contact"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm shadow-primary/30 transition-all hover:bg-primary/90"
-                >
-                  Get started
-                  <Icon icon="solar:arrow-right-bold" className="size-3.5" />
-                </Link>
+                <AuthPopover className="flex h-auto w-full justify-between rounded-[1.4rem] border border-white/40 bg-background/75 px-3 py-3 shadow-none dark:border-white/10" />
               </div>
             </SheetContent>
           </Sheet>

@@ -13,31 +13,31 @@ const logos = [
 
 export default function LogosSection() {
   return (
-    <section className="relative overflow-hidden border-y border-border/10 py-12">
+    <section className="relative overflow-hidden py-10">
       <div className="mx-auto max-w-5xl px-6">
-        <p className="mb-8 text-center text-[10px] font-medium tracking-widest text-muted-foreground/40 uppercase">
-          Trusted by industry leaders
-        </p>
+        <div className="surface-panel relative overflow-hidden rounded-[1.75rem] px-6 py-8">
+          <div className="pointer-events-none absolute inset-0 bg-cross-pattern opacity-25" aria-hidden="true" />
+          <p className="mb-7 text-center text-[10px] font-medium tracking-[0.28em] text-muted-foreground/40 uppercase">
+            Trusted by industry leaders
+          </p>
 
-        {/* Scrolling logos row */}
-        <div className="relative">
-          {/* Fade edges */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
+          <div className="relative">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background via-background/85 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background via-background/85 to-transparent" />
 
-          <div className="flex animate-[scroll_30s_linear_infinite] gap-12">
-            {/* Duplicate for seamless loop */}
-            {[...logos, ...logos].map((logo, i) => (
-              <div
-                key={`${logo.name}-${i}`}
-                className="flex shrink-0 items-center gap-2.5 text-muted-foreground/25 transition-colors hover:text-muted-foreground/60"
-              >
-                <Icon icon={logo.icon} className="size-6" />
-                <span className="text-sm font-semibold tracking-tight whitespace-nowrap">
-                  {logo.name}
-                </span>
-              </div>
-            ))}
+            <div className="flex animate-[scroll_30s_linear_infinite] gap-12">
+              {[...logos, ...logos].map((logo, i) => (
+                <div
+                  key={`${logo.name}-${i}`}
+                  className="flex shrink-0 items-center gap-2.5 text-muted-foreground/30 transition-all duration-300 hover:scale-105 hover:text-muted-foreground/70"
+                >
+                  <Icon icon={logo.icon} className="size-6" />
+                  <span className="text-sm font-semibold tracking-tight whitespace-nowrap">
+                    {logo.name}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

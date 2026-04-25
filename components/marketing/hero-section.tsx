@@ -35,42 +35,32 @@ function HeroBackground() {
       className="pointer-events-none absolute inset-0 -z-20 overflow-hidden"
       aria-hidden="true"
     >
-      {/* ── Pattern layer ── */}
-      <div className="absolute inset-0 bg-hero-pattern opacity-100" />
+      <div className="absolute inset-0 bg-luxury-grid opacity-80" />
+      <div className="absolute inset-0 bg-hero-pattern opacity-60" />
+      <div className="absolute inset-0 bg-noise-weave opacity-35" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_60%_at_50%_0%,transparent_52%,var(--color-background)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-background via-background/75 to-transparent" />
 
-      {/* ── Gradient vignette: fade edges to background ── */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,transparent_60%,var(--color-background)_100%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
-
-      {/* ── Primary glow orb (center-top) ── */}
-      <div className="animate-drift absolute -top-24 left-1/2 h-[700px] w-[1000px] -translate-x-1/2 rounded-full bg-gradient-to-br from-primary/[0.15] via-primary/[0.06] to-transparent blur-[100px]" />
-
-      {/* ── Secondary orb (right) ── */}
+      <div className="absolute left-1/2 top-14 h-[540px] w-[min(78vw,1100px)] -translate-x-1/2 rounded-full bg-primary/[0.18] blur-[130px]" />
       <div
-        className="animate-drift absolute right-[-12%] top-[25%] h-[500px] w-[600px] rounded-full bg-gradient-to-tl from-chart-2/[0.10] via-chart-2/[0.04] to-transparent blur-[90px]"
-        style={{ animationDelay: "6s", animationDirection: "reverse" }}
+        className="animate-drift absolute left-[12%] top-[24%] h-[420px] w-[420px] rounded-full bg-chart-2/[0.12] blur-[110px]"
+        style={{ animationDelay: "4s", animationDirection: "reverse" }}
+      />
+      <div
+        className="animate-drift absolute bottom-[14%] right-[10%] h-[340px] w-[360px] rounded-full bg-primary/[0.14] blur-[100px]"
+        style={{ animationDelay: "10s" }}
       />
 
-      {/* ── Tertiary orb (left) ── */}
+      <div className="absolute left-[10%] top-8 h-[520px] w-px rotate-[24deg] bg-gradient-to-b from-transparent via-primary/35 to-transparent opacity-70" />
+      <div className="absolute right-[14%] top-0 h-[420px] w-px -rotate-[22deg] bg-gradient-to-b from-transparent via-chart-2/35 to-transparent opacity-60" />
+      <div className="absolute left-1/2 top-[18%] h-[240px] w-[min(65vw,760px)] -translate-x-1/2 rounded-full border border-white/40 opacity-50 blur-sm dark:border-white/10" />
+
+      <div className="animate-spin-slow absolute -right-24 top-10 size-[520px] rounded-full border border-primary/[0.08]" />
       <div
-        className="animate-drift absolute bottom-[5%] left-[-8%] h-[400px] w-[500px] rounded-full bg-primary/[0.07] blur-[80px]"
-        style={{ animationDelay: "12s" }}
+        className="animate-spin-slow absolute -left-32 bottom-0 size-[560px] rounded-full border border-chart-2/[0.07]"
+        style={{ animationDuration: "34s", animationDirection: "reverse" }}
       />
 
-      {/* ── Decorative spinning ring (top-right corner) ── */}
-      <div className="animate-spin-slow absolute -right-20 -top-20 size-[480px] rounded-full border border-primary/[0.06]" />
-      <div
-        className="animate-spin-slow absolute -right-12 -top-12 size-[340px] rounded-full border border-primary/[0.04]"
-        style={{ animationDirection: "reverse", animationDuration: "30s" }}
-      />
-
-      {/* ── Decorative spinning ring (bottom-left) ── */}
-      <div
-        className="animate-spin-slow absolute -bottom-32 -left-32 size-[600px] rounded-full border border-chart-2/[0.05]"
-        style={{ animationDuration: "35s" }}
-      />
-
-      {/* ── Floating accent dots ── */}
       {[
         { top: "18%",  left: "8%",   delay: "0s",   size: "size-1.5", color: "bg-primary/40"   },
         { top: "35%",  left: "92%",  delay: "1.2s", size: "size-1",   color: "bg-chart-2/50"   },
@@ -278,115 +268,149 @@ export default function HeroSection() {
     <section id="home" className="relative overflow-hidden">
       <HeroBackground />
 
-      {/* ── Hero Content ─────────────────────────────────────────────────── */}
-      <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 pt-28 pb-12">
+      <div className="mx-auto max-w-6xl px-6 pt-28 pb-18">
+        <div className="flex min-h-screen flex-col items-center justify-center">
+          <div className="relative w-full max-w-4xl text-center">
+            <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-white/45 bg-background/72 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary shadow-lg shadow-black/[0.04] backdrop-blur-xl dark:border-white/10">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
+                <span className="relative inline-flex size-2 rounded-full bg-primary" />
+              </span>
+              Sharper landing experience
+            </div>
 
-        {/* Eyebrow badge */}
-        <div className="animate-fade-up mb-8 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.07] px-4 py-1.5 text-xs font-semibold tracking-wide text-primary backdrop-blur-sm sm:text-[13px]">
-          <span className="relative flex size-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
-            <span className="relative inline-flex size-1.5 rounded-full bg-primary" />
-          </span>
-          Now with AI-powered analytics
-          <Icon icon="solar:arrow-right-bold" className="size-3 opacity-60" />
-        </div>
+            <div className="animate-fade-up delay-100 mt-6 rounded-[2rem] border border-white/45 bg-background/72 p-7 shadow-2xl shadow-black/[0.07] backdrop-blur-2xl dark:border-white/10 sm:p-10">
+              <p className="text-sm font-medium text-muted-foreground/72">
+                Modern UI for SaaS teams that want a cleaner and more trustworthy first impression.
+              </p>
+              <h1 className="mx-auto mt-4 max-w-3xl text-balance text-4xl font-bold leading-[0.95] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[4.65rem]">
+                A cleaner landing page
+                <span className="mt-2 block">with better balance,</span>
+                <span className="gradient-text-primary mt-2 block">
+                  stronger contrast, and clearer focus.
+                </span>
+              </h1>
 
-        {/* Heading */}
-        <h1 className="animate-fade-up delay-100 mx-auto max-w-4xl text-center text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-[4rem]">
-          Launch, Scale &{" "}
-          <span className="relative inline-block">
-            <span className="gradient-text-primary">Grow Your SaaS</span>
-            {/* Underline accent */}
-            <svg
-              aria-hidden
-              className="absolute -bottom-2 left-0 w-full"
-              viewBox="0 0 300 8"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M2 5.5 C60 2.5, 120 7, 180 4.5 C240 2, 280 6.5, 298 5"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                className="text-primary/40"
-              />
-            </svg>
-          </span>
-        </h1>
+              <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-7 text-muted-foreground sm:text-base">
+                The hero is now centered and more symmetric, so the message reads faster
+                and the product preview feels neatly framed instead of visually crowded.
+              </p>
 
-        {/* Subheading */}
-        <p className="animate-fade-up delay-200 mx-auto mt-8 max-w-xl text-center text-[15px] leading-relaxed text-muted-foreground">
-          The modern Next.js starter template for SaaS — beautiful UI,
-          powerful analytics, and everything you need to ship fast.
-        </p>
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <a
+                  href="#pricing"
+                  className={cn(
+                    buttonVariants({ size: "lg" }),
+                    "group relative overflow-hidden rounded-full px-7 text-sm font-semibold shadow-xl shadow-primary/25 transition-all duration-300 hover:scale-[1.02] hover:shadow-primary/35"
+                  )}
+                >
+                  <span
+                    aria-hidden
+                    className="animate-shimmer pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent"
+                  />
+                  Get started free
+                  <Icon
+                    icon="solar:arrow-right-bold"
+                    className="ml-1.5 size-4 transition-transform group-hover:translate-x-0.5"
+                  />
+                </a>
 
-        {/* CTAs */}
-        <div className="animate-fade-up delay-300 mt-9 flex flex-col items-center gap-3 sm:flex-row">
-          <a
-            href="#pricing"
-            className={cn(
-              buttonVariants({ size: "lg" }),
-              "group relative overflow-hidden rounded-full px-7 text-sm font-semibold shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-primary/40 active:scale-[0.98]"
-            )}
-          >
-            {/* Shimmer overlay */}
-            <span
-              aria-hidden
-              className="animate-shimmer pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent"
+                <a
+                  href="#features"
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "lg" }),
+                    "group rounded-full border-white/45 bg-background/70 px-7 text-sm transition-all duration-300 hover:border-primary/30 hover:bg-background dark:border-white/10"
+                  )}
+                >
+                  Explore features
+                  <Icon
+                    icon="solar:arrow-down-bold"
+                    className="ml-1.5 size-3.5 transition-transform group-hover:translate-y-0.5"
+                  />
+                </a>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground/72">
+                <div className="surface-panel flex items-center gap-2 rounded-full px-4 py-2">
+                  <div className="flex -space-x-1.5">
+                    {["bg-primary/80", "bg-chart-2/80", "bg-chart-3/70", "bg-chart-4/70"].map((c, i) => (
+                      <div key={i} className={cn("size-6 rounded-full border-2 border-background", c)} />
+                    ))}
+                  </div>
+                  <span>
+                    Trusted by <strong className="text-foreground/85">2,400+</strong> teams
+                  </span>
+                </div>
+
+                <div className="surface-panel flex items-center gap-2 rounded-full px-4 py-2">
+                  <div className="flex text-amber-400">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Icon key={i} icon="solar:star-bold" className="size-3.5" />
+                    ))}
+                  </div>
+                  <span className="font-medium text-foreground/75">Rated 5.0 for clarity</span>
+                </div>
+              </div>
+
+              <div className="mt-8 grid gap-3 text-left sm:grid-cols-3">
+                {[
+                  { label: "Conversion focus", value: "+28%" },
+                  { label: "Launch speed", value: "2 weeks" },
+                  { label: "Teams onboarded", value: "2.4k" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-[1.35rem] border border-white/40 bg-background/58 px-4 py-4 transition-transform duration-300 hover:-translate-y-0.5 dark:border-white/8"
+                  >
+                    <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground/55">
+                      {item.label}
+                    </p>
+                    <p className="mt-2 text-xl font-semibold tracking-tight text-foreground">
+                      {item.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="animate-slide-up-fade delay-400 relative mx-auto mt-10 w-full max-w-5xl">
+            <div
+              className="pointer-events-none absolute -inset-10 -z-10 rounded-[2.4rem] bg-[radial-gradient(circle_at_top,oklch(0.72_0.17_170_/_24%),transparent_42%),radial-gradient(circle_at_bottom_right,oklch(0.64_0.14_250_/_18%),transparent_40%)] blur-3xl"
+              aria-hidden="true"
             />
-            Get started free
-            <Icon icon="solar:arrow-right-bold" className="ml-1.5 size-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
+            <div className="pointer-events-none absolute -inset-3 -z-10 rounded-[2.25rem] border border-white/45 bg-white/20 dark:border-white/8" />
 
-          <a
-            href="#features"
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              "group rounded-full border-border/40 px-7 text-sm transition-all duration-300 hover:border-primary/30 hover:bg-muted/50"
-            )}
-          >
-            Explore features
-            <Icon icon="solar:arrow-down-bold" className="ml-1.5 size-3.5 transition-transform group-hover:translate-y-0.5" />
-          </a>
-        </div>
+            <div className="surface-panel relative overflow-hidden rounded-[2.15rem] p-4 sm:p-5">
+              <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-[1.5rem] border border-white/40 bg-background/58 px-4 py-3 dark:border-white/8">
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                    Product preview
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-foreground">
+                    Cleaner structure, stronger hierarchy, better visual rhythm
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
+                  <span className="size-2 rounded-full bg-primary" />
+                  Live preview
+                </div>
+              </div>
 
-        {/* Social proof pill */}
-        <div className="animate-fade-up delay-400 mt-6 flex items-center gap-2 text-[12px] text-muted-foreground/60">
-          <div className="flex -space-x-1.5">
-            {["bg-primary/80","bg-chart-2/80","bg-chart-3/70","bg-chart-4/70"].map((c, i) => (
-              <div key={i} className={cn("size-6 rounded-full border-2 border-background", c)} />
-            ))}
+              <DashboardPreview />
+            </div>
           </div>
-          <span>Trusted by <strong className="text-foreground/80">2,400+</strong> teams worldwide</span>
-          <div className="flex text-amber-400">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Icon key={i} icon="solar:star-bold" className="size-3" />
-            ))}
-          </div>
-          <span className="text-foreground/60 font-medium">5.0</span>
-        </div>
-
-        {/* ── Dashboard Preview ─────────────────────────────────────────── */}
-        <div className="animate-slide-up-fade delay-500 relative mx-auto mt-16 w-full max-w-5xl">
-          {/* Glow behind the dashboard */}
-          <div
-            className="animate-glow-pulse pointer-events-none absolute -inset-10 -z-10 rounded-3xl bg-gradient-to-b from-primary/[0.12] via-chart-2/[0.06] to-transparent blur-3xl"
-            aria-hidden="true"
-          />
-          {/* Frame border highlight */}
-          <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-primary/20 via-border/10 to-transparent" aria-hidden />
-
-          <DashboardPreview />
         </div>
       </div>
 
       {/* ── Trusted By ───────────────────────────────────────────────────── */}
-      <div className="relative border-t border-border/10 py-14">
+      <div className="relative mx-auto mb-6 w-full max-w-6xl px-6">
+        <div className="surface-panel relative overflow-hidden rounded-[2rem] border border-white/50 px-6 py-12 dark:border-white/10">
         {/* Subtle cross pattern on this strip */}
-        <div className="pointer-events-none absolute inset-0 bg-cross-pattern opacity-40" aria-hidden />
+          <div className="pointer-events-none absolute inset-0 bg-cross-pattern opacity-40" aria-hidden />
+          <div className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" aria-hidden />
 
-        <div className="mx-auto max-w-5xl px-6">
+          <div className="mx-auto max-w-5xl">
           <p className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground/40">
             Loved by teams at
           </p>
@@ -402,6 +426,7 @@ export default function HeroSection() {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </section>
   )

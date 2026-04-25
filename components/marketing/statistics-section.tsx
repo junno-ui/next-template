@@ -7,15 +7,15 @@ import { Icon } from "@iconify/react"
 const stats = [
   {
     value: "10K+",
-    label: "Active Users",
+    label: "Active Teams",
     icon: "mdi:account-group-outline",
-    description: "Marketers using our platform daily",
+    description: "Operators using the platform every day",
   },
   {
     value: "50M+",
-    label: "Campaigns Sent",
+    label: "Signals Processed",
     icon: "mdi:send-outline",
-    description: "Emails delivered successfully",
+    description: "Data points turned into usable insight",
   },
   {
     value: "99.9%",
@@ -44,11 +44,10 @@ export default function StatisticsSection() {
             By the Numbers
           </p>
           <h2 className="animate-fade-up delay-100 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Trusted by teams worldwide
+            Designed to feel premium at scale
           </h2>
           <p className="animate-fade-up delay-200 mx-auto mt-4 max-w-lg text-sm text-muted-foreground">
-            Our platform powers marketing teams across the globe with reliable,
-            high-performance tools.
+            These signals reinforce trust quickly and help the launch page feel more credible.
           </p>
         </div>
 
