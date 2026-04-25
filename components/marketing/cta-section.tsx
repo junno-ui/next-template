@@ -28,7 +28,7 @@ export default function CtaSection() {
                 Start free
                 <Icon icon="mdi:arrow-right" className="ml-1.5 size-4 transition-transform group-hover:translate-x-1" />
               </a>
-              <a href="/contact" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "rounded-full border-white/45 bg-background/70 px-8 transition-all hover:bg-background hover:scale-[1.02] active:scale-[0.98] dark:border-white/10")}>
+              <a href="#faq" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "rounded-full border-white/45 bg-background/70 px-8 transition-all hover:bg-background hover:scale-[1.02] active:scale-[0.98] dark:border-white/10")}>
                 Talk to sales
               </a>
             </div>

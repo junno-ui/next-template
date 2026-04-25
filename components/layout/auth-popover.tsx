@@ -133,7 +133,7 @@ function LoginForm({ onSwitchTab }: { onSwitchTab: () => void }) {
           <input type="checkbox" className="size-3.5 rounded border-border/40" />
           Keep me signed in
         </label>
-        <Link href="/privacy" className="font-medium text-primary transition-colors hover:text-primary/80">
+        <Link href="#faq" className="font-medium text-primary transition-colors hover:text-primary/80">
           Forgot password?
         </Link>
       </div>
@@ -200,8 +200,8 @@ function RegisterForm() {
 
       <p className="text-center text-xs text-muted-foreground/68">
         By continuing, you agree to our{" "}
-        <Link href="/privacy" className="font-semibold text-primary transition-colors hover:text-primary/80">
-          privacy policy
+        <Link href="#faq" className="font-semibold text-primary transition-colors hover:text-primary/80">
+          terms
         </Link>
         .
       </p>

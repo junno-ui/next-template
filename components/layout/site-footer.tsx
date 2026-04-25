@@ -4,22 +4,23 @@ import { Icon } from "@iconify/react"
 import Link from "next/link"
 
 const footerLinks = {
-  Product: [
-    { label: "Analytics", href: "/products/analytics" },
-    { label: "Automation", href: "/products/automation" },
-    { label: "Reports", href: "/products/reports" },
-    { label: "Pricing", href: "/pricing" },
+  Navigate: [
+    { label: "Home", href: "#home" },
+    { label: "Features", href: "#features" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "FAQ", href: "#faq" },
   ],
   Company: [
-    { label: "About", href: "/about" },
-    { label: "Blog", href: "/blog" },
-    { label: "Careers", href: "/careers" },
-    { label: "Contact", href: "/contact" },
+    { label: "Why NexusUI", href: "#features" },
+    { label: "Results", href: "#pricing" },
+    { label: "Testimonials", href: "#testimonials" },
+    { label: "Contact", href: "#contact" },
   ],
-  Legal: [
-    { label: "Terms", href: "/terms" },
-    { label: "Privacy", href: "/privacy" },
-    { label: "Cookies", href: "/cookies" },
+  Support: [
+    { label: "Get Started", href: "#pricing" },
+    { label: "Book a Call", href: "#contact" },
+    { label: "Questions", href: "#faq" },
+    { label: "Newsletter", href: "#contact" },
   ],
 }
 
@@ -61,7 +62,7 @@ export function SiteFooter() {
           <div className="col-span-2 flex flex-col gap-4 md:col-span-1">
             <BrandLogo className="no-underline" />
             <p className="max-w-[200px] text-[12px] leading-relaxed text-muted-foreground/60">
-              {siteConfig.description}
+              A single modern landing page for launching your product with more clarity, trust, and style.
             </p>
             {/* Social links */}
             <div className="flex items-center gap-2">
