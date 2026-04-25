@@ -54,23 +54,23 @@ export default function HeroSection() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
             <span className="relative inline-flex size-2 rounded-full bg-primary" />
           </span>
-          Welcome to PixarMarketing
+          Welcome to NexusUI
           <Icon icon="mdi:arrow-right" className="size-3 opacity-60" />
         </div>
 
         {/* Heading */}
         <h1 className="animate-fade-up delay-100 mx-auto max-w-4xl text-center text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[3.75rem]">
-          Optimize Your
+          Launch, Scale &
           <br />
           <span className="bg-gradient-to-r from-foreground via-foreground/70 to-foreground/40 bg-clip-text text-transparent">
-            Digital Marketing Strategy
+            Grow Your SaaS
           </span>
         </h1>
 
         {/* Subheading */}
         <p className="animate-fade-up delay-200 mx-auto mt-6 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Track campaign performance, analyze key metrics, and make data-driven
-          decisions—all in one intuitive dashboard.
+          The modern Next.js starter template built for SaaS — beautiful UI,
+          powerful analytics, and everything you need to ship fast.
         </p>
 
         {/* CTAs */}
@@ -113,7 +113,7 @@ export default function HeroSection() {
                   <div className="flex size-6 items-center justify-center rounded-md bg-primary/15">
                     <Icon icon="mdi:chart-timeline-variant-shimmer" className="size-3.5 text-primary" />
                   </div>
-                  <span className="text-xs font-semibold text-foreground">Pixar Marketing</span>
+                  <span className="text-xs font-semibold text-foreground">NexusUI</span>
                 </div>
                 <nav className="flex flex-col gap-0.5 p-2">
                   {sidebarItems.map((item) => (
