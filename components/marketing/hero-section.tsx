@@ -118,7 +118,7 @@ function HeroBackground() {
       className="pointer-events-none absolute inset-0 -z-20 overflow-hidden"
       aria-hidden="true"
     >
-      <div className="absolute inset-0 bg-black" />
+      <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 bg-luxury-grid opacity-20" />
       <div className="absolute inset-0 bg-hero-pattern opacity-15" />
       <div className="absolute inset-0 bg-noise-weave opacity-[0.07]" />
@@ -128,7 +128,7 @@ function HeroBackground() {
       <div className="absolute right-[8%] top-[30%] h-[360px] w-[360px] rounded-full bg-chart-2/[0.055] blur-[120px]" />
       <div className="absolute bottom-[8%] left-1/2 h-[280px] w-[780px] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[110px]" />
 
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_74%_54%_at_50%_22%,transparent_8%,rgba(0,0,0,0.34)_64%,rgba(0,0,0,0.78)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_74%_54%_at_50%_22%,transparent_8%,rgba(255,255,255,0.24)_64%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_74%_54%_at_50%_22%,transparent_8%,rgba(0,0,0,0.34)_64%,rgba(0,0,0,0.78)_100%)]" />
 
       <div className="absolute left-1/2 top-0 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
     </div>
@@ -141,7 +141,7 @@ function HeroBackground() {
 
 function HeroBadge() {
   return (
-    <div className="animate-fade-up inline-flex items-center gap-2 rounded-full bg-white/[0.035] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary shadow-xl shadow-black/20 ring-1 ring-primary/20 backdrop-blur-xl">
+    <div className="animate-fade-up inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary shadow-xl shadow-black/10 ring-1 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035] dark:shadow-black/20">
       <span className="relative flex size-2">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
         <span className="relative inline-flex size-2 rounded-full bg-primary" />
@@ -154,7 +154,7 @@ function HeroBadge() {
 function TrustPills() {
   return (
     <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-      <div className="group flex items-center gap-2 rounded-full bg-white/[0.035] px-4 py-2 text-sm text-white/70 ring-1 ring-white/10 backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/[0.055] hover:ring-primary/20">
+      <div className="group flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-sm text-foreground/75 ring-1 ring-border/40 backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-background hover:ring-primary/20 dark:bg-white/[0.035] dark:text-white/70 dark:ring-white/10 dark:hover:bg-white/[0.055]">
         <div className="flex -space-x-1.5">
           {[
             "bg-primary/90",
@@ -165,7 +165,7 @@ function TrustPills() {
             <div
               key={color}
               className={cn(
-                "size-6 rounded-full ring-2 ring-black transition-transform duration-300 group-hover:-translate-y-0.5",
+                "size-6 rounded-full ring-2 ring-background transition-transform duration-300 group-hover:-translate-y-0.5 dark:ring-black",
                 color
               )}
               style={{ transitionDelay: `${index * 40}ms` }}
@@ -175,11 +175,11 @@ function TrustPills() {
 
         <span>
           Trusted by{" "}
-          <strong className="font-semibold text-white">2,400+</strong> teams
+          <strong className="font-semibold text-foreground dark:text-white">2,400+</strong> teams
         </span>
       </div>
 
-      <div className="group flex items-center gap-2 rounded-full bg-white/[0.035] px-4 py-2 text-sm text-white/70 ring-1 ring-white/10 backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/[0.055] hover:ring-primary/20">
+      <div className="group flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-sm text-foreground/75 ring-1 ring-border/40 backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-background hover:ring-primary/20 dark:bg-white/[0.035] dark:text-white/70 dark:ring-white/10 dark:hover:bg-white/[0.055]">
         <div className="flex text-amber-400">
           {Array.from({ length: 5 }).map((_, index) => (
             <Icon
@@ -191,7 +191,7 @@ function TrustPills() {
           ))}
         </div>
 
-        <span className="font-medium text-white/80">
+        <span className="font-medium text-foreground/85 dark:text-white/80">
           Rated 5.0 by product teams
         </span>
       </div>
@@ -211,15 +211,15 @@ function HeroStatCard({
   icon: string
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-[1.5rem] bg-white/[0.025] p-4 text-left ring-1 ring-white/10 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.05] hover:ring-primary/25 hover:shadow-2xl hover:shadow-primary/10">
+    <div className="group relative overflow-hidden rounded-[1.5rem] bg-background/72 p-4 text-left ring-1 ring-border/40 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-background/90 hover:ring-primary/25 hover:shadow-2xl hover:shadow-primary/10 dark:bg-white/[0.025] dark:ring-white/10 dark:hover:bg-white/[0.05]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,120,40,0.14),transparent_42%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       <div className="relative flex items-start justify-between gap-3">
         <div>
-          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/45">
+          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground dark:text-white/45">
             {label}
           </p>
-          <p className="mt-2 text-2xl font-bold tracking-tight text-white">
+          <p className="mt-2 text-2xl font-bold tracking-tight text-foreground dark:text-white">
             {value}
           </p>
         </div>
@@ -229,7 +229,7 @@ function HeroStatCard({
         </div>
       </div>
 
-      <p className="relative mt-2 text-xs leading-5 text-white/55">
+      <p className="relative mt-2 text-xs leading-5 text-muted-foreground dark:text-white/55">
         {description}
       </p>
     </div>
@@ -242,7 +242,7 @@ function HeroStatCard({
 
 function DashboardPreview() {
   return (
-    <div className="overflow-hidden rounded-[2rem] bg-[#0b0b0d]/95 shadow-[0_28px_90px_rgba(0,0,0,0.45)] ring-1 ring-white/10 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_32px_110px_rgba(0,0,0,0.55)] hover:ring-primary/20">
+    <div className="overflow-hidden rounded-[2rem] bg-slate-950/95 shadow-[0_28px_90px_rgba(0,0,0,0.45)] ring-1 ring-border/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_32px_110px_rgba(0,0,0,0.55)] hover:ring-primary/20 dark:ring-white/10">
       <div className="flex">
         <aside className="hidden w-52 shrink-0 flex-col bg-white/[0.025] md:flex">
           <div className="flex items-center gap-2 px-4 py-4 ring-1 ring-white/[0.04]">
@@ -271,7 +271,7 @@ function DashboardPreview() {
               </svg>
             </div>
 
-            <span className="text-xs font-bold text-white">Velora</span>
+            <span className="text-xs font-bold text-white">Clario</span>
           </div>
 
           <nav className="flex flex-col gap-1 p-2">
@@ -482,12 +482,12 @@ export default function HeroSection() {
                 className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[420px] w-[min(90vw,900px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.10] blur-[120px]"
               />
 
-              <p className="mx-auto max-w-2xl text-sm font-medium leading-6 text-white/62 sm:text-base">
+              <p className="mx-auto max-w-2xl text-sm font-medium leading-6 text-foreground/70 dark:text-white/62 sm:text-base">
                 Modern analytics, automation, and reporting tools for SaaS teams
                 that want cleaner workflows and faster decisions.
               </p>
 
-              <h1 className="mx-auto mt-6 max-w-5xl text-balance text-5xl font-bold leading-[0.9] tracking-[-0.065em] text-white sm:text-6xl md:text-7xl lg:text-[6.25rem]">
+              <h1 className="mx-auto mt-6 max-w-5xl text-balance text-5xl font-bold leading-[0.9] tracking-[-0.065em] text-foreground dark:text-white sm:text-6xl md:text-7xl lg:text-[6.25rem]">
                 Turn scattered data
                 <span className="block">into</span>
                 <span className="relative inline-block">
@@ -501,7 +501,7 @@ export default function HeroSection() {
                 </span>
               </h1>
 
-              <p className="mx-auto mt-7 max-w-2xl text-pretty text-[15px] leading-7 text-white/70 sm:text-base">
+              <p className="mx-auto mt-7 max-w-2xl text-pretty text-[15px] leading-7 text-muted-foreground dark:text-white/70 sm:text-base">
                 Bring dashboards, campaigns, customer insights, and performance
                 reports into one polished workspace built for speed, clarity,
                 and growth.
@@ -530,7 +530,7 @@ export default function HeroSection() {
                   href="#features"
                   className={cn(
                     buttonVariants({ variant: "outline", size: "lg" }),
-                    "group rounded-full bg-white/[0.035] px-8 text-sm text-white ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/[0.06] hover:ring-primary/25 active:scale-[0.98]"
+                    "group rounded-full bg-background/80 px-8 text-sm text-foreground ring-1 ring-border/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-background hover:ring-primary/25 active:scale-[0.98] dark:bg-white/[0.035] dark:text-white dark:ring-white/10 dark:hover:bg-white/[0.06]"
                   )}
                 >
                   Explore features
@@ -541,11 +541,11 @@ export default function HeroSection() {
                 </a>
               </div>
 
-              <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-white/45">
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground dark:text-white/45">
                 <span>No credit card required</span>
-                <span className="hidden size-1 rounded-full bg-white/20 sm:block" />
+                <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
                 <span>14-day free trial</span>
-                <span className="hidden size-1 rounded-full bg-white/20 sm:block" />
+                <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
                 <span>Cancel anytime</span>
               </div>
 
@@ -572,18 +572,18 @@ export default function HeroSection() {
               className="pointer-events-none absolute -inset-8 -z-10 rounded-[2.75rem] bg-[radial-gradient(circle_at_top,rgba(255,120,40,0.14),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(6,182,212,0.10),transparent_35%)] blur-3xl"
             />
 
-            <div className="relative overflow-hidden rounded-[2.35rem] bg-white/[0.025] p-4 shadow-2xl shadow-black/30 ring-1 ring-white/10 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.035] hover:ring-primary/20 sm:p-5">
+            <div className="relative overflow-hidden rounded-[2.35rem] bg-background/72 p-4 shadow-2xl shadow-black/20 ring-1 ring-border/40 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-background/90 hover:ring-primary/20 dark:bg-white/[0.025] dark:ring-white/10 dark:hover:bg-white/[0.035] sm:p-5">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent"
               />
 
-              <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-[1.5rem] bg-white/[0.025] px-4 py-3 ring-1 ring-white/10">
+              <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-[1.5rem] bg-background/80 px-4 py-3 ring-1 ring-border/40 dark:bg-white/[0.025] dark:ring-white/10">
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
                     Product preview
                   </p>
-                  <p className="mt-1 text-sm font-semibold text-white">
+                  <p className="mt-1 text-sm font-semibold text-foreground dark:text-white">
                     Cleaner structure, stronger hierarchy, better visual rhythm
                   </p>
                 </div>

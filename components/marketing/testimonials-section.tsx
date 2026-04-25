@@ -64,8 +64,8 @@ function TestimonialCard({
   return (
     <article
       className={cn(
-        "group flex h-full w-[320px] shrink-0 flex-col justify-between rounded-[1.75rem] bg-white/[0.025] p-5 ring-1 ring-white/10 backdrop-blur-xl",
-        "transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.045] hover:ring-primary/25"
+        "group flex h-full w-[320px] shrink-0 flex-col justify-between rounded-[1.75rem] bg-background/72 p-5 ring-1 ring-border/40 backdrop-blur-xl dark:bg-white/[0.025] dark:ring-white/10",
+        "transition-all duration-300 hover:-translate-y-1 hover:bg-background/90 hover:ring-primary/25 dark:hover:bg-white/[0.045]"
       )}
     >
       <div>
@@ -82,7 +82,7 @@ function TestimonialCard({
           ))}
         </div>
 
-        <p className="text-sm leading-6 text-white/65">
+        <p className="text-sm leading-6 text-muted-foreground dark:text-white/65">
           “{testimonial.quote}”
         </p>
       </div>
@@ -93,10 +93,10 @@ function TestimonialCard({
         </div>
 
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold text-white">
+          <p className="truncate text-sm font-semibold text-foreground dark:text-white">
             {testimonial.name}
           </p>
-          <p className="truncate text-xs text-white/42">
+          <p className="truncate text-xs text-muted-foreground dark:text-white/42">
             {testimonial.role}, {testimonial.company}
           </p>
         </div>
@@ -149,7 +149,7 @@ export default function TestimonialsSection() {
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-black" />
+        <div className="absolute inset-0 bg-background" />
         <div className="absolute inset-0 bg-hex-dots opacity-[0.1]" />
 
         <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
@@ -158,13 +158,13 @@ export default function TestimonialsSection() {
         <div className="absolute left-1/2 top-[22%] h-[460px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[130px]" />
         <div className="absolute bottom-[-12%] left-1/2 h-[360px] w-[720px] -translate-x-1/2 rounded-full bg-chart-2/[0.04] blur-[120px]" />
 
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/[0.035] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary ring-1 ring-primary/20 backdrop-blur-xl">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary ring-1 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035]">
             <span className="relative flex size-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
               <span className="relative inline-flex size-2 rounded-full bg-primary" />
@@ -172,14 +172,14 @@ export default function TestimonialsSection() {
             Testimonials
           </div>
 
-          <h2 className="text-balance text-3xl font-bold tracking-[-0.045em] text-white sm:text-4xl md:text-5xl lg:text-6xl">
+          <h2 className="text-balance text-3xl font-bold tracking-[-0.045em] text-foreground dark:text-white sm:text-4xl md:text-5xl lg:text-6xl">
             Loved by teams that{" "}
             <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
               move with data.
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-pretty text-[15px] leading-7 text-white/64 sm:text-base">
+          <p className="mx-auto mt-5 max-w-2xl text-pretty text-[15px] leading-7 text-muted-foreground dark:text-white/64 sm:text-base">
             Simple feedback from teams using the platform to make reporting,
             campaigns, and growth decisions easier.
           </p>
@@ -188,8 +188,8 @@ export default function TestimonialsSection() {
         {/* Marquee */}
         <div className="relative">
           {/* Fade edges */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-black via-black/80 to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-black via-black/80 to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background via-background/90 to-transparent dark:from-black dark:via-black/80" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background via-background/90 to-transparent dark:from-black dark:via-black/80" />
 
           <div className="space-y-4">
             <TestimonialsMarquee speed={42} />
@@ -198,11 +198,11 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Simple trust line */}
-        <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center text-xs text-white/42">
+        <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center text-xs text-muted-foreground dark:text-white/42">
           <span>4.9/5 average rating</span>
-          <span className="hidden size-1 rounded-full bg-white/20 sm:block" />
+          <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
           <span>Trusted by 10K+ teams</span>
-          <span className="hidden size-1 rounded-full bg-white/20 sm:block" />
+          <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
           <span>Results visible within weeks</span>
         </div>
       </div>

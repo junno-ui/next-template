@@ -217,12 +217,12 @@ function FeatureVisual({ type }: { type: string }) {
         <motion.div
           whileHover={{ scale: 1.015 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className="rounded-[1.35rem] bg-white/[0.035] p-4 ring-1 ring-white/10 transition-colors duration-300 group-hover:bg-white/[0.05] group-hover:ring-primary/20"
+          className="rounded-[1.35rem] bg-background/80 p-4 ring-1 ring-border/40 transition-colors duration-300 group-hover:bg-background group-hover:ring-primary/20 dark:bg-white/[0.035] dark:ring-white/10 dark:group-hover:bg-white/[0.05]"
         >
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="text-xs text-white/42">Revenue this month</p>
-              <p className="mt-1 text-3xl font-bold tracking-tight text-white">
+              <p className="text-xs text-muted-foreground dark:text-white/42">Revenue this month</p>
+              <p className="mt-1 text-3xl font-bold tracking-tight text-foreground dark:text-white">
                 $12,199
               </p>
             </div>
@@ -242,18 +242,18 @@ function FeatureVisual({ type }: { type: string }) {
             </motion.span>
           </div>
 
-          <p className="mt-3 text-xs leading-5 text-white/48">
+          <p className="mt-3 text-xs leading-5 text-muted-foreground dark:text-white/48">
             Growth is driven by stronger activation and expansion revenue.
           </p>
         </motion.div>
 
-        <div className="rounded-[1.35rem] bg-white/[0.035] p-4 ring-1 ring-white/10 transition-colors duration-300 group-hover:bg-white/[0.05] group-hover:ring-primary/20">
+        <div className="rounded-[1.35rem] bg-background/80 p-4 ring-1 ring-border/40 transition-colors duration-300 group-hover:bg-background group-hover:ring-primary/20 dark:bg-white/[0.035] dark:ring-white/10 dark:group-hover:bg-white/[0.05]">
           <div className="mb-3 flex items-center justify-between">
-            <p className="text-xs font-semibold text-white">
+            <p className="text-xs font-semibold text-foreground dark:text-white">
               Performance trend
             </p>
 
-            <span className="flex items-center gap-1.5 text-[10px] text-white/42">
+            <span className="flex items-center gap-1.5 text-[10px] text-muted-foreground dark:text-white/42">
               <span className="relative flex size-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
                 <span className="relative inline-flex size-1.5 rounded-full bg-primary" />
@@ -309,9 +309,9 @@ function FeatureVisual({ type }: { type: string }) {
               damping: 20,
               delay: index * 0.06,
             }}
-            className="flex items-center justify-between rounded-2xl bg-white/[0.035] px-3.5 py-3 ring-1 ring-white/10 transition-colors duration-300 hover:bg-white/[0.055] hover:ring-primary/25"
+            className="flex items-center justify-between rounded-2xl bg-background/80 px-3.5 py-3 ring-1 ring-border/40 transition-colors duration-300 hover:bg-background hover:ring-primary/25 dark:bg-white/[0.035] dark:ring-white/10 dark:hover:bg-white/[0.055]"
           >
-            <span className="flex items-center gap-2 text-sm text-white/65">
+            <span className="flex items-center gap-2 text-sm text-foreground/75 dark:text-white/65">
               <motion.span
                 animate={{ scale: [1, 1.45, 1] }}
                 transition={{
@@ -352,7 +352,7 @@ function FeatureVisual({ type }: { type: string }) {
               damping: 19,
               delay: index * 0.055,
             }}
-            className="rounded-2xl bg-white/[0.035] p-3 ring-1 ring-white/10 transition-colors duration-300 hover:bg-primary/10 hover:ring-primary/25"
+            className="rounded-2xl bg-background/80 p-3 ring-1 ring-border/40 transition-colors duration-300 hover:bg-primary/10 hover:ring-primary/25 dark:bg-white/[0.035] dark:ring-white/10"
           >
             <motion.div
               whileHover={{ rotate: 8, scale: 1.14 }}
@@ -362,7 +362,7 @@ function FeatureVisual({ type }: { type: string }) {
               <Icon icon={icon} className="size-4" />
             </motion.div>
 
-            <p className="mt-3 text-sm font-semibold text-white">{label}</p>
+            <p className="mt-3 text-sm font-semibold text-foreground dark:text-white">{label}</p>
           </motion.div>
         ))}
       </motion.div>
@@ -373,20 +373,20 @@ function FeatureVisual({ type }: { type: string }) {
     return (
       <motion.div
         variants={visualVariants}
-        className="mt-6 grid gap-3 rounded-[1.35rem] bg-white/[0.035] p-4 ring-1 ring-white/10 transition-colors duration-300 group-hover:bg-white/[0.05] group-hover:ring-primary/20"
+        className="mt-6 grid gap-3 rounded-[1.35rem] bg-background/80 p-4 ring-1 ring-border/40 transition-colors duration-300 group-hover:bg-background group-hover:ring-primary/20 dark:bg-white/[0.035] dark:ring-white/10 dark:group-hover:bg-white/[0.05]"
       >
         {[
           ["Organic", "82%", "bg-primary"],
           ["Paid", "64%", "bg-chart-2"],
-          ["Direct", "52%", "bg-white/35"],
+          ["Direct", "52%", "bg-foreground/25 dark:bg-white/35"],
         ].map(([label, width, color], index) => (
           <div key={label}>
             <div className="mb-1.5 flex justify-between text-xs">
-              <span className="text-white/45">{label}</span>
-              <span className="font-semibold text-white/75">{width}</span>
+              <span className="text-muted-foreground dark:text-white/45">{label}</span>
+              <span className="font-semibold text-foreground/80 dark:text-white/75">{width}</span>
             </div>
 
-            <div className="h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
+            <div className="h-1.5 overflow-hidden rounded-full bg-foreground/10 dark:bg-white/[0.06]">
               <motion.div
                 initial={{ width: "0%" }}
                 whileInView={{ width }}
@@ -426,11 +426,11 @@ function FeatureVisual({ type }: { type: string }) {
               damping: 20,
               delay: index * 0.06,
             }}
-            className="flex items-center justify-between rounded-2xl bg-white/[0.035] px-3.5 py-3 ring-1 ring-white/10 transition-colors duration-300 hover:bg-white/[0.055] hover:ring-primary/25"
+            className="flex items-center justify-between rounded-2xl bg-background/80 px-3.5 py-3 ring-1 ring-border/40 transition-colors duration-300 hover:bg-background hover:ring-primary/25 dark:bg-white/[0.035] dark:ring-white/10 dark:hover:bg-white/[0.055]"
           >
-            <span className="text-sm text-white/65">{label}</span>
+            <span className="text-sm text-foreground/75 dark:text-white/65">{label}</span>
 
-            <span className="rounded-full bg-white/[0.06] px-2.5 py-1 text-[10px] font-semibold text-white/55">
+            <span className="rounded-full bg-foreground/10 px-2.5 py-1 text-[10px] font-semibold text-foreground/65 dark:bg-white/[0.06] dark:text-white/55">
               {status}
             </span>
           </motion.div>
@@ -459,7 +459,7 @@ function FeatureVisual({ type }: { type: string }) {
               damping: 18,
               delay: index * 0.065,
             }}
-            className="flex items-center gap-3 rounded-2xl bg-white/[0.035] p-3 ring-1 ring-white/10 transition-colors duration-300 hover:bg-primary/10 hover:ring-primary/25"
+            className="flex items-center gap-3 rounded-2xl bg-background/80 p-3 ring-1 ring-border/40 transition-colors duration-300 hover:bg-primary/10 hover:ring-primary/25 dark:bg-white/[0.035] dark:ring-white/10"
           >
             <motion.div
               whileHover={{ rotate: 12, scale: 1.16 }}
@@ -469,7 +469,7 @@ function FeatureVisual({ type }: { type: string }) {
               <Icon icon={icon} className="size-4" />
             </motion.div>
 
-            <p className="text-sm font-semibold text-white">{label}</p>
+            <p className="text-sm font-semibold text-foreground dark:text-white">{label}</p>
           </motion.div>
         ))}
       </motion.div>
@@ -501,7 +501,7 @@ function FeatureVisual({ type }: { type: string }) {
               damping: 18,
               delay: index * 0.035,
             }}
-            className="flex aspect-square items-center justify-center rounded-2xl bg-white/[0.035] text-white/45 ring-1 ring-white/10 transition-colors duration-300 hover:bg-primary/10 hover:text-primary hover:ring-primary/25"
+            className="flex aspect-square items-center justify-center rounded-2xl bg-background/80 text-muted-foreground ring-1 ring-border/40 transition-colors duration-300 hover:bg-primary/10 hover:text-primary hover:ring-primary/25 dark:bg-white/[0.035] dark:text-white/45 dark:ring-white/10"
           >
             <Icon icon={icon} className="size-5" />
           </motion.div>
@@ -530,9 +530,9 @@ function FeatureVisual({ type }: { type: string }) {
               damping: 20,
               delay: index * 0.06,
             }}
-            className="flex items-center justify-between rounded-2xl bg-white/[0.035] px-3.5 py-3 ring-1 ring-white/10 transition-colors duration-300 hover:bg-white/[0.055] hover:ring-primary/25"
+            className="flex items-center justify-between rounded-2xl bg-background/80 px-3.5 py-3 ring-1 ring-border/40 transition-colors duration-300 hover:bg-background hover:ring-primary/25 dark:bg-white/[0.035] dark:ring-white/10 dark:hover:bg-white/[0.055]"
           >
-            <span className="flex items-center gap-2 text-sm text-white/65">
+            <span className="flex items-center gap-2 text-sm text-foreground/75 dark:text-white/65">
               <motion.span
                 whileHover={{ rotate: 8, scale: 1.18 }}
                 className="inline-flex"
@@ -559,7 +559,7 @@ function FeatureVisual({ type }: { type: string }) {
       variants={visualVariants}
       whileHover={{ scale: 1.015 }}
       transition={{ type: "spring", stiffness: 240, damping: 18 }}
-      className="mt-6 rounded-[1.35rem] bg-white/[0.035] p-4 ring-1 ring-white/10 transition-colors duration-300 group-hover:bg-white/[0.05] group-hover:ring-primary/20"
+      className="mt-6 rounded-[1.35rem] bg-background/80 p-4 ring-1 ring-border/40 transition-colors duration-300 group-hover:bg-background group-hover:ring-primary/20 dark:bg-white/[0.035] dark:ring-white/10 dark:group-hover:bg-white/[0.05]"
     >
       <div className="mb-3 flex items-center gap-2 text-xs font-semibold text-primary">
         <motion.span
@@ -576,7 +576,7 @@ function FeatureVisual({ type }: { type: string }) {
         Suggested next action
       </div>
 
-      <p className="text-sm leading-6 text-white/65">
+      <p className="text-sm leading-6 text-muted-foreground dark:text-white/65">
         Revenue dipped on paid channels. Review campaign spend and notify the
         growth team before the next reporting cycle.
       </p>
@@ -585,7 +585,7 @@ function FeatureVisual({ type }: { type: string }) {
         <span className="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-semibold text-primary">
           High priority
         </span>
-        <span className="rounded-full bg-white/[0.06] px-3 py-1 text-[10px] font-semibold text-white/50">
+        <span className="rounded-full bg-foreground/10 px-3 py-1 text-[10px] font-semibold text-foreground/65 dark:bg-white/[0.06] dark:text-white/50">
           AI generated
         </span>
       </div>
@@ -615,8 +615,8 @@ function BentoCard({
         mass: 0.7,
       }}
       className={cn(
-        "group relative flex min-h-[260px] flex-col overflow-hidden rounded-[2rem] bg-white/[0.025] p-5 shadow-2xl shadow-black/[0.14] ring-1 ring-white/10 backdrop-blur-2xl",
-        "transition-colors duration-500 hover:bg-white/[0.045] hover:ring-primary/25 hover:shadow-primary/10",
+        "group relative flex min-h-[260px] flex-col overflow-hidden rounded-[2rem] bg-background/72 p-5 shadow-2xl shadow-black/[0.08] ring-1 ring-border/40 backdrop-blur-2xl dark:bg-white/[0.025] dark:ring-white/10",
+        "transition-colors duration-500 hover:bg-background/90 hover:ring-primary/25 hover:shadow-primary/10 dark:hover:bg-white/[0.045]",
         feature.className
       )}
       style={{
@@ -646,7 +646,7 @@ function BentoCard({
           <motion.div
             whileHover={{ x: 3 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/[0.035] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary ring-1 ring-white/10"
+            className="mb-3 inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary ring-1 ring-border/40 dark:bg-white/[0.035] dark:ring-white/10"
           >
             <motion.span
               animate={{
@@ -667,11 +667,11 @@ function BentoCard({
             {feature.label}
           </motion.div>
 
-          <h3 className="max-w-sm text-xl font-bold tracking-tight text-white">
+          <h3 className="max-w-sm text-xl font-bold tracking-tight text-foreground dark:text-white">
             {feature.title}
           </h3>
 
-          <p className="mt-3 max-w-md text-sm leading-6 text-white/58">
+          <p className="mt-3 max-w-md text-sm leading-6 text-muted-foreground dark:text-white/58">
             {feature.description}
           </p>
         </div>
@@ -710,7 +710,7 @@ export default function FeaturesSection() {
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-black" />
+        <div className="absolute inset-0 bg-background" />
         <div className="absolute inset-0 bg-hex-dots opacity-[0.12]" />
 
         <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
@@ -755,7 +755,7 @@ export default function FeaturesSection() {
           className="absolute left-[-14%] bottom-[8%] h-[360px] w-[560px] rounded-full bg-primary/[0.04] blur-[110px]"
         />
 
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.45)_70%,rgba(0,0,0,0.84)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.45)_70%,rgba(0,0,0,0.84)_100%)]" />
 
         <div className="absolute left-1/2 top-0 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
       </div>
@@ -771,7 +771,7 @@ export default function FeaturesSection() {
         >
           <motion.div
             variants={headerVariants}
-            className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/[0.035] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary ring-1 ring-primary/20 backdrop-blur-xl"
+            className="mb-5 inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary ring-1 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035]"
           >
             <span className="relative flex size-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
@@ -782,7 +782,7 @@ export default function FeaturesSection() {
 
           <motion.h2
             variants={headerVariants}
-            className="text-balance text-3xl font-bold tracking-[-0.045em] text-white sm:text-4xl md:text-5xl lg:text-6xl"
+            className="text-balance text-3xl font-bold tracking-[-0.045em] text-foreground dark:text-white sm:text-4xl md:text-5xl lg:text-6xl"
           >
             A premium bento system for{" "}
             <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
@@ -792,7 +792,7 @@ export default function FeaturesSection() {
 
           <motion.p
             variants={headerVariants}
-            className="mx-auto mt-5 max-w-2xl text-pretty text-[15px] leading-7 text-white/64 sm:text-base"
+            className="mx-auto mt-5 max-w-2xl text-pretty text-[15px] leading-7 text-muted-foreground dark:text-white/64 sm:text-base"
           >
             Dashboards, signals, workflows, reports, automation, security, and
             AI assistance designed to reduce noise and help teams move faster.
@@ -841,9 +841,9 @@ export default function FeaturesSection() {
             y: -4,
             scale: 1.01,
           }}
-          className="mx-auto mt-14 max-w-3xl rounded-[2rem] bg-white/[0.025] px-6 py-7 text-center ring-1 ring-white/10 backdrop-blur-xl transition-colors duration-300 hover:bg-white/[0.035] hover:ring-primary/20 sm:px-8"
+          className="mx-auto mt-14 max-w-3xl rounded-[2rem] bg-background/72 px-6 py-7 text-center ring-1 ring-border/40 backdrop-blur-xl transition-colors duration-300 hover:bg-background/90 hover:ring-primary/20 dark:bg-white/[0.025] dark:ring-white/10 dark:hover:bg-white/[0.035] sm:px-8"
         >
-          <p className="mx-auto max-w-xl text-sm leading-6 text-white/55">
+          <p className="mx-auto max-w-xl text-sm leading-6 text-muted-foreground dark:text-white/55">
             Build a calmer operating rhythm with dashboards, signals, reports,
             automation, and AI guidance in one polished workspace.
           </p>
@@ -871,7 +871,7 @@ export default function FeaturesSection() {
               href="#contact"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
-                "group rounded-full border-white/10 bg-white/[0.035] px-7 text-sm text-white transition-colors duration-300 hover:border-primary/25 hover:bg-white/[0.06]"
+                "group rounded-full border-border/40 bg-background/80 px-7 text-sm text-foreground transition-colors duration-300 hover:border-primary/25 hover:bg-background dark:border-white/10 dark:bg-white/[0.035] dark:text-white dark:hover:bg-white/[0.06]"
               )}
             >
               Talk to our team
@@ -882,11 +882,11 @@ export default function FeaturesSection() {
             </motion.a>
           </div>
 
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-white/38">
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground dark:text-white/38">
             <span>No credit card required</span>
-            <span className="hidden size-1 rounded-full bg-white/20 sm:block" />
+            <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
             <span>Fast setup</span>
-            <span className="hidden size-1 rounded-full bg-white/20 sm:block" />
+            <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
             <span>Cancel anytime</span>
           </div>
         </motion.div>

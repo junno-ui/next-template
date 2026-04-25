@@ -8,21 +8,15 @@ import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
 // ---------------------------------------------------------------------------
 
 export type ThemeConfig = {
-  style: "default" | "new-york"
+  style: "glass" | "solid" | "contrast"
   theme: string
   radius: number
-  fontHeading: string
-  fontSans: string
-  menuAccent: "default" | "colored"
 }
 
 const defaultConfig: ThemeConfig = {
-  style: "default",
-  theme: "neutral",
-  radius: 0.5,
-  fontHeading: "font-sans",
-  fontSans: "font-sans",
-  menuAccent: "default",
+  style: "glass",
+  theme: "sapphire",
+  radius: 1,
 }
 
 type ConfigContextValue = [ThemeConfig, React.Dispatch<React.SetStateAction<ThemeConfig>>]
@@ -46,8 +40,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // Hydrate from localStorage once
   React.useEffect(() => {
     try {
-      const stored = localStorage.getItem("theme-config")
-      if (stored) setConfig(JSON.parse(stored))
+      const stored = localStorage.getItem("clario-theme-config")
+      if (stored) {
+        const parsed = JSON.parse(stored) as Partial<ThemeConfig>
+        setConfig((prev) => ({ ...prev, ...parsed }))
+      }
     } catch {
       /* noop */
     }
@@ -56,7 +53,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Persist on change
   React.useEffect(() => {
-    if (mounted) localStorage.setItem("theme-config", JSON.stringify(config))
+    if (mounted) localStorage.setItem("clario-theme-config", JSON.stringify(config))
   }, [config, mounted])
 
   return (

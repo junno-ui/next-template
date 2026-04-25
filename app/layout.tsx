@@ -11,24 +11,24 @@ const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
 
 export const metadata: Metadata = {
   title: {
-    default: "NexusUI — The Modern Next.js SaaS Template",
-    template: "%s | NexusUI",
+    default: "Clario - Premium Next.js SaaS Template",
+    template: "%s | Clario",
   },
   description:
-    "Ship faster. Look better. Grow smarter. The modern Next.js template for SaaS startups — built with beautiful UI, powerful analytics, and everything you need to launch.",
-  keywords: ["Next.js", "SaaS", "template", "marketing", "analytics", "UI kit"],
+    "Clario is a premium Next.js template for SaaS teams that want a polished launch, elegant dark and light themes, and clearer product storytelling.",
+  keywords: ["Next.js", "SaaS", "template", "marketing", "product", "Clario"],
   authors: [{ name: "JunZ" }],
   openGraph: {
-    title: "NexusUI — The Modern Next.js SaaS Template",
+    title: "Clario - Premium Next.js SaaS Template",
     description:
-      "Ship faster. Look better. Grow smarter. The modern Next.js template for SaaS startups.",
+      "Launch a refined SaaS site with polished UX, dark and light themes, and stronger trust signals.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NexusUI — The Modern Next.js SaaS Template",
-    description: "Ship faster. Look better. Grow smarter.",
+    title: "Clario - Premium Next.js SaaS Template",
+    description: "Refined launch-ready UX for modern SaaS products.",
   },
   robots: {
     index: true,

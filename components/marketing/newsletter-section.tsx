@@ -33,7 +33,7 @@ export default function NewsletterSection() {
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-black" />
+        <div className="absolute inset-0 bg-background" />
         <div className="absolute inset-0 bg-hex-dots opacity-[0.1]" />
 
         <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
@@ -42,13 +42,13 @@ export default function NewsletterSection() {
         <div className="absolute left-1/2 top-[20%] h-[460px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.065] blur-[130px]" />
         <div className="absolute bottom-[-12%] right-[-10%] h-[360px] w-[620px] rounded-full bg-chart-2/[0.04] blur-[120px]" />
 
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
 
         <div className="absolute left-1/2 top-0 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-white/[0.025] p-6 shadow-2xl shadow-black/[0.14] ring-1 ring-white/10 backdrop-blur-2xl sm:p-8 lg:p-10">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-background/72 p-6 shadow-2xl shadow-black/[0.08] ring-1 ring-border/40 backdrop-blur-2xl dark:bg-white/[0.025] dark:ring-white/10 sm:p-8 lg:p-10">
           {/* Card effects */}
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,130,40,0.14),transparent_42%)]" />
           <div className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
@@ -57,7 +57,7 @@ export default function NewsletterSection() {
           <div className="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             {/* Left content */}
             <div className="text-center lg:text-left">
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/[0.035] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary ring-1 ring-primary/20 backdrop-blur-xl">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary ring-1 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035]">
                 <span className="relative flex size-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
                   <span className="relative inline-flex size-2 rounded-full bg-primary" />
@@ -65,14 +65,14 @@ export default function NewsletterSection() {
                 Newsletter
               </div>
 
-              <h2 className="text-balance text-3xl font-bold tracking-[-0.045em] text-white sm:text-4xl md:text-5xl">
+              <h2 className="text-balance text-3xl font-bold tracking-[-0.045em] text-foreground dark:text-white sm:text-4xl md:text-5xl">
                 Stay ahead with smarter{" "}
                 <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
                   growth insights.
                 </span>
               </h2>
 
-              <p className="mx-auto mt-5 max-w-2xl text-pretty text-[15px] leading-7 text-white/64 lg:mx-0 sm:text-base">
+              <p className="mx-auto mt-5 max-w-2xl text-pretty text-[15px] leading-7 text-muted-foreground dark:text-white/64 lg:mx-0 sm:text-base">
                 Get practical marketing trends, product updates, and actionable
                 ideas delivered to your inbox. Simple, useful, and easy to scan.
               </p>
@@ -81,7 +81,7 @@ export default function NewsletterSection() {
                 {benefits.map((benefit, index) => (
                   <div
                     key={benefit}
-                    className="group flex items-start gap-3 rounded-2xl bg-white/[0.03] p-4 text-left ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.05] hover:ring-primary/20"
+                    className="group flex items-start gap-3 rounded-2xl bg-background/80 p-4 text-left ring-1 ring-border/40 transition-all duration-300 hover:-translate-y-1 hover:bg-background hover:ring-primary/20 dark:bg-white/[0.03] dark:ring-white/10 dark:hover:bg-white/[0.05]"
                     style={{
                       transitionDelay: `${index * 45}ms`,
                     }}
@@ -90,7 +90,7 @@ export default function NewsletterSection() {
                       <Icon icon="solar:check-bold" className="size-4" />
                     </span>
 
-                    <p className="text-sm leading-6 text-white/62">
+                    <p className="text-sm leading-6 text-muted-foreground dark:text-white/62">
                       {benefit}
                     </p>
                   </div>
@@ -100,7 +100,7 @@ export default function NewsletterSection() {
 
             {/* Right form */}
             <div className="mx-auto w-full max-w-md lg:ml-auto">
-              <div className="relative overflow-hidden rounded-[2rem] bg-black/25 p-5 ring-1 ring-white/10 backdrop-blur-xl transition-all duration-300 hover:bg-black/30 hover:ring-primary/20 sm:p-6">
+              <div className="relative overflow-hidden rounded-[2rem] bg-background/85 p-5 ring-1 ring-border/40 backdrop-blur-xl transition-all duration-300 hover:bg-background hover:ring-primary/20 dark:bg-black/25 dark:ring-white/10 dark:hover:bg-black/30 sm:p-6">
                 <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
                 {submitted ? (
@@ -113,11 +113,11 @@ export default function NewsletterSection() {
                       />
                     </div>
 
-                    <p className="text-xl font-bold tracking-tight text-white">
+                    <p className="text-xl font-bold tracking-tight text-foreground dark:text-white">
                       You&apos;re subscribed!
                     </p>
 
-                    <p className="mt-3 max-w-xs text-sm leading-6 text-white/55">
+                    <p className="mt-3 max-w-xs text-sm leading-6 text-muted-foreground dark:text-white/55">
                       Check your inbox for a confirmation email and your first
                       weekly growth digest.
                     </p>
@@ -138,12 +138,12 @@ export default function NewsletterSection() {
                     <div>
                       <label
                         htmlFor="newsletter-email"
-                        className="text-sm font-semibold text-white"
+                        className="text-sm font-semibold text-foreground dark:text-white"
                       >
                         Join the weekly digest
                       </label>
 
-                      <p className="mt-1 text-xs leading-5 text-white/45">
+                      <p className="mt-1 text-xs leading-5 text-muted-foreground dark:text-white/45">
                         One useful email per week. No spam, no noise.
                       </p>
                     </div>
@@ -156,7 +156,7 @@ export default function NewsletterSection() {
                       <div className="group relative">
                         <Icon
                           icon="solar:letter-linear"
-                          className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-white/35 transition-colors duration-300 group-focus-within:text-primary"
+                          className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground transition-colors duration-300 group-focus-within:text-primary dark:text-white/35"
                         />
 
                         <input
@@ -167,8 +167,8 @@ export default function NewsletterSection() {
                           value={email}
                           onChange={(event) => setEmail(event.target.value)}
                           className={cn(
-                            "h-12 w-full rounded-2xl bg-white/[0.035] pl-11 pr-4 text-sm text-white outline-none ring-1 ring-white/10 transition-all duration-300",
-                            "placeholder:text-white/30 focus:bg-white/[0.055] focus:ring-2 focus:ring-primary/30"
+                            "h-12 w-full rounded-2xl bg-background/90 pl-11 pr-4 text-sm text-foreground outline-none ring-1 ring-border/40 transition-all duration-300 dark:bg-white/[0.035] dark:text-white dark:ring-white/10",
+                            "placeholder:text-muted-foreground/70 focus:bg-background focus:ring-2 focus:ring-primary/30 dark:placeholder:text-white/30 dark:focus:bg-white/[0.055]"
                           )}
                         />
                       </div>
@@ -199,11 +199,11 @@ export default function NewsletterSection() {
                       />
                     </button>
 
-                    <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] text-white/38">
+                    <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] text-muted-foreground dark:text-white/38">
                       <span>No spam</span>
-                      <span className="size-1 rounded-full bg-white/20" />
+                      <span className="size-1 rounded-full bg-border dark:bg-white/20" />
                       <span>Unsubscribe anytime</span>
-                      <span className="size-1 rounded-full bg-white/20" />
+                      <span className="size-1 rounded-full bg-border dark:bg-white/20" />
                       <span>Weekly only</span>
                     </div>
                   </form>

@@ -3,7 +3,6 @@ import { Icon } from "@iconify/react"
 
 import SiteHeader from "@/components/layout/site-header"
 import { SiteFooter } from "@/components/layout/site-footer"
-import { ThemeCustomizer } from "@/components/theme"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { buttonVariants } from "@/components/ui/button"
 import { blogPosts, getFeaturedPost } from "@/content/blog-posts"
@@ -270,9 +269,6 @@ export default function BlogListPage() {
         </section>
       </main>
       <SiteFooter />
-      <div className="fixed right-5 bottom-5 z-50">
-        <ThemeCustomizer />
-      </div>
     </div>
   )
 }

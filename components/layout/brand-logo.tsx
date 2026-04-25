@@ -20,7 +20,7 @@ export interface BrandLogoProps {
 /*  Config                                                                     */
 /* -------------------------------------------------------------------------- */
 
-const brandName = "Velora"
+const brandName = "Clario"
 
 const sizeClasses: Record<
   LogoSize,
@@ -84,7 +84,7 @@ function LogoMark({ size = "8" }: { size?: LogoSize }) {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.35),transparent_38%)]"
       />
 
-      {/* Minimal V mark */}
+      {/* Veloran-inspired orbital mark */}
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -92,20 +92,21 @@ function LogoMark({ size = "8" }: { size?: LogoSize }) {
         aria-hidden="true"
       >
         <path
-          d="M5.5 6.5 12 18 18.5 6.5"
+          d="M12 3.75c-4.55 0-8.25 3.7-8.25 8.25s3.7 8.25 8.25 8.25 8.25-3.7 8.25-8.25"
           stroke="currentColor"
-          strokeWidth="3"
+          strokeWidth="2.4"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M9.25 6.5 12 11.25 14.75 6.5"
+          d="M12 7.25a4.75 4.75 0 1 0 0 9.5"
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
           opacity="0.65"
         />
+        <circle cx="16.7" cy="7.3" r="1.65" fill="currentColor" />
       </svg>
     </span>
   )
@@ -125,9 +126,9 @@ function Wordmark({ size = "8" }: { size?: LogoSize }) {
         sizes.text
       )}
     >
-      Vel
+      Cla
       <span className="bg-gradient-to-r from-primary via-primary to-primary/65 bg-clip-text text-transparent">
-        ora
+        rio
       </span>
     </span>
   )

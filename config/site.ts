@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: "NexusUI",
-  tagline: "Ship faster. Look better. Grow smarter.",
+  name: "Clario",
+  tagline: "Bring product clarity into every launch.",
   description:
-    "The modern Next.js template for SaaS startups — built with beautiful UI, powerful analytics, and everything you need to launch.",
-  url: "https://nexusui.dev",
+    "Clario is a refined Next.js template for SaaS and product teams that want clearer messaging, stronger trust, and a premium launch-ready experience.",
+  url: "https://clario.dev",
   links: {
     twitter: "https://twitter.com",
     github: "https://github.com",

@@ -5,7 +5,6 @@ import { Icon } from "@iconify/react"
 
 import SiteHeader from "@/components/layout/site-header"
 import { SiteFooter } from "@/components/layout/site-footer"
-import { ThemeCustomizer } from "@/components/theme"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { buttonVariants } from "@/components/ui/button"
 import { blogPostMap, blogPosts, getRelatedPosts } from "@/content/blog-posts"
@@ -32,7 +31,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.title} | NexusUI Blog`,
+    title: `${post.title} | Clario Journal`,
     description: post.excerpt,
   }
 }
@@ -248,9 +247,6 @@ export default async function BlogPostPage({
         </section>
       </main>
       <SiteFooter />
-      <div className="fixed right-5 bottom-5 z-50">
-        <ThemeCustomizer />
-      </div>
     </div>
   )
 }

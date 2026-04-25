@@ -9,7 +9,6 @@ import TestimonialsSection from "@/components/marketing/testimonials-section"
 import FaqSection from "@/components/marketing/faq-section"
 import NewsletterSection from "@/components/marketing/newsletter-section"
 import CtaSection from "@/components/marketing/cta-section"
-import { ThemeCustomizer } from "@/components/theme"
 
 export default function Home() {
   return (
@@ -32,9 +31,6 @@ export default function Home() {
         <CtaSection />
       </main>
       <SiteFooter />
-      <div className="fixed right-5 bottom-5 z-50">
-        <ThemeCustomizer />
-      </div>
     </div>
   )
 }

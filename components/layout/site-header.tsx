@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation"
 import { Icon } from "@iconify/react"
 
 import { AuthPopover } from "@/components/layout/auth-popover"
-import { BrandLogo, BrandMark } from "@/components/layout/brand-logo"
+import { BrandMark } from "@/components/layout/brand-logo"
+import { ThemeCustomizer, ThemeModeToggle } from "@/components/theme"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -61,7 +62,7 @@ export default function SiteHeader() {
           aria-label={`${siteConfig.name} home`}
           className="group/logo rounded-full px-1.5 py-1 transition-all duration-300 hover:bg-muted/45"
         >
-          <BrandLogo />
+          <BrandMark />
         </Link>
 
         {/* Desktop nav */}
@@ -94,6 +95,8 @@ export default function SiteHeader() {
 
         {/* Actions */}
         <div className="flex items-center gap-2">
+          <ThemeModeToggle className="hidden lg:inline-flex" />
+          <ThemeCustomizer className="hidden lg:inline-flex" />
           <AuthPopover className="hidden lg:inline-flex" />
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -136,7 +139,7 @@ export default function SiteHeader() {
                           {siteConfig.name}
                         </p>
                         <p className="mt-0.5 text-xs font-medium text-muted-foreground">
-                          Growth platform
+                          Product clarity system
                         </p>
                       </div>
                     </Link>
@@ -155,8 +158,13 @@ export default function SiteHeader() {
                   </div>
 
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    Explore the product, pricing, customer stories, and support.
+                    Explore Clario, switch the theme, and review pricing, stories, and support.
                   </p>
+                </div>
+
+                <div className="mb-3 grid grid-cols-2 gap-2">
+                  <ThemeModeToggle className="size-auto h-11 w-full rounded-[1.25rem]" />
+                  <ThemeCustomizer className="size-auto h-11 w-full rounded-[1.25rem]" />
                 </div>
 
                 <div className="grid gap-2">
@@ -205,7 +213,7 @@ export default function SiteHeader() {
                   <span className="size-1 rounded-full bg-muted-foreground/30" />
                   <span>Fast setup</span>
                   <span className="size-1 rounded-full bg-muted-foreground/30" />
-                  <span>Cancel anytime</span>
+                  <span>Launch faster</span>
                 </div>
 
                 <AuthPopover className="flex h-auto w-full justify-between rounded-full bg-primary px-4 py-2.5 text-primary-foreground shadow-xl shadow-primary/20 ring-0 transition-all duration-300 hover:bg-primary/90" />

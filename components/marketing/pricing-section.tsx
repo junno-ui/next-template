@@ -158,7 +158,7 @@ function PricingToggle({
   onChange: (value: BillingTab) => void
 }) {
   return (
-    <div className="mx-auto mt-8 grid w-full max-w-md grid-cols-2 rounded-full bg-white/[0.035] p-1 ring-1 ring-white/10 backdrop-blur-xl">
+    <div className="mx-auto mt-8 grid w-full max-w-md grid-cols-2 rounded-full bg-background/80 p-1 ring-1 ring-border/40 backdrop-blur-xl dark:bg-white/[0.035] dark:ring-white/10">
       {(["personal", "business"] as const).map((tab) => {
         const active = value === tab
 
@@ -171,7 +171,7 @@ function PricingToggle({
               "group relative overflow-hidden rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300",
               active
                 ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                : "text-white/50 hover:bg-white/[0.04] hover:text-white"
+                : "text-muted-foreground hover:bg-background hover:text-foreground dark:text-white/50 dark:hover:bg-white/[0.04] dark:hover:text-white"
             )}
           >
             {active && (
@@ -205,9 +205,9 @@ function PlanCard({
   return (
     <article
       className={cn(
-        "animate-slide-up-fade group relative flex min-h-[520px] flex-col overflow-hidden rounded-[2rem] bg-white/[0.025] p-6 shadow-2xl shadow-black/[0.14] ring-1 ring-white/10 backdrop-blur-2xl transition-all duration-500",
-        "hover:-translate-y-2 hover:bg-white/[0.045] hover:ring-primary/25 hover:shadow-primary/10",
-        plan.highlighted && "bg-white/[0.045] ring-primary/25 shadow-primary/10"
+        "animate-slide-up-fade group relative flex min-h-[520px] flex-col overflow-hidden rounded-[2rem] bg-background/72 p-6 shadow-2xl shadow-black/[0.08] ring-1 ring-border/40 backdrop-blur-2xl transition-all duration-500 dark:bg-white/[0.025] dark:ring-white/10",
+        "hover:-translate-y-2 hover:bg-background/90 hover:ring-primary/25 hover:shadow-primary/10 dark:hover:bg-white/[0.045]",
+        plan.highlighted && "bg-background/90 ring-primary/25 shadow-primary/10 dark:bg-white/[0.045]"
       )}
       style={{
         animationDelay: `${220 + index * 90}ms`,
@@ -247,18 +247,18 @@ function PlanCard({
         </p>
 
         <div className="mt-4 flex items-end gap-1">
-          <span className="text-5xl font-bold tracking-[-0.06em] text-white">
+          <span className="text-5xl font-bold tracking-[-0.06em] text-foreground dark:text-white">
             {plan.price}
           </span>
 
           {!plan.isCustom && plan.period && (
-            <span className="mb-1.5 text-sm font-medium text-white/40">
+            <span className="mb-1.5 text-sm font-medium text-muted-foreground dark:text-white/40">
               {plan.period}
             </span>
           )}
         </div>
 
-        <p className="mt-4 min-h-[3rem] text-sm leading-6 text-white/58">
+        <p className="mt-4 min-h-[3rem] text-sm leading-6 text-muted-foreground dark:text-white/58">
           {plan.description}
         </p>
       </div>
@@ -269,7 +269,7 @@ function PlanCard({
         {plan.features.map((feature, featureIndex) => (
           <li
             key={feature}
-            className="flex items-start gap-3 text-sm leading-6 text-white/66"
+          className="flex items-start gap-3 text-sm leading-6 text-foreground/80 dark:text-white/66"
             style={{
               transitionDelay: `${featureIndex * 45}ms`,
             }}
@@ -279,7 +279,7 @@ function PlanCard({
                 "mt-1 flex size-5 shrink-0 items-center justify-center rounded-full transition-all duration-300",
                 plan.highlighted
                   ? "bg-primary text-primary-foreground"
-                  : "bg-white/[0.05] text-primary ring-1 ring-white/10 group-hover:bg-primary group-hover:text-primary-foreground"
+                  : "bg-background/80 text-primary ring-1 ring-border/40 group-hover:bg-primary group-hover:text-primary-foreground dark:bg-white/[0.05] dark:ring-white/10"
               )}
             >
               <Icon icon="solar:check-bold" className="size-3.5" />
@@ -300,7 +300,7 @@ function PlanCard({
             )
             : cn(
               buttonVariants({ variant: "outline" }),
-              "border-white/10 bg-white/[0.035] text-white hover:-translate-y-0.5 hover:border-primary/25 hover:bg-white/[0.06]"
+              "border-border/40 bg-background/80 text-foreground hover:-translate-y-0.5 hover:border-primary/25 hover:bg-background dark:border-white/10 dark:bg-white/[0.035] dark:text-white dark:hover:bg-white/[0.06]"
             )
         )}
       >
@@ -332,7 +332,7 @@ export default function PricingSection() {
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-black" />
+        <div className="absolute inset-0 bg-background" />
         <div className="absolute inset-0 bg-hex-dots opacity-[0.12]" />
 
         <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
@@ -342,7 +342,7 @@ export default function PricingSection() {
         <div className="absolute right-[-12%] top-[34%] h-[420px] w-[620px] rounded-full bg-chart-2/[0.045] blur-[110px]" />
         <div className="absolute left-[-14%] bottom-[8%] h-[360px] w-[560px] rounded-full bg-primary/[0.04] blur-[110px]" />
 
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
 
         <div className="absolute left-1/2 top-0 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
       </div>
@@ -350,7 +350,7 @@ export default function PricingSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-14">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/[0.035] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary ring-1 ring-primary/20 backdrop-blur-xl">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary ring-1 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035]">
             <span className="relative flex size-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
               <span className="relative inline-flex size-2 rounded-full bg-primary" />
@@ -358,14 +358,14 @@ export default function PricingSection() {
             Pricing
           </div>
 
-          <h2 className="text-balance text-3xl font-bold tracking-[-0.045em] text-white sm:text-4xl md:text-5xl lg:text-6xl">
+          <h2 className="text-balance text-3xl font-bold tracking-[-0.045em] text-foreground dark:text-white sm:text-4xl md:text-5xl lg:text-6xl">
             Simple pricing for{" "}
             <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
               every stage of growth.
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-pretty text-[15px] leading-7 text-white/64 sm:text-base">
+          <p className="mx-auto mt-5 max-w-2xl text-pretty text-[15px] leading-7 text-muted-foreground dark:text-white/64 sm:text-base">
             Choose the package that matches your workflow today, with room to
             scale when reporting, automation, and collaboration become more complex.
           </p>
@@ -374,11 +374,11 @@ export default function PricingSection() {
         </div>
 
         {/* Split tab context */}
-        <div className="mx-auto mb-8 max-w-3xl rounded-[1.5rem] bg-white/[0.025] px-5 py-4 text-center ring-1 ring-white/10 backdrop-blur-xl">
+        <div className="mx-auto mb-8 max-w-3xl rounded-[1.5rem] bg-background/72 px-5 py-4 text-center ring-1 ring-border/40 backdrop-blur-xl dark:bg-white/[0.025] dark:ring-white/10">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
             {current.eyebrow}
           </p>
-          <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-white/55">
+          <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-muted-foreground dark:text-white/55">
             {current.description}
           </p>
         </div>
@@ -391,11 +391,11 @@ export default function PricingSection() {
         </div>
 
         {/* Bottom trust note */}
-        <div className="mx-auto mt-10 flex max-w-4xl flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-[1.5rem] bg-white/[0.025] px-5 py-4 text-center text-xs text-white/42 ring-1 ring-white/10 backdrop-blur-xl">
+        <div className="mx-auto mt-10 flex max-w-4xl flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-[1.5rem] bg-background/72 px-5 py-4 text-center text-xs text-muted-foreground ring-1 ring-border/40 backdrop-blur-xl dark:bg-white/[0.025] dark:text-white/42 dark:ring-white/10">
           <span>No credit card required</span>
-          <span className="hidden size-1 rounded-full bg-white/20 sm:block" />
+          <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
           <span>Upgrade or cancel anytime</span>
-          <span className="hidden size-1 rounded-full bg-white/20 sm:block" />
+          <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
           <span>Secure team-ready workspace</span>
         </div>
       </div>

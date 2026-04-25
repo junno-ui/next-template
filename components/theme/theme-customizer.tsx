@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Check, Moon, Paintbrush, Sun } from "lucide-react"
+import { Check, Moon, Paintbrush, Sparkles, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { cn } from "@/lib/utils"
@@ -19,7 +19,54 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 // Public API
 // ---------------------------------------------------------------------------
 
-export function ThemeCustomizer() {
+const styleOptions: Array<{
+  key: ThemeConfig["style"]
+  label: string
+  description: string
+}> = [
+  {
+    key: "glass",
+    label: "Glass",
+    description: "Soft depth and layered translucency",
+  },
+  {
+    key: "solid",
+    label: "Solid",
+    description: "Cleaner cards with stronger fill",
+  },
+  {
+    key: "contrast",
+    label: "Contrast",
+    description: "Sharper borders and tighter contrast",
+  },
+]
+
+export function ThemeModeToggle({ className }: { className?: string }) {
+  const { resolvedTheme: mode, setTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => setMounted(true), [])
+
+  const isDark = mounted && mode === "dark"
+
+  return (
+    <Button
+      type="button"
+      variant="outline"
+      size="icon"
+      className={cn(
+        "size-9 rounded-full border-border/40 bg-background/80 shadow-lg shadow-black/10 backdrop-blur-xl transition-all hover:shadow-xl hover:shadow-primary/10",
+        className
+      )}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+    >
+      {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+    </Button>
+  )
+}
+
+export function ThemeCustomizer({ className }: { className?: string }) {
   const [config, setConfig] = useConfig()
   const { resolvedTheme: mode, setTheme: setMode } = useTheme()
   const [mounted, setMounted] = React.useState(false)
@@ -37,7 +84,10 @@ export function ThemeCustomizer() {
             <Button
               variant="outline"
               size="icon"
-              className="size-9 rounded-full border-border/40 bg-background/80 shadow-lg shadow-black/10 backdrop-blur-xl transition-all hover:shadow-xl hover:shadow-primary/10"
+              className={cn(
+                "size-9 rounded-full border-border/40 bg-background/80 shadow-lg shadow-black/10 backdrop-blur-xl transition-all hover:shadow-xl hover:shadow-primary/10",
+                className
+              )}
               aria-label="Customize theme"
             >
               <Paintbrush className="size-4" />
@@ -66,10 +116,9 @@ export function ThemeCustomizer() {
           <button
             onClick={() =>
               set({
-                theme: "neutral",
-                radius: 0.5,
-                fontHeading: "font-sans",
-                menuAccent: "default",
+                theme: "sapphire",
+                radius: 1,
+                style: "glass",
               })
             }
             className="text-[11px] text-muted-foreground/50 transition-colors hover:text-foreground"
@@ -120,7 +169,7 @@ export function ThemeCustomizer() {
             {/* ── Radius ────────────────────────────────────── */}
             <OptionGroup label="Radius">
               <div className="flex gap-1.5">
-                {[0, 0.3, 0.5, 0.75, 1.0].map((v) => (
+                {[0.5, 0.85, 1, 1.25, 1.5].map((v) => (
                   <button
                     key={v}
                     onClick={() => set({ radius: v })}
@@ -134,6 +183,35 @@ export function ThemeCustomizer() {
                     {v}
                   </button>
                 ))}
+              </div>
+            </OptionGroup>
+
+            <OptionGroup label="Style">
+              <div className="grid gap-2">
+                {styleOptions.map((option) => {
+                  const active = config.style === option.key
+
+                  return (
+                    <button
+                      key={option.key}
+                      onClick={() => set({ style: option.key })}
+                      className={cn(
+                        "flex items-center justify-between rounded-xl border px-3 py-2.5 text-left transition-all",
+                        active
+                          ? "border-primary bg-primary/10 text-primary"
+                          : "border-border/20 text-muted-foreground hover:border-border/40 hover:bg-muted/30 hover:text-foreground"
+                      )}
+                    >
+                      <div>
+                        <p className="text-sm font-semibold">{option.label}</p>
+                        <p className="text-[11px] leading-5 opacity-75">
+                          {option.description}
+                        </p>
+                      </div>
+                      <Sparkles className="size-4 shrink-0" />
+                    </button>
+                  )
+                })}
               </div>
             </OptionGroup>
 
@@ -155,29 +233,6 @@ export function ThemeCustomizer() {
                     )}
                   >
                     <IconComp className="size-3.5" />
-                    {label}
-                  </button>
-                ))}
-              </div>
-            </OptionGroup>
-
-            {/* ── Heading Font ──────────────────────────────── */}
-            <OptionGroup label="Heading Font">
-              <div className="flex gap-1.5">
-                {[
-                  { key: "font-sans", label: "Sans" },
-                  { key: "font-mono", label: "Mono" },
-                ].map(({ key, label }) => (
-                  <button
-                    key={key}
-                    onClick={() => set({ fontHeading: key })}
-                    className={cn(
-                      "flex h-8 flex-1 items-center justify-center rounded-lg border text-xs font-medium transition-all",
-                      config.fontHeading === key
-                        ? "border-primary bg-primary/10 text-primary"
-                        : "border-border/20 text-muted-foreground hover:border-border/40 hover:text-foreground"
-                    )}
-                  >
                     {label}
                   </button>
                 ))}
