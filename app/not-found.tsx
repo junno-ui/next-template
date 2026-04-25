@@ -108,9 +108,9 @@ export default function NotFound() {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
             {[
               { label: "Features", href: "/#features", icon: "mdi:star-four-points" },
-              { label: "Pricing", href: "/#pricing", icon: "mdi:tag-outline" },
+              { label: "Pricing", href: "/pricing", icon: "mdi:tag-outline" },
               { label: "FAQ", href: "/#faq", icon: "mdi:help-circle-outline" },
-              { label: "Contact", href: "/#contact", icon: "mdi:email-outline" },
+              { label: "Contact", href: "/contact", icon: "mdi:email-outline" },
             ].map((link) => (
               <Link
                 key={link.label}
