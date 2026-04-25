@@ -2,9 +2,12 @@
 
 import * as React from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Icon } from "@iconify/react"
 
 import { AuthPopover } from "@/components/layout/auth-popover"
+import { BrandLogo, BrandMark } from "@/components/layout/brand-logo"
+import { Button } from "@/components/ui/button"
 import {
   Sheet,
   SheetContent,
@@ -12,50 +15,84 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { BrandLogo, BrandMark } from "@/components/layout/brand-logo"
-import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
 const landingNavItems = siteConfig.mainNav
 
-// ─── Main component ──────────────────────────────────────────────────────────
+function isActivePath(pathname: string, href: string) {
+  if (href === "/") return pathname === "/"
+
+  if (href.startsWith("#")) {
+    return false
+  }
+
+  return pathname.startsWith(href)
+}
 
 export default function SiteHeader() {
   const [scrolled, setScrolled] = React.useState(false)
   const [mobileOpen, setMobileOpen] = React.useState(false)
+  const pathname = usePathname()
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
+
     onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
+
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4 sm:px-6 pointer-events-none">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4 sm:px-6">
       <nav
         className={cn(
-          "pointer-events-auto flex w-full max-w-6xl items-center justify-between gap-4 rounded-full px-4 py-2.5 transition-all duration-500",
+          "pointer-events-auto relative flex w-full max-w-6xl items-center justify-between gap-4 rounded-full px-3 py-2 transition-all duration-500",
+          "before:pointer-events-none before:absolute before:inset-x-8 before:-bottom-px before:h-px before:bg-gradient-to-r before:from-transparent before:via-primary/45 before:to-transparent before:opacity-0 before:transition-opacity before:duration-500",
           scrolled
-            ? "border border-border/25 bg-background/88 shadow-xl shadow-black/[0.06] backdrop-blur-2xl dark:shadow-black/25"
-            : "border border-white/20 bg-background/42 backdrop-blur-xl dark:border-white/8"
+            ? "bg-background/88 shadow-2xl shadow-black/[0.08] ring-1 ring-border/35 backdrop-blur-2xl before:opacity-100 dark:shadow-black/30"
+            : "bg-background/50 shadow-lg shadow-black/[0.03] ring-1 ring-white/15 backdrop-blur-xl dark:ring-white/10"
         )}
       >
-        <BrandLogo />
+        {/* Brand */}
+        <Link
+          href="#home"
+          aria-label={`${siteConfig.name} home`}
+          className="group/logo rounded-full px-1.5 py-1 transition-all duration-300 hover:bg-muted/45"
+        >
+          <BrandLogo />
+        </Link>
 
-        <div className="hidden items-center gap-1 lg:flex">
-          {landingNavItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-full px-3 py-2 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.title}
-            </Link>
-          ))}
+        {/* Desktop nav */}
+        <div className="hidden items-center rounded-full bg-muted/20 p-1 ring-1 ring-border/15 backdrop-blur-xl lg:flex">
+          {landingNavItems.map((item) => {
+            const active = isActivePath(pathname, item.href)
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "group relative inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[13px] font-medium transition-all duration-300",
+                  active
+                    ? "bg-background text-foreground shadow-sm ring-1 ring-border/20"
+                    : "text-muted-foreground hover:bg-background/60 hover:text-foreground"
+                )}
+              >
+                <span
+                  className={cn(
+                    "size-1.5 rounded-full bg-primary opacity-0 transition-all duration-300",
+                    active ? "opacity-100" : "group-hover:opacity-100"
+                  )}
+                />
+                {item.title}
+              </Link>
+            )
+          })}
         </div>
 
+        {/* Actions */}
         <div className="flex items-center gap-2">
           <AuthPopover className="hidden lg:inline-flex" />
 
@@ -64,44 +101,114 @@ export default function SiteHeader() {
               <Button
                 variant="ghost"
                 size="icon-sm"
-                className="rounded-full border border-white/30 bg-background/65 shadow-sm backdrop-blur-xl dark:border-white/10 lg:hidden"
-                aria-label="Open navigation menu"
+                className={cn(
+                  "rounded-full bg-background/70 shadow-sm ring-1 ring-white/15 backdrop-blur-xl transition-all duration-300 hover:bg-muted/60 hover:ring-primary/25 lg:hidden",
+                  mobileOpen && "bg-primary/10 text-primary ring-primary/25"
+                )}
+                aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
               >
                 <Icon
-                  icon={mobileOpen ? "solar:close-square-bold-duotone" : "solar:hamburger-menu-bold-duotone"}
-                  className="size-[18px]"
+                  icon={
+                    mobileOpen
+                      ? "solar:close-circle-bold-duotone"
+                      : "solar:hamburger-menu-bold-duotone"
+                  }
+                  className="size-[19px]"
                 />
               </Button>
             </SheetTrigger>
 
             <SheetContent
               side="right"
-              className="flex w-80 flex-col border-border/20 bg-background/96 p-0 backdrop-blur-2xl"
+              className="flex w-[88vw] max-w-[380px] flex-col border-border/20 bg-background/96 p-0 backdrop-blur-2xl"
             >
               <SheetHeader className="border-b border-border/10 px-5 py-4">
                 <SheetTitle asChild>
-                  <div>
-                    <BrandMark size="8" />
+                  <div className="flex items-center justify-between">
+                    <Link
+                      href="#home"
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center gap-3"
+                    >
+                      <BrandMark size="8" />
+                      <div className="text-left">
+                        <p className="text-sm font-semibold text-foreground">
+                          {siteConfig.name}
+                        </p>
+                        <p className="mt-0.5 text-xs font-medium text-muted-foreground">
+                          Growth platform
+                        </p>
+                      </div>
+                    </Link>
                   </div>
                 </SheetTitle>
               </SheetHeader>
 
-              <div className="flex flex-col gap-2 overflow-y-auto p-3 custom-scrollbar">
-                {landingNavItems.map((item, i) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="animate-in fade-in slide-in-from-right-2 rounded-2xl border border-border/10 bg-muted/20 px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-background/60"
-                    style={{ animationDelay: `${i * 40}ms`, animationFillMode: "both" }}
-                  >
-                    {item.title}
-                  </Link>
-                ))}
+              <div className="flex-1 overflow-y-auto p-3 custom-scrollbar">
+                <div className="mb-3 rounded-[1.5rem] bg-muted/25 p-4 ring-1 ring-border/15">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-primary">
+                    <span className="relative flex size-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
+                      <span className="relative inline-flex size-2 rounded-full bg-primary" />
+                    </span>
+                    Navigate
+                  </div>
+
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    Explore the product, pricing, customer stories, and support.
+                  </p>
+                </div>
+
+                <div className="grid gap-2">
+                  {landingNavItems.map((item, index) => {
+                    const active = isActivePath(pathname, item.href)
+
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={cn(
+                          "group animate-in fade-in slide-in-from-right-2 flex items-center justify-between rounded-[1.25rem] px-4 py-3 text-sm font-medium transition-all duration-300",
+                          active
+                            ? "bg-primary/10 text-primary ring-1 ring-primary/20"
+                            : "bg-muted/20 text-foreground ring-1 ring-border/10 hover:bg-background/70 hover:ring-primary/20"
+                        )}
+                        style={{
+                          animationDelay: `${index * 45}ms`,
+                          animationFillMode: "both",
+                        }}
+                      >
+                        <span className="flex items-center gap-3">
+                          <span
+                            className={cn(
+                              "size-1.5 rounded-full bg-primary opacity-0 transition-opacity duration-300",
+                              active ? "opacity-100" : "group-hover:opacity-100"
+                            )}
+                          />
+                          {item.title}
+                        </span>
+
+                        <Icon
+                          icon="solar:arrow-right-linear"
+                          className="size-4 text-muted-foreground opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100"
+                        />
+                      </Link>
+                    )
+                  })}
+                </div>
               </div>
 
-              <div className="mt-auto space-y-2 border-t border-border/10 p-3">
-                <AuthPopover className="flex h-auto w-full justify-between rounded-full border border-white/40 bg-background/75 px-3 py-2.5 shadow-none dark:border-white/10" />
+              <div className="mt-auto border-t border-border/10 p-3">
+                <div className="mb-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] text-muted-foreground">
+                  <span>No credit card</span>
+                  <span className="size-1 rounded-full bg-muted-foreground/30" />
+                  <span>Fast setup</span>
+                  <span className="size-1 rounded-full bg-muted-foreground/30" />
+                  <span>Cancel anytime</span>
+                </div>
+
+                <AuthPopover className="flex h-auto w-full justify-between rounded-full bg-primary px-4 py-2.5 text-primary-foreground shadow-xl shadow-primary/20 ring-0 transition-all duration-300 hover:bg-primary/90" />
               </div>
             </SheetContent>
           </Sheet>

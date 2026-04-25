@@ -1,110 +1,182 @@
 "use client"
 
 import Link from "next/link"
+
 import { cn } from "@/lib/utils"
 
-// ─── Shared types ─────────────────────────────────────────────────────────────
+/* -------------------------------------------------------------------------- */
+/*  Types                                                                      */
+/* -------------------------------------------------------------------------- */
+
+type LogoSize = "6" | "7" | "8" | "9" | "10"
 
 export interface BrandLogoProps {
   className?: string
-  /** Show just the icon mark, no wordmark */
   iconOnly?: boolean
-  /** Size of the icon container (Tailwind size-* token, e.g. "8") */
-  size?: string
+  size?: LogoSize
 }
 
-// ─── Shared inner visuals ─────────────────────────────────────────────────────
+/* -------------------------------------------------------------------------- */
+/*  Config                                                                     */
+/* -------------------------------------------------------------------------- */
 
-function LogoMark({ size = "8" }: { size?: string }) {
+const brandName = "Velora"
+
+const sizeClasses: Record<
+  LogoSize,
+  {
+    mark: string
+    icon: string
+    text: string
+  }
+> = {
+  "6": {
+    mark: "size-6 rounded-lg",
+    icon: "size-3",
+    text: "text-sm",
+  },
+  "7": {
+    mark: "size-7 rounded-lg",
+    icon: "size-3.5",
+    text: "text-sm",
+  },
+  "8": {
+    mark: "size-8 rounded-xl",
+    icon: "size-4",
+    text: "text-[15px]",
+  },
+  "9": {
+    mark: "size-9 rounded-xl",
+    icon: "size-[18px]",
+    text: "text-base",
+  },
+  "10": {
+    mark: "size-10 rounded-2xl",
+    icon: "size-5",
+    text: "text-lg",
+  },
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Logo Mark                                                                  */
+/* -------------------------------------------------------------------------- */
+
+function LogoMark({ size = "8" }: { size?: LogoSize }) {
+  const sizes = sizeClasses[size]
+
   return (
     <span
       className={cn(
-        `relative flex size-${size} shrink-0 items-center justify-center overflow-hidden rounded-xl`,
-        "bg-gradient-to-br from-primary/20 via-primary/10 to-transparent",
-        "ring-1 ring-primary/20 transition-all duration-300",
-        "group-hover:ring-primary/40 group-hover:shadow-[0_0_16px_0] group-hover:shadow-primary/20"
+        "relative flex shrink-0 items-center justify-center overflow-hidden",
+        "bg-primary text-primary-foreground shadow-lg shadow-primary/20",
+        "ring-1 ring-white/15 transition-all duration-300",
+        "group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-primary/30",
+        sizes.mark
       )}
     >
-      {/* Soft glow on hover */}
       <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background:
-            "radial-gradient(circle at 50% 50%, color-mix(in oklch, var(--color-primary) 20%, transparent) 0%, transparent 70%)",
-        }}
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]"
       />
-      {/* SVG "N" spark mark */}
+
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.35),transparent_38%)]"
+      />
+
+      {/* Minimal V mark */}
       <svg
-        viewBox="0 0 20 20"
+        viewBox="0 0 24 24"
         fill="none"
-        className="relative size-4 text-primary"
-        aria-hidden
+        className={cn("relative", sizes.icon)}
+        aria-hidden="true"
       >
-        <rect x="3" y="3" width="3" height="14" rx="1.5" fill="currentColor" opacity="0.9" />
-        <rect x="14" y="3" width="3" height="14" rx="1.5" fill="currentColor" opacity="0.9" />
         <path
-          d="M6 3.5 L14 16.5"
+          d="M5.5 6.5 12 18 18.5 6.5"
           stroke="currentColor"
           strokeWidth="3"
           strokeLinecap="round"
-          opacity="0.85"
+          strokeLinejoin="round"
         />
-        <circle cx="16.5" cy="4" r="1.8" fill="currentColor" opacity="0.6" />
+        <path
+          d="M9.25 6.5 12 11.25 14.75 6.5"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.65"
+        />
       </svg>
     </span>
   )
 }
 
-function Wordmark() {
+/* -------------------------------------------------------------------------- */
+/*  Wordmark                                                                   */
+/* -------------------------------------------------------------------------- */
+
+function Wordmark({ size = "8" }: { size?: LogoSize }) {
+  const sizes = sizeClasses[size]
+
   return (
-    <span className="select-none text-[15px] font-bold tracking-tight text-foreground transition-opacity duration-200 group-hover:opacity-80">
-      Nexus
-      <span className="ml-[1px] bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-        UI
+    <span
+      className={cn(
+        "select-none font-bold tracking-[-0.035em] text-foreground transition-opacity duration-300 group-hover:opacity-85",
+        sizes.text
+      )}
+    >
+      Vel
+      <span className="bg-gradient-to-r from-primary via-primary to-primary/65 bg-clip-text text-transparent">
+        ora
       </span>
     </span>
   )
 }
 
-// ─── BrandLogo — with Link wrapper (default) ──────────────────────────────────
+/* -------------------------------------------------------------------------- */
+/*  BrandLogo — clickable                                                      */
+/* -------------------------------------------------------------------------- */
 
-/**
- * Full logo wrapped in a Next.js Link.
- * Use in the header nav and anywhere a clickable logo is needed.
- */
-export function BrandLogo({ className, iconOnly = false, size = "8" }: BrandLogoProps) {
+export function BrandLogo({
+  className,
+  iconOnly = false,
+  size = "8",
+}: BrandLogoProps) {
   return (
     <Link
       href="/"
-      aria-label="NexusUI home"
+      aria-label={`${brandName} home`}
       className={cn(
-        "group inline-flex items-center gap-2.5 rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-primary/60",
+        "group inline-flex items-center gap-2.5 rounded-2xl outline-none transition-all duration-300",
+        "focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         className
       )}
     >
       <LogoMark size={size} />
-      {!iconOnly && <Wordmark />}
+      {!iconOnly && <Wordmark size={size} />}
     </Link>
   )
 }
 
-// ─── BrandMark — without anchor (for nested use) ──────────────────────────────
+/* -------------------------------------------------------------------------- */
+/*  BrandMark — non-clickable                                                  */
+/* -------------------------------------------------------------------------- */
 
-/**
- * Same visual as BrandLogo but rendered as a plain <div>.
- * Use inside SheetTitle, modal headers, or any element that can't contain an <a>.
- */
-export function BrandMark({ className, iconOnly = false, size = "8" }: BrandLogoProps) {
+export function BrandMark({
+  className,
+  iconOnly = false,
+  size = "8",
+}: BrandLogoProps) {
   return (
     <div
       className={cn(
-        "group inline-flex items-center gap-2.5",
+        "group inline-flex items-center gap-2.5 rounded-2xl",
         className
       )}
+      aria-label={brandName}
     >
       <LogoMark size={size} />
-      {!iconOnly && <Wordmark />}
+      {!iconOnly && <Wordmark size={size} />}
     </div>
   )
 }

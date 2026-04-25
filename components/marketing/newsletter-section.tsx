@@ -1,104 +1,214 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
 import { Icon } from "@iconify/react"
+
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+
+const benefits = [
+  "Weekly growth insights and product updates",
+  "Early access to new features",
+  "Exclusive guides, templates, and case studies",
+]
 
 export default function NewsletterSection() {
   const [email, setEmail] = React.useState("")
   const [submitted, setSubmitted] = React.useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email) setSubmitted(true)
+  const isValidEmail = email.trim().length > 0 && /\S+@\S+\.\S+/.test(email)
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    if (!isValidEmail) return
+
+    setSubmitted(true)
   }
 
   return (
-    <section className="relative py-24">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="flex flex-col items-center gap-12 md:flex-row md:items-start md:justify-between">
-          {/* Left content */}
-          <div className="max-w-md text-center md:text-left">
-            <p className="mb-2 text-xs font-medium tracking-widest text-primary uppercase">
-              Newsletter
-            </p>
-            <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-              Stay ahead of the curve
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Get weekly insights on marketing trends, product updates, and
-              actionable tips delivered straight to your inbox.
-            </p>
+    <section className="relative isolate overflow-hidden py-24 sm:py-28">
+      {/* Background */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-0 bg-black" />
+        <div className="absolute inset-0 bg-hex-dots opacity-[0.1]" />
 
-            {/* Benefits */}
-            <div className="mt-6 flex flex-col gap-2.5">
-              {[
-                "Weekly marketing insights & trends",
-                "Early access to new features",
-                "Exclusive guides & case studies",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-2 text-sm text-muted-foreground/70"
-                >
-                  <Icon
-                    icon="mdi:check-circle"
-                    className="size-4 shrink-0 text-primary/60"
-                  />
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background via-background/80 to-transparent" />
 
-          {/* Right form */}
-          <div className="w-full max-w-sm">
-            <div className="rounded-2xl border border-border/20 bg-card/40 p-6">
-              {submitted ? (
-                <div className="flex flex-col items-center gap-3 py-4 text-center">
-                  <div className="flex size-12 items-center justify-center rounded-full bg-primary/15">
-                    <Icon
-                      icon="mdi:check-bold"
-                      className="size-6 text-primary"
-                    />
-                  </div>
-                  <p className="text-sm font-medium text-foreground">
-                    You&apos;re subscribed!
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    Check your inbox for a confirmation email.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                  <label htmlFor="newsletter-email" className="sr-only">
-                    Email address
-                  </label>
-                  <input
-                    id="newsletter-email"
-                    type="email"
-                    required
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="h-10 w-full rounded-lg border border-border/20 bg-muted/20 px-4 text-sm text-foreground placeholder:text-muted-foreground/40 focus:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/20"
-                  />
-                  <button
-                    type="submit"
-                    className={cn(
-                      buttonVariants(),
-                      "w-full rounded-lg shadow-md shadow-primary/20"
-                    )}
+        <div className="absolute left-1/2 top-[20%] h-[460px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.065] blur-[130px]" />
+        <div className="absolute bottom-[-12%] right-[-10%] h-[360px] w-[620px] rounded-full bg-chart-2/[0.04] blur-[120px]" />
+
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
+
+        <div className="absolute left-1/2 top-0 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-white/[0.025] p-6 shadow-2xl shadow-black/[0.14] ring-1 ring-white/10 backdrop-blur-2xl sm:p-8 lg:p-10">
+          {/* Card effects */}
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,130,40,0.14),transparent_42%)]" />
+          <div className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+          <div className="pointer-events-none absolute -right-24 -top-24 size-64 rounded-full bg-primary/10 blur-3xl" />
+
+          <div className="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            {/* Left content */}
+            <div className="text-center lg:text-left">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/[0.035] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary ring-1 ring-primary/20 backdrop-blur-xl">
+                <span className="relative flex size-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
+                  <span className="relative inline-flex size-2 rounded-full bg-primary" />
+                </span>
+                Newsletter
+              </div>
+
+              <h2 className="text-balance text-3xl font-bold tracking-[-0.045em] text-white sm:text-4xl md:text-5xl">
+                Stay ahead with smarter{" "}
+                <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
+                  growth insights.
+                </span>
+              </h2>
+
+              <p className="mx-auto mt-5 max-w-2xl text-pretty text-[15px] leading-7 text-white/64 lg:mx-0 sm:text-base">
+                Get practical marketing trends, product updates, and actionable
+                ideas delivered to your inbox. Simple, useful, and easy to scan.
+              </p>
+
+              <div className="mt-7 grid gap-3 sm:grid-cols-3 lg:max-w-3xl">
+                {benefits.map((benefit, index) => (
+                  <div
+                    key={benefit}
+                    className="group flex items-start gap-3 rounded-2xl bg-white/[0.03] p-4 text-left ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.05] hover:ring-primary/20"
+                    style={{
+                      transitionDelay: `${index * 45}ms`,
+                    }}
                   >
-                    Subscribe
-                    <Icon icon="mdi:arrow-right" className="ml-1.5 size-4" />
-                  </button>
-                  <p className="text-center text-[10px] text-muted-foreground/40">
-                    No spam. Unsubscribe at any time.
-                  </p>
-                </form>
-              )}
+                    <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary ring-1 ring-primary/15 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground">
+                      <Icon icon="solar:check-bold" className="size-4" />
+                    </span>
+
+                    <p className="text-sm leading-6 text-white/62">
+                      {benefit}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right form */}
+            <div className="mx-auto w-full max-w-md lg:ml-auto">
+              <div className="relative overflow-hidden rounded-[2rem] bg-black/25 p-5 ring-1 ring-white/10 backdrop-blur-xl transition-all duration-300 hover:bg-black/30 hover:ring-primary/20 sm:p-6">
+                <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+                {submitted ? (
+                  <div className="flex min-h-[270px] flex-col items-center justify-center text-center">
+                    <div className="relative mb-5 flex size-16 items-center justify-center rounded-full bg-primary/10 text-primary ring-1 ring-primary/20">
+                      <span className="absolute size-full animate-ping rounded-full bg-primary/15" />
+                      <Icon
+                        icon="solar:check-circle-bold-duotone"
+                        className="relative size-8"
+                      />
+                    </div>
+
+                    <p className="text-xl font-bold tracking-tight text-white">
+                      You&apos;re subscribed!
+                    </p>
+
+                    <p className="mt-3 max-w-xs text-sm leading-6 text-white/55">
+                      Check your inbox for a confirmation email and your first
+                      weekly growth digest.
+                    </p>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setEmail("")
+                        setSubmitted(false)
+                      }}
+                      className="mt-6 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                    >
+                      Subscribe another email
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label
+                        htmlFor="newsletter-email"
+                        className="text-sm font-semibold text-white"
+                      >
+                        Join the weekly digest
+                      </label>
+
+                      <p className="mt-1 text-xs leading-5 text-white/45">
+                        One useful email per week. No spam, no noise.
+                      </p>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="newsletter-email" className="sr-only">
+                        Email address
+                      </label>
+
+                      <div className="group relative">
+                        <Icon
+                          icon="solar:letter-linear"
+                          className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-white/35 transition-colors duration-300 group-focus-within:text-primary"
+                        />
+
+                        <input
+                          id="newsletter-email"
+                          type="email"
+                          required
+                          placeholder="you@company.com"
+                          value={email}
+                          onChange={(event) => setEmail(event.target.value)}
+                          className={cn(
+                            "h-12 w-full rounded-2xl bg-white/[0.035] pl-11 pr-4 text-sm text-white outline-none ring-1 ring-white/10 transition-all duration-300",
+                            "placeholder:text-white/30 focus:bg-white/[0.055] focus:ring-2 focus:ring-primary/30"
+                          )}
+                        />
+                      </div>
+
+                      {email.length > 0 && !isValidEmail && (
+                        <p className="flex items-center gap-1.5 text-xs text-red-400">
+                          <Icon icon="solar:info-circle-bold-duotone" className="size-3.5" />
+                          Please enter a valid email address.
+                        </p>
+                      )}
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={!isValidEmail}
+                      className={cn(
+                        buttonVariants(),
+                        "group h-12 w-full rounded-2xl text-sm font-semibold shadow-xl shadow-primary/20 transition-all duration-300",
+                        isValidEmail
+                          ? "hover:-translate-y-0.5 hover:shadow-primary/35"
+                          : "cursor-not-allowed opacity-50"
+                      )}
+                    >
+                      Subscribe
+                      <Icon
+                        icon="solar:arrow-right-bold"
+                        className="ml-1.5 size-4 transition-transform duration-300 group-hover:translate-x-1"
+                      />
+                    </button>
+
+                    <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] text-white/38">
+                      <span>No spam</span>
+                      <span className="size-1 rounded-full bg-white/20" />
+                      <span>Unsubscribe anytime</span>
+                      <span className="size-1 rounded-full bg-white/20" />
+                      <span>Weekly only</span>
+                    </div>
+                  </form>
+                )}
+              </div>
             </div>
           </div>
         </div>

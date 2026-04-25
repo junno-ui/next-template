@@ -419,38 +419,6 @@ function DashboardPreview() {
 /*  Trusted section                                                            */
 /* -------------------------------------------------------------------------- */
 
-function TrustedBySection() {
-  return (
-    <div className="relative mx-auto mt-16 w-full max-w-6xl px-6">
-      <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.02] px-6 py-12 backdrop-blur-xl">
-        <div className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-
-        <div className="mx-auto max-w-5xl">
-          <p className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/35">
-            Loved by teams at
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
-            {trustedLogos.map((logo, index) => (
-              <div
-                key={logo.name}
-                className="group flex items-center gap-2 text-white/25 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:text-white/65"
-                style={{ transitionDelay: `${index * 20}ms` }}
-              >
-                <Icon
-                  icon={logo.icon}
-                  className="size-5 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
-                />
-                <span className="text-sm font-semibold tracking-tight">{logo.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 /* -------------------------------------------------------------------------- */
 /*  Main component                                                             */
 /* -------------------------------------------------------------------------- */
@@ -577,8 +545,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
-      <TrustedBySection />
     </section>
   )
 }
