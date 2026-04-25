@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react"
 
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import React from "react"
 
 /* -------------------------------------------------------------------------- */
 /*  Data                                                                       */
@@ -241,11 +242,52 @@ function HeroStatCard({
 /* -------------------------------------------------------------------------- */
 
 function DashboardPreview() {
+  const [activeMenu, setActiveMenu] = React.useState(sidebarItems[0].label)
+  const [activePeriod, setActivePeriod] = React.useState("Monthly")
+
+  const activeItem =
+    sidebarItems.find((item) => item.label === activeMenu) ?? sidebarItems[0]
+
+  const pageMeta: Record<string, { title: string; description: string }> = {
+    Dashboard: {
+      title: "Dashboard",
+      description: "Real-time analytics overview",
+    },
+    Products: {
+      title: "Products",
+      description: "Track product performance and inventory",
+    },
+    Orders: {
+      title: "Orders",
+      description: "Monitor purchases, refunds, and revenue",
+    },
+    Campaigns: {
+      title: "Campaigns",
+      description: "Compare channels and campaign health",
+    },
+    Customers: {
+      title: "Customers",
+      description: "Understand segments and customer behavior",
+    },
+    Analytics: {
+      title: "Analytics",
+      description: "Discover trends across your business",
+    },
+    Settings: {
+      title: "Settings",
+      description: "Manage workspace and team preferences",
+    },
+  }
+
+  const currentPage = pageMeta[activeMenu] ?? pageMeta.Dashboard
+
   return (
-    <div className="overflow-hidden rounded-[2rem] bg-slate-950/95 shadow-[0_28px_90px_rgba(0,0,0,0.45)] ring-1 ring-border/40 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_32px_110px_rgba(0,0,0,0.55)] hover:ring-primary/20 dark:ring-white/10">
+    <div className="group overflow-hidden rounded-[2rem] bg-background/95 shadow-[0_28px_90px_rgba(15,23,42,0.14)] ring-1 ring-border/60 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_32px_110px_rgba(15,23,42,0.18)] hover:ring-primary/25 dark:bg-slate-950/95 dark:shadow-[0_28px_90px_rgba(0,0,0,0.45)] dark:ring-white/10 dark:hover:shadow-[0_32px_110px_rgba(0,0,0,0.55)]">
       <div className="flex">
-        <aside className="hidden w-52 shrink-0 flex-col bg-white/[0.025] md:flex">
-          <div className="flex items-center gap-2 px-4 py-4 ring-1 ring-white/[0.04]">
+        {/* Sidebar */}
+        <aside className="hidden w-56 shrink-0 flex-col bg-muted/30 ring-1 ring-border/40 dark:bg-white/[0.025] dark:ring-white/[0.06] md:flex">
+          {/* Brand */}
+          <div className="flex items-center gap-2 px-4 py-4">
             <div className="flex size-8 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15">
               <svg
                 viewBox="0 0 24 24"
@@ -271,29 +313,58 @@ function DashboardPreview() {
               </svg>
             </div>
 
-            <span className="text-xs font-bold text-white">Clario</span>
+            <div>
+              <p className="text-xs font-bold text-foreground dark:text-white">
+                Clario
+              </p>
+              <p className="text-[10px] text-muted-foreground">
+                Growth OS
+              </p>
+            </div>
           </div>
 
+          {/* Menu */}
           <nav className="flex flex-col gap-1 p-2">
-            {sidebarItems.map((item, index) => (
-              <div
-                key={item.label}
-                className={cn(
-                  "flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-[11px] font-medium transition-all duration-300",
-                  item.active
-                    ? "bg-primary/12 text-primary ring-1 ring-primary/10"
-                    : "text-white/45 hover:translate-x-0.5 hover:bg-white/[0.04] hover:text-white/75"
-                )}
-                style={{ transitionDelay: `${index * 8}ms` }}
-              >
-                <Icon icon={item.icon} className="size-3.5" />
-                {item.label}
-              </div>
-            ))}
+            {sidebarItems.map((item, index) => {
+              const active = activeMenu === item.label
+
+              return (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={() => setActiveMenu(item.label)}
+                  className={cn(
+                    "group/menu flex items-center justify-between rounded-xl px-3 py-2.5 text-left text-[11px] font-semibold transition-all duration-300",
+                    active
+                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                      : "text-muted-foreground hover:translate-x-0.5 hover:bg-background/80 hover:text-foreground dark:hover:bg-white/[0.045] dark:hover:text-white"
+                  )}
+                  style={{ transitionDelay: `${index * 8}ms` }}
+                >
+                  <span className="flex items-center gap-2.5">
+                    <Icon
+                      icon={item.icon}
+                      className={cn(
+                        "size-3.5 transition-transform duration-300",
+                        active
+                          ? "scale-110"
+                          : "group-hover/menu:scale-110"
+                      )}
+                    />
+                    {item.label}
+                  </span>
+
+                  {active && (
+                    <span className="size-1.5 rounded-full bg-primary-foreground/80" />
+                  )}
+                </button>
+              )
+            })}
           </nav>
 
+          {/* Sync card */}
           <div className="mt-auto p-2">
-            <div className="rounded-2xl bg-primary/8 p-3 ring-1 ring-primary/15">
+            <div className="rounded-2xl bg-primary/10 p-3 ring-1 ring-primary/15">
               <div className="flex items-center gap-2 text-[10px] font-semibold text-primary">
                 <span className="relative flex size-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
@@ -301,76 +372,104 @@ function DashboardPreview() {
                 </span>
                 Live sync
               </div>
-              <p className="mt-1 text-[10px] leading-4 text-white/45">
+              <p className="mt-1 text-[10px] leading-4 text-muted-foreground">
                 Data refreshed 2 min ago
               </p>
             </div>
           </div>
         </aside>
 
+        {/* Main */}
         <div className="min-w-0 flex-1 p-4 md:p-5">
+          {/* Top bar */}
           <div className="mb-4 flex items-center justify-between gap-3">
-            <div>
-              <h3 className="text-sm font-semibold text-white">Dashboard</h3>
-              <p className="text-[10px] text-white/40">
-                Real-time analytics overview
-              </p>
+            <div className="flex items-center gap-3">
+              <div className="flex size-10 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/15 sm:hidden">
+                <Icon icon={activeItem.icon} className="size-5" />
+              </div>
+
+              <div>
+                <h3 className="text-sm font-bold text-foreground dark:text-white">
+                  {currentPage.title}
+                </h3>
+                <p className="text-[10px] text-muted-foreground">
+                  {currentPage.description}
+                </p>
+              </div>
             </div>
 
             <div className="hidden items-center gap-2 sm:flex">
-              <div className="flex h-8 w-36 items-center gap-1.5 rounded-xl bg-white/[0.035] px-3 text-[10px] text-white/35 ring-1 ring-white/10 transition-all duration-300 hover:bg-white/[0.055] hover:ring-primary/20">
+              <div className="flex h-8 w-36 items-center gap-1.5 rounded-xl bg-muted/45 px-3 text-[10px] text-muted-foreground ring-1 ring-border/50 transition-all duration-300 hover:bg-muted/65 hover:ring-primary/20 dark:bg-white/[0.035] dark:ring-white/10 dark:hover:bg-white/[0.055]">
                 <Icon icon="solar:magnifer-linear" className="size-3" />
                 Search...
               </div>
 
-              <div className="flex gap-0.5 rounded-xl bg-white/[0.035] p-0.5 ring-1 ring-white/10">
-                {["Monthly", "Weekly", "Daily"].map((period, index) => (
-                  <span
-                    key={period}
-                    className={cn(
-                      "rounded-lg px-2.5 py-1 text-[10px] font-medium transition-all duration-300",
-                      index === 0
-                        ? "bg-primary/15 text-primary"
-                        : "text-white/35 hover:text-white/70"
-                    )}
-                  >
-                    {period}
-                  </span>
-                ))}
+              <div className="flex gap-0.5 rounded-xl bg-muted/45 p-0.5 ring-1 ring-border/50 dark:bg-white/[0.035] dark:ring-white/10">
+                {["Monthly", "Weekly", "Daily"].map((period) => {
+                  const active = activePeriod === period
+
+                  return (
+                    <button
+                      key={period}
+                      type="button"
+                      onClick={() => setActivePeriod(period)}
+                      className={cn(
+                        "rounded-lg px-2.5 py-1 text-[10px] font-semibold transition-all duration-300",
+                        active
+                          ? "bg-primary text-primary-foreground shadow-sm"
+                          : "text-muted-foreground hover:text-foreground dark:hover:text-white"
+                      )}
+                    >
+                      {period}
+                    </button>
+                  )
+                })}
               </div>
 
-              <div className="flex size-8 items-center justify-center rounded-xl bg-white/[0.035] text-white/35 ring-1 ring-white/10 transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:ring-primary/20">
+              <button
+                type="button"
+                className="flex size-8 items-center justify-center rounded-xl bg-muted/45 text-muted-foreground ring-1 ring-border/50 transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:ring-primary/20 dark:bg-white/[0.035] dark:ring-white/10"
+                aria-label="Notifications"
+              >
                 <Icon icon="solar:bell-bold-duotone" className="size-3.5" />
-              </div>
+              </button>
 
-              <div className="flex size-8 items-center justify-center rounded-full bg-gradient-to-br from-primary/30 to-chart-2/20 text-primary ring-1 ring-primary/15">
+              <button
+                type="button"
+                className="flex size-8 items-center justify-center rounded-full bg-gradient-to-br from-primary/25 to-chart-2/15 text-primary ring-1 ring-primary/15 transition-all duration-300 hover:scale-105"
+                aria-label="User profile"
+              >
                 <Icon icon="solar:user-bold" className="size-3.5" />
-              </div>
+              </button>
             </div>
           </div>
 
+          {/* Stats */}
           <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {dashboardStats.map((stat) => (
               <div
                 key={stat.label}
-                className="group rounded-2xl bg-white/[0.025] p-3 ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/[0.05] hover:ring-primary/20"
+                className="group rounded-2xl bg-muted/35 p-3 ring-1 ring-border/50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-background hover:ring-primary/20 dark:bg-white/[0.025] dark:ring-white/10 dark:hover:bg-white/[0.05]"
               >
                 <div className="mb-1.5 flex items-center justify-between">
-                  <p className="text-[10px] font-medium text-white/40">
+                  <p className="text-[10px] font-medium text-muted-foreground">
                     {stat.label}
                   </p>
+
                   <Icon
                     icon={stat.icon}
-                    className="size-3.5 text-white/20 transition-all duration-300 group-hover:text-primary/70"
+                    className="size-3.5 text-muted-foreground/45 transition-all duration-300 group-hover:text-primary"
                   />
                 </div>
 
-                <p className="text-base font-bold text-white">{stat.value}</p>
+                <p className="text-base font-bold text-foreground dark:text-white">
+                  {stat.value}
+                </p>
 
                 <p
                   className={cn(
                     "mt-0.5 text-[10px] font-semibold",
-                    stat.up ? "text-primary" : "text-red-400"
+                    stat.up ? "text-primary" : "text-red-500 dark:text-red-400"
                   )}
                 >
                   {stat.change} vs last month
@@ -379,19 +478,21 @@ function DashboardPreview() {
             ))}
           </div>
 
+          {/* Content grid */}
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-5">
-            <div className="rounded-2xl bg-white/[0.025] p-3 ring-1 ring-white/10 transition-all duration-300 hover:bg-white/[0.04] hover:ring-primary/20 sm:col-span-3">
+            {/* Chart */}
+            <div className="rounded-2xl bg-muted/35 p-3 ring-1 ring-border/50 transition-all duration-300 hover:bg-background hover:ring-primary/20 dark:bg-white/[0.025] dark:ring-white/10 dark:hover:bg-white/[0.04] sm:col-span-3">
               <div className="mb-3 flex items-center justify-between">
-                <p className="text-[11px] font-semibold text-white">
+                <p className="text-[11px] font-semibold text-foreground dark:text-white">
                   Performance Overview
                 </p>
 
                 <div className="flex gap-3">
-                  <span className="flex items-center gap-1 text-[9px] text-white/40">
+                  <span className="flex items-center gap-1 text-[9px] text-muted-foreground">
                     <span className="size-1.5 rounded-full bg-primary" />
                     Revenue
                   </span>
-                  <span className="flex items-center gap-1 text-[9px] text-white/40">
+                  <span className="flex items-center gap-1 text-[9px] text-muted-foreground">
                     <span className="size-1.5 rounded-full bg-chart-2" />
                     Expenses
                   </span>
@@ -405,26 +506,27 @@ function DashboardPreview() {
                     className="group/bar flex flex-1 items-end gap-[1px]"
                   >
                     <div
-                      className="flex-1 rounded-t-sm bg-primary/35 transition-all duration-500 group-hover/bar:bg-primary/75"
+                      className="flex-1 rounded-t-sm bg-primary/45 transition-all duration-500 group-hover/bar:bg-primary/80 dark:bg-primary/35"
                       style={{ height: `${bar.h1}%` }}
                     />
                     <div
-                      className="flex-1 rounded-t-sm bg-chart-2/25 transition-all duration-500 group-hover/bar:bg-chart-2/60"
+                      className="flex-1 rounded-t-sm bg-chart-2/35 transition-all duration-500 group-hover/bar:bg-chart-2/70 dark:bg-chart-2/25"
                       style={{ height: `${bar.h2}%` }}
                     />
                   </div>
                 ))}
               </div>
 
-              <div className="mt-1.5 flex justify-between text-[8px] text-white/28">
+              <div className="mt-1.5 flex justify-between text-[8px] text-muted-foreground/60">
                 {months.map((month) => (
                   <span key={month}>{month}</span>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white/[0.025] p-3 ring-1 ring-white/10 transition-all duration-300 hover:bg-white/[0.04] hover:ring-primary/20 sm:col-span-2">
-              <p className="mb-3 text-[11px] font-semibold text-white">
+            {/* Countries */}
+            <div className="rounded-2xl bg-muted/35 p-3 ring-1 ring-border/50 transition-all duration-300 hover:bg-background hover:ring-primary/20 dark:bg-white/[0.025] dark:ring-white/10 dark:hover:bg-white/[0.04] sm:col-span-2">
+              <p className="mb-3 text-[11px] font-semibold text-foreground dark:text-white">
                 Top by Country
               </p>
 
@@ -432,16 +534,17 @@ function DashboardPreview() {
                 {countries.map((country) => (
                   <div key={country.country} className="group/country">
                     <div className="mb-1 flex items-center justify-between">
-                      <span className="flex items-center gap-1.5 text-[10px] text-white/45">
+                      <span className="flex items-center gap-1.5 text-[10px] text-muted-foreground">
                         <span>{country.flag}</span>
                         {country.country}
                       </span>
-                      <span className="text-[10px] font-semibold text-white/80">
+
+                      <span className="text-[10px] font-semibold text-foreground/80 dark:text-white/80">
                         {country.pct}%
                       </span>
                     </div>
 
-                    <div className="h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
+                    <div className="h-1.5 overflow-hidden rounded-full bg-muted dark:bg-white/[0.06]">
                       <div
                         className={cn(
                           "h-full rounded-full transition-all duration-700 group-hover/country:brightness-125",
@@ -455,12 +558,35 @@ function DashboardPreview() {
               </div>
             </div>
           </div>
+
+          {/* Mobile menu */}
+          <div className="mt-3 flex gap-2 overflow-x-auto pb-1 md:hidden">
+            {sidebarItems.map((item) => {
+              const active = activeMenu === item.label
+
+              return (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={() => setActiveMenu(item.label)}
+                  className={cn(
+                    "flex shrink-0 items-center gap-1.5 rounded-full px-3 py-2 text-[10px] font-semibold transition-all duration-300",
+                    active
+                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                      : "bg-muted/50 text-muted-foreground ring-1 ring-border/50 hover:text-foreground dark:bg-white/[0.035] dark:ring-white/10 dark:hover:text-white"
+                  )}
+                >
+                  <Icon icon={item.icon} className="size-3.5" />
+                  {item.label}
+                </button>
+              )
+            })}
+          </div>
         </div>
       </div>
     </div>
   )
 }
-
 /* -------------------------------------------------------------------------- */
 /*  Main component                                                             */
 /* -------------------------------------------------------------------------- */
