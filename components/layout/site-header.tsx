@@ -39,7 +39,17 @@ export default function SiteHeader() {
   const pathname = usePathname()
 
   React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    let ticking = false
+
+    const onScroll = () => {
+      if (ticking) return
+
+      ticking = true
+      window.requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 24)
+        ticking = false
+      })
+    }
 
     onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
@@ -61,13 +71,19 @@ export default function SiteHeader() {
       >
         <nav
           className={cn(
-            "pointer-events-auto relative flex w-full max-w-6xl items-center justify-between gap-4 rounded-full px-3 py-2 transition-all duration-500",
+            "pointer-events-auto relative flex w-full max-w-4xl items-center justify-between gap-4 overflow-hidden rounded-full px-3 py-2 transition-all duration-500",
             "before:pointer-events-none before:absolute before:inset-x-8 before:-bottom-px before:h-px before:bg-gradient-to-r before:from-transparent before:via-primary/45 before:to-transparent before:opacity-0 before:transition-opacity before:duration-500",
+            "after:pointer-events-none after:absolute after:inset-x-10 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/55 after:to-transparent after:opacity-70 dark:after:via-white/20",
             scrolled
-              ? "bg-background/88 shadow-2xl ring-1 shadow-black/[0.08] ring-border/35 backdrop-blur-2xl before:opacity-100 dark:shadow-black/30"
-              : "bg-background/50 shadow-lg ring-1 shadow-black/[0.03] ring-white/15 backdrop-blur-xl dark:ring-white/10"
+              ? "bg-background/78 shadow-2xl ring-1 shadow-black/[0.10] ring-border/45 backdrop-blur-2xl before:opacity-100 supports-[backdrop-filter]:bg-background/58 dark:bg-black/38 dark:shadow-black/35 dark:ring-white/12"
+              : "bg-background/50 shadow-xl ring-1 shadow-black/[0.04] ring-white/25 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/38 dark:bg-black/24 dark:ring-white/12"
           )}
         >
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,oklch(0.78_0.16_55_/_14%),transparent_38%),linear-gradient(180deg,oklch(1_0_0_/_28%),transparent)] dark:bg-[radial-gradient(circle_at_top_left,oklch(0.68_0.18_45_/_15%),transparent_38%),linear-gradient(180deg,oklch(1_0_0_/_8%),transparent)]"
+            aria-hidden="true"
+          />
+
           {/* Brand */}
           <Link
             href="#home"

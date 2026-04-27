@@ -1,6 +1,3 @@
-"use client"
-
-import { motion } from "framer-motion"
 import { Icon } from "@iconify/react"
 
 import { cn } from "@/lib/utils"
@@ -83,7 +80,7 @@ function TestimonialCard({
         </div>
 
         <p className="text-sm leading-6 text-muted-foreground dark:text-white/65">
-          “{testimonial.quote}”
+          &ldquo;{testimonial.quote}&rdquo;
         </p>
       </div>
 
@@ -116,15 +113,11 @@ function TestimonialsMarquee({
 
   return (
     <div className="relative flex overflow-hidden">
-      <motion.div
-        className="flex min-w-max gap-4"
-        animate={{
-          x: reverse ? ["-50%", "0%"] : ["0%", "-50%"],
-        }}
-        transition={{
-          duration: speed,
-          repeat: Infinity,
-          ease: "linear",
+      <div
+        className="animate-scroll flex min-w-max gap-4 will-change-transform"
+        style={{
+          animationDuration: `${speed}s`,
+          animationDirection: reverse ? "reverse" : "normal",
         }}
       >
         {items.map((testimonial, index) => (
@@ -133,7 +126,7 @@ function TestimonialsMarquee({
             testimonial={testimonial}
           />
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -144,25 +137,20 @@ export default function TestimonialsSection() {
       id="testimonials"
       className="relative isolate overflow-hidden py-24 sm:py-28"
     >
-      {/* Background */}
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
       >
         <div className="absolute inset-0 bg-background" />
         <div className="bg-hex-dots absolute inset-0 opacity-[0.1]" />
-
         <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background via-background/80 to-transparent" />
-
         <div className="absolute top-[22%] left-1/2 h-[460px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[130px]" />
         <div className="absolute bottom-[-12%] left-1/2 h-[360px] w-[720px] -translate-x-1/2 rounded-full bg-chart-2/[0.04] blur-[120px]" />
-
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold tracking-[0.22em] text-primary uppercase ring-1 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035]">
             <span className="relative flex size-2">
@@ -174,7 +162,7 @@ export default function TestimonialsSection() {
 
           <h2 className="text-4xl leading-[0.98] font-bold tracking-[-0.06em] text-balance text-foreground sm:text-5xl md:text-6xl dark:text-white">
             Loved by teams that{" "}
-            <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
+            <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
               move with data.
             </span>
           </h2>
@@ -185,9 +173,7 @@ export default function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Marquee */}
         <div className="relative">
-          {/* Fade edges */}
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background via-background/90 to-transparent dark:from-black dark:via-black/80" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background via-background/90 to-transparent dark:from-black dark:via-black/80" />
 
@@ -197,7 +183,6 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* Simple trust line */}
         <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center text-xs text-muted-foreground dark:text-white/42">
           <span>4.9/5 average rating</span>
           <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />

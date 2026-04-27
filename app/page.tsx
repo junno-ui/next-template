@@ -1,15 +1,39 @@
+import dynamic from "next/dynamic"
+
 import SiteHeader from "@/components/layout/site-header"
 import { SiteFooter } from "@/components/layout/site-footer"
 import { TemplateFloatingButton } from "@/components/layout/template-floating-button"
 import HeroSection from "@/components/marketing/hero-section"
 import LogosSection from "@/components/marketing/logos-section"
 import StatisticsSection from "@/components/marketing/statistics-section"
-import FeaturesSection from "@/components/marketing/features-section"
-import PricingSection from "@/components/marketing/pricing-section"
 import TestimonialsSection from "@/components/marketing/testimonials-section"
-import FaqSection from "@/components/marketing/faq-section"
-import NewsletterSection from "@/components/marketing/newsletter-section"
 import CtaSection from "@/components/marketing/cta-section"
+import { SectionLoading } from "@/components/marketing/section-loading"
+
+const FeaturesSection = dynamic(
+  () => import("@/components/marketing/features-section"),
+  {
+    loading: () => <SectionLoading label="features" />,
+  }
+)
+
+const PricingSection = dynamic(
+  () => import("@/components/marketing/pricing-section"),
+  {
+    loading: () => <SectionLoading label="pricing" />,
+  }
+)
+
+const FaqSection = dynamic(() => import("@/components/marketing/faq-section"), {
+  loading: () => <SectionLoading label="FAQ" />,
+})
+
+const NewsletterSection = dynamic(
+  () => import("@/components/marketing/newsletter-section"),
+  {
+    loading: () => <SectionLoading label="newsletter" />,
+  }
+)
 
 export default function Home() {
   return (

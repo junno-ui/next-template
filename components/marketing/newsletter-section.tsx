@@ -67,7 +67,7 @@ export default function NewsletterSection() {
 
               <h2 className="text-4xl leading-[0.98] font-bold tracking-[-0.06em] text-balance text-foreground sm:text-5xl md:text-6xl dark:text-white">
                 Stay ahead with smarter{" "}
-                <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
+                <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
                   growth insights.
                 </span>
               </h2>

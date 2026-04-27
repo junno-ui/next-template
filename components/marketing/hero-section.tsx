@@ -718,7 +718,7 @@ export default function HeroSection() {
                     aria-hidden="true"
                     className="absolute inset-x-0 bottom-1.5 h-3 rounded-full bg-linear-to-r from-primary/40 via-cyan-300/20 to-primary/40 blur-xl"
                   />
-                  <span className="relative bg-linear-to-r from-orange-200 via-cyan-200 to-orange-200 bg-clip-text text-transparent">
+                  <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
                     clear decisions
                   </span>
                 </span>
