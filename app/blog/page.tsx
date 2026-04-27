@@ -1,187 +1,274 @@
 import Link from "next/link"
+import { Icon } from "@iconify/react"
+
 import SiteHeader from "@/components/layout/site-header"
 import { SiteFooter } from "@/components/layout/site-footer"
-import { cn } from "@/lib/utils"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { buttonVariants } from "@/components/ui/button"
-import { Icon } from "@iconify/react"
-import { ThemeCustomizer } from "@/components/theme"
-
-/* -------------------------------------------------------------------------- */
-/*  Blog post data (static mock — replace with CMS / MDX later)               */
-/* -------------------------------------------------------------------------- */
-const posts = [
-  {
-    slug: "marketing-automation-2025",
-    title: "The Future of Marketing Automation in 2025",
-    excerpt:
-      "Discover how AI-powered automation is reshaping the way teams plan, execute, and measure their marketing campaigns.",
-    date: "Apr 20, 2025",
-    readTime: "8 min read",
-    category: "Automation",
-    featured: true,
-  },
-  {
-    slug: "data-driven-decisions",
-    title: "Making Data-Driven Decisions That Actually Work",
-    excerpt:
-      "Learn the framework top marketing teams use to turn raw analytics into actionable growth strategies.",
-    date: "Apr 15, 2025",
-    readTime: "6 min read",
-    category: "Analytics",
-    featured: false,
-  },
-  {
-    slug: "email-campaign-optimization",
-    title: "Email Campaign Optimization: A Complete Guide",
-    excerpt:
-      "From subject lines to send times — master every lever that drives open rates and conversions.",
-    date: "Apr 10, 2025",
-    readTime: "10 min read",
-    category: "Email",
-    featured: false,
-  },
-  {
-    slug: "customer-segmentation-playbook",
-    title: "The Customer Segmentation Playbook",
-    excerpt:
-      "How to build precise audience segments that increase relevance, engagement, and lifetime value.",
-    date: "Apr 5, 2025",
-    readTime: "7 min read",
-    category: "Strategy",
-    featured: false,
-  },
-  {
-    slug: "performance-metrics-that-matter",
-    title: "Performance Metrics That Actually Matter",
-    excerpt:
-      "Stop tracking vanity metrics. Focus on the KPIs that correlate directly with revenue growth.",
-    date: "Mar 28, 2025",
-    readTime: "5 min read",
-    category: "Analytics",
-    featured: false,
-  },
-  {
-    slug: "multi-channel-marketing",
-    title: "Building a Multi-Channel Marketing Engine",
-    excerpt:
-      "Coordinate campaigns across email, social, ads, and content for a unified brand experience.",
-    date: "Mar 22, 2025",
-    readTime: "9 min read",
-    category: "Strategy",
-    featured: false,
-  },
-]
+import { blogPosts, getFeaturedPost } from "@/content/blog-posts"
+import { cn } from "@/lib/utils"
 
 export default function BlogListPage() {
-  const featured = posts.find((p) => p.featured)
-  const rest = posts.filter((p) => !p.featured)
+  const featured = getFeaturedPost()
+  const rest = blogPosts.filter((post) => post.slug !== featured.slug)
+  const categories = [...new Set(blogPosts.map((post) => post.category))]
 
   return (
-    <div className="relative flex min-h-screen flex-col bg-background text-foreground">
+    <div className="relative flex min-h-screen flex-col overflow-hidden text-foreground">
+      <div className="pointer-events-none fixed inset-0 -z-20" aria-hidden="true">
+        <div className="absolute inset-0 bg-radial-flares opacity-95" />
+        <div className="absolute inset-0 bg-noise-weave opacity-35" />
+      </div>
       <SiteHeader />
-      <main className="flex-1 pt-28 pb-16">
-        <div className="mx-auto max-w-5xl px-6">
-          {/* Page header */}
-          <div className="mb-14">
-            <p className="mb-2 text-xs font-medium tracking-widest text-primary uppercase">
-              Blog
-            </p>
-            <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Insights & Resources
-            </h1>
-            <p className="mt-3 max-w-lg text-sm text-muted-foreground">
-              Actionable guides, industry trends, and product updates to help
-              you grow your marketing game.
-            </p>
+      <main className="flex-1 pt-28 pb-18">
+        <section className="relative">
+          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+            <div className="absolute inset-0 bg-luxury-grid opacity-60" />
+            <div className="absolute left-[10%] top-16 h-[24rem] w-[24rem] rounded-full bg-primary/[0.1] blur-[110px]" />
+            <div className="absolute right-[10%] top-[10%] h-[18rem] w-[18rem] rounded-full bg-chart-2/[0.1] blur-[95px]" />
           </div>
 
-          {/* Featured post */}
-          {featured && (
-            <Link
-              href={`/blog/${featured.slug}`}
-              className="group mb-12 block overflow-hidden rounded-2xl border border-border/20 bg-card/40 transition-all duration-300 hover:border-border/40 hover:bg-card/70"
-            >
-              <div className="flex flex-col md:flex-row">
-                {/* Placeholder image */}
-                <div className="relative h-52 overflow-hidden bg-gradient-to-br from-primary/10 via-chart-2/5 to-transparent md:h-auto md:w-2/5">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Icon
-                      icon="mdi:newspaper-variant-outline"
-                      className="size-16 text-primary/20"
-                    />
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+              <div>
+                <div className="surface-panel mb-6 inline-flex rounded-full px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+                  Editorial Journal
+                </div>
+                <h1 className="max-w-4xl text-4xl font-bold leading-[1.02] tracking-tight sm:text-5xl lg:text-[4.2rem]">
+                  Insightful writing for teams building sharper growth systems.
+                </h1>
+                <p className="mt-5 max-w-2xl text-[15px] leading-7 text-muted-foreground sm:text-base">
+                  Explore strategy, analytics, lifecycle thinking, and operating
+                  patterns through a more refined editorial experience.
+                </p>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href={`/blog/${featured.slug}`}
+                    className={cn(
+                      buttonVariants({ size: "lg" }),
+                      "rounded-full px-7 text-sm font-semibold shadow-lg shadow-primary/25"
+                    )}
+                  >
+                    Read featured story
+                    <Icon icon="solar:arrow-right-bold" className="size-4" />
+                  </Link>
+                  <div className="flex flex-wrap gap-2">
+                    {categories.map((category) => (
+                      <span
+                        key={category}
+                        className="rounded-full border border-border/25 bg-background/65 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/72"
+                      >
+                        {category}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <div className="flex flex-1 flex-col justify-center p-6 md:p-8">
-                  <div className="mb-3 flex items-center gap-3">
-                    <span className="rounded-full bg-primary/10 px-3 py-0.5 text-[11px] font-medium text-primary">
-                      {featured.category}
-                    </span>
-                    <span className="text-xs text-muted-foreground/50">
-                      {featured.date}
-                    </span>
+              </div>
+
+              <div className="surface-panel rounded-[2rem] border border-white/50 p-6 shadow-2xl shadow-black/[0.08] dark:border-white/10">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground/55">
+                      This week
+                    </p>
+                    <p className="mt-1 text-xl font-semibold">
+                      {blogPosts.length} editorial resources
+                    </p>
                   </div>
-                  <h2 className="text-xl font-bold text-foreground transition-colors group-hover:text-primary sm:text-2xl">
-                    {featured.title}
-                  </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {featured.excerpt}
-                  </p>
-                  <div className="mt-4 flex items-center gap-1.5 text-xs font-medium text-primary">
-                    Read article
-                    <Icon
-                      icon="mdi:arrow-right"
-                      className="size-3.5 transition-transform group-hover:translate-x-1"
-                    />
+                  <div className="flex size-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <Icon icon="solar:notebook-bookmark-bold-duotone" className="size-5" />
+                  </div>
+                </div>
+
+                <div className="mt-5 space-y-3">
+                  {blogPosts.slice(0, 3).map((post) => (
+                    <Link
+                      key={post.slug}
+                      href={`/blog/${post.slug}`}
+                      className="group flex items-start gap-3 rounded-[1.4rem] border border-border/15 bg-background/55 p-4 transition-all hover:-translate-y-0.5 hover:border-border/35 hover:bg-background/80"
+                    >
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                        <Icon icon="solar:document-text-bold-duotone" className="size-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground/55">
+                          {post.category} · {post.readTime}
+                        </p>
+                        <p className="mt-1 text-sm font-semibold text-foreground transition-colors group-hover:text-primary">
+                          {post.title}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <Link
+              href={`/blog/${featured.slug}`}
+              className="group surface-panel mt-12 block overflow-hidden rounded-[2.1rem] border border-white/50 p-0 shadow-2xl shadow-black/[0.08] transition-all duration-300 hover:-translate-y-1 hover:shadow-black/[0.12] dark:border-white/10"
+            >
+              <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
+                <div className="relative min-h-[320px] overflow-hidden px-7 py-7 sm:px-8 sm:py-8">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,oklch(0.78_0.14_175_/_20%),transparent_34%),linear-gradient(145deg,oklch(0.99_0.002_190),oklch(0.96_0.01_230))] dark:bg-[radial-gradient(circle_at_top_left,oklch(0.7_0.14_175_/_18%),transparent_34%),linear-gradient(145deg,oklch(0.17_0.014_240),oklch(0.12_0.016_246))]" />
+                  <div className="absolute inset-0 bg-noise-weave opacity-30" />
+                  <div className="relative flex h-full flex-col justify-between">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="rounded-full border border-white/50 bg-background/75 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary dark:border-white/10">
+                        Featured story
+                      </span>
+                      <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground/65">
+                        {featured.badge}
+                      </span>
+                    </div>
+
+                    <div className="mt-12 max-w-md">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/60">
+                        {featured.category} · {featured.date}
+                      </p>
+                      <h2 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-[2.35rem]">
+                        {featured.title}
+                      </h2>
+                      <p className="mt-4 text-sm leading-7 text-muted-foreground/72 sm:text-[15px]">
+                        {featured.excerpt}
+                      </p>
+                    </div>
+
+                    <div className="mt-8 flex items-center gap-3">
+                      <Avatar className="size-11 ring-transparent">
+                        <AvatarFallback>{featured.author.avatar}</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">
+                          {featured.author.name}
+                        </p>
+                        <p className="text-xs text-muted-foreground/60">
+                          {featured.author.role}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border-t border-border/10 px-7 py-7 lg:border-t-0 lg:border-l lg:px-8 lg:py-8">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+                      Why read it
+                    </p>
+                    <div className="flex items-center gap-1 text-xs font-medium text-primary">
+                      Read article
+                      <Icon
+                        icon="solar:arrow-right-linear"
+                        className="size-3.5 transition-transform group-hover:translate-x-1"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mt-6 space-y-4">
+                    {featured.highlights.map((highlight, index) => (
+                      <div
+                        key={highlight}
+                        className="rounded-[1.5rem] border border-border/15 bg-background/55 p-4"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-xs font-semibold text-primary">
+                            0{index + 1}
+                          </div>
+                          <p className="text-sm leading-6 text-muted-foreground/75">
+                            {highlight}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </Link>
-          )}
+          </div>
+        </section>
 
-          {/* Post grid */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="mx-auto max-w-6xl px-6 py-12">
+          <div className="mb-8 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+                Latest Articles
+              </p>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight">
+                Editorial notes with stronger signal and less noise
+              </h2>
+            </div>
+            <p className="hidden max-w-md text-sm leading-6 text-muted-foreground/72 lg:block">
+              Each article is framed for readability, clean scanning, and a more
+              thoughtful premium reading experience.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {rest.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-border/20 bg-card/40 transition-all duration-300 hover:border-border/40 hover:bg-card/70"
+                className="group surface-panel overflow-hidden rounded-[1.8rem] p-0 transition-all duration-300 hover:-translate-y-1"
               >
-                {/* Placeholder image */}
-                <div className="relative flex h-36 items-center justify-center bg-gradient-to-br from-primary/[0.06] via-transparent to-chart-2/[0.04]">
-                  <Icon
-                    icon="mdi:text-box-outline"
-                    className="size-10 text-primary/15"
-                  />
+                <div className="relative h-42 overflow-hidden border-b border-border/10 px-5 py-5">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,oklch(0.76_0.14_175_/_15%),transparent_30%),linear-gradient(140deg,transparent,oklch(0.72_0.13_255_/_10%))]" />
+                  <div className="absolute inset-0 bg-noise-weave opacity-25" />
+                  <div className="relative flex h-full flex-col justify-between">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="rounded-full bg-primary/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-primary">
+                        {post.category}
+                      </span>
+                      <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/60">
+                        {post.readTime}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground/45">
+                      <Icon icon="solar:document-text-bold-duotone" className="size-7" />
+                      <span className="text-[11px] font-medium uppercase tracking-[0.16em]">
+                        {post.badge}
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="mb-2 flex items-center gap-2">
-                    <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-[10px] font-medium text-primary">
-                      {post.category}
-                    </span>
-                    <span className="text-[10px] text-muted-foreground/40">
-                      {post.readTime}
-                    </span>
-                  </div>
-                  <h3 className="text-sm font-semibold text-foreground transition-colors group-hover:text-primary">
-                    {post.title}
-                  </h3>
-                  <p className="mt-1.5 flex-1 text-xs leading-relaxed text-muted-foreground/70">
-                    {post.excerpt}
-                  </p>
-                  <p className="mt-3 text-[11px] text-muted-foreground/40">
+                <div className="flex h-full flex-col p-5">
+                  <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/55">
                     {post.date}
                   </p>
+                  <h3 className="mt-2 text-lg font-semibold leading-snug text-foreground transition-colors group-hover:text-primary">
+                    {post.title}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-muted-foreground/72">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="mt-5 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <Avatar className="size-9 ring-transparent">
+                        <AvatarFallback>{post.author.avatar}</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <p className="text-sm font-medium text-foreground">
+                          {post.author.name}
+                        </p>
+                        <p className="text-xs text-muted-foreground/55">
+                          {post.author.role}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex size-9 items-center justify-center rounded-full border border-border/15 text-muted-foreground/50 transition-all group-hover:border-primary/25 group-hover:text-primary">
+                      <Icon icon="solar:arrow-right-linear" className="size-4" />
+                    </div>
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
-        </div>
+        </section>
       </main>
       <SiteFooter />
-      <div className="fixed right-5 bottom-5 z-50">
-        <ThemeCustomizer />
-      </div>
     </div>
   )
 }
