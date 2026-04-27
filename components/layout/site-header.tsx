@@ -7,6 +7,7 @@ import { Icon } from "@iconify/react"
 
 import { AuthPopover } from "@/components/layout/auth-popover"
 import { BrandMark } from "@/components/layout/brand-logo"
+import { TemplateBanner } from "@/components/layout/template-banner"
 import { ThemeCustomizer, ThemeModeToggle } from "@/components/theme"
 import { Button } from "@/components/ui/button"
 import {
@@ -49,65 +50,7 @@ export default function SiteHeader() {
   return (
     <>
       {!bannerDismissed && (
-        <div className="fixed inset-x-0 top-0 z-[60] border-b border-border/45 bg-background/92 text-foreground shadow-sm backdrop-blur-2xl dark:border-white/10 dark:bg-background/86">
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:px-6">
-            <div className="flex min-w-0 items-center gap-3 sm:gap-4">
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
-                <Icon icon="solar:rocket-bold-duotone" className="size-5" />
-              </span>
-              <p className="min-w-0 truncate text-sm font-medium">
-                <span className="font-bold">Clario template gratis.</span> Claim
-                di Junno UI untuk mulai lebih cepat.
-              </p>
-              <Button
-                asChild
-                variant="secondary"
-                size="sm"
-                className="hidden h-8 rounded-full px-4 text-xs font-bold shadow-sm sm:inline-flex"
-              >
-                <a
-                  href={siteConfig.templateUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Claim free
-                </a>
-              </Button>
-            </div>
-
-            <div className="flex shrink-0 items-center gap-2">
-              <Button
-                asChild
-                variant="secondary"
-                size="sm"
-                className="h-8 rounded-full px-3 text-xs font-bold shadow-sm sm:hidden"
-              >
-                <a
-                  href={siteConfig.templateUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View template
-                  <Icon
-                    icon="solar:arrow-right-up-linear"
-                    className="size-3.5"
-                  />
-                </a>
-              </Button>
-
-              <Button
-                type="button"
-                variant="ghost"
-                size="icon-sm"
-                onClick={() => setBannerDismissed(true)}
-                className="size-8 rounded-full text-muted-foreground hover:bg-muted/70 hover:text-foreground"
-                aria-label="Dismiss free template banner"
-              >
-                <Icon icon="solar:close-circle-linear" className="size-4" />
-              </Button>
-            </div>
-          </div>
-        </div>
+        <TemplateBanner onDismiss={() => setBannerDismissed(true)} />
       )}
 
       <header
