@@ -172,7 +172,7 @@ export default function TestimonialsSection() {
             Testimonials
           </div>
 
-          <h2 className="text-3xl font-bold tracking-[-0.045em] text-balance text-foreground sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
+          <h2 className="text-4xl leading-[0.98] font-bold tracking-[-0.06em] text-balance text-foreground sm:text-5xl md:text-6xl dark:text-white">
             Loved by teams that{" "}
             <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
               move with data.

@@ -49,18 +49,30 @@ export default function SiteHeader() {
   return (
     <>
       {!bannerDismissed && (
-        <div className="fixed inset-x-0 top-0 z-[60] border-b border-white/10 bg-[linear-gradient(110deg,oklch(0.24_0.04_250),oklch(0.42_0.16_170),oklch(0.3_0.1_220))] text-white shadow-2xl shadow-primary/20">
-          <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 px-3 py-2.5 text-center sm:flex-row sm:gap-3 sm:px-6">
-            <div className="flex min-w-0 items-center justify-center gap-2">
-              <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/20">
-                <Icon icon="solar:gift-bold-duotone" className="size-4" />
+        <div className="fixed inset-x-0 top-0 z-[60] border-b border-border/45 bg-background/92 text-foreground shadow-sm backdrop-blur-2xl dark:border-white/10 dark:bg-background/86">
+          <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:px-6">
+            <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
+                <Icon icon="solar:rocket-bold-duotone" className="size-5" />
               </span>
-              <p className="text-xs leading-5 font-medium sm:text-sm">
-                <span className="font-bold">
-                  Clario is a free Junno UI template.
-                </span>{" "}
-                Use it as a polished starting point for your SaaS landing page.
+              <p className="min-w-0 truncate text-sm font-medium">
+                <span className="font-bold">Clario template gratis.</span> Claim
+                di Junno UI untuk mulai lebih cepat.
               </p>
+              <Button
+                asChild
+                variant="secondary"
+                size="sm"
+                className="hidden h-8 rounded-full px-4 text-xs font-bold shadow-sm sm:inline-flex"
+              >
+                <a
+                  href={siteConfig.templateUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Claim free
+                </a>
+              </Button>
             </div>
 
             <div className="flex shrink-0 items-center gap-2">
@@ -68,7 +80,7 @@ export default function SiteHeader() {
                 asChild
                 variant="secondary"
                 size="sm"
-                className="h-8 rounded-full bg-white px-3 text-xs font-bold text-slate-950 shadow-lg shadow-black/10 hover:bg-white/90"
+                className="h-8 rounded-full px-3 text-xs font-bold shadow-sm sm:hidden"
               >
                 <a
                   href={siteConfig.templateUrl}
@@ -88,10 +100,10 @@ export default function SiteHeader() {
                 variant="ghost"
                 size="icon-sm"
                 onClick={() => setBannerDismissed(true)}
-                className="rounded-full text-white/80 hover:bg-white/12 hover:text-white"
+                className="size-8 rounded-full text-muted-foreground hover:bg-muted/70 hover:text-foreground"
                 aria-label="Dismiss free template banner"
               >
-                <Icon icon="solar:close-circle-bold" className="size-4" />
+                <Icon icon="solar:close-circle-linear" className="size-4" />
               </Button>
             </div>
           </div>
@@ -101,7 +113,7 @@ export default function SiteHeader() {
       <header
         className={cn(
           "pointer-events-none fixed inset-x-0 z-50 flex justify-center px-4 sm:px-6",
-          bannerDismissed ? "top-0 pt-4" : "top-[6.25rem] pt-3 sm:top-[3.55rem]"
+          bannerDismissed ? "top-0 pt-4" : "top-[4rem] pt-3"
         )}
       >
         <nav

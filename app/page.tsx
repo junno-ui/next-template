@@ -1,5 +1,6 @@
 import SiteHeader from "@/components/layout/site-header"
 import { SiteFooter } from "@/components/layout/site-footer"
+import { TemplateFloatingButton } from "@/components/layout/template-floating-button"
 import HeroSection from "@/components/marketing/hero-section"
 import LogosSection from "@/components/marketing/logos-section"
 import StatisticsSection from "@/components/marketing/statistics-section"
@@ -34,6 +35,7 @@ export default function Home() {
         <CtaSection />
       </main>
       <SiteFooter />
+      <TemplateFloatingButton />
     </div>
   )
 }

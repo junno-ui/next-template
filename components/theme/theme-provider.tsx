@@ -15,8 +15,8 @@ export type ThemeConfig = {
 
 const defaultConfig: ThemeConfig = {
   style: "glass",
-  theme: "sapphire",
-  radius: 1,
+  theme: "ember",
+  radius: 1.25,
 }
 
 type ConfigContextValue = [

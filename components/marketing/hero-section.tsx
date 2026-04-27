@@ -706,11 +706,11 @@ export default function HeroSection() {
             <HeroBadge />
 
             <div className="animate-fade-up relative mx-auto mt-5 max-w-3xl px-4 delay-100">
-              <p className="mx-auto max-w-xl text-xs leading-5 font-medium text-foreground/70 sm:text-sm dark:text-white/60">
+              <p className="mx-auto max-w-2xl text-sm leading-6 font-medium text-foreground/70 sm:text-base dark:text-white/60">
                 A polished SaaS landing page starter with analytics-inspired
                 storytelling and premium UI details.
               </p>
-              <h1 className="mx-auto mt-4 max-w-3xl text-center text-3xl leading-tight font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl dark:text-white">
+              <h1 className="mx-auto mt-5 max-w-4xl text-center text-4xl leading-[0.96] font-bold tracking-[-0.065em] text-foreground sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
                 Turn scattered data
                 <span className="block">into</span>
                 <span className="relative inline-block">
@@ -724,7 +724,7 @@ export default function HeroSection() {
                 </span>
               </h1>
 
-              <p className="mx-auto mt-4 max-w-xl text-center text-sm leading-6 text-muted-foreground dark:text-white/70">
+              <p className="mx-auto mt-5 max-w-2xl text-center text-base leading-7 text-muted-foreground dark:text-white/70">
                 Bring dashboards, campaigns, and insights into one fast, clean
                 workspace.
               </p>

@@ -62,7 +62,7 @@ export default function CtaSection() {
               <Icon icon="solar:rocket-bold-duotone" className="size-8" />
             </div>
 
-            <h2 className="max-w-3xl text-3xl font-bold tracking-[-0.045em] text-balance text-white sm:text-4xl md:text-5xl lg:text-6xl">
+            <h2 className="max-w-3xl text-4xl leading-[0.98] font-bold tracking-[-0.06em] text-balance text-white sm:text-5xl md:text-6xl lg:text-7xl">
               Ready to launch a sharper product site?
             </h2>
 
