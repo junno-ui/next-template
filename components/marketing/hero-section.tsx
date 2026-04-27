@@ -702,90 +702,62 @@ export default function HeroSection() {
           <div className="relative w-full text-center">
             <HeroBadge />
 
-            <div className="animate-fade-up relative mx-auto mt-7 max-w-5xl delay-100">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[420px] w-[min(90vw,900px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.10] blur-[120px]"
-              />
-
-              <p className="mx-auto max-w-2xl text-sm leading-6 font-medium text-foreground/70 sm:text-base dark:text-white/62">
+            <div className="animate-fade-up relative mx-auto mt-5 max-w-3xl px-4 delay-100">
+              <p className="mx-auto max-w-xl text-xs leading-5 font-medium text-foreground/70 sm:text-sm dark:text-white/60">
                 Modern analytics, automation, and reporting tools for SaaS teams
-                that want cleaner workflows and faster decisions.
               </p>
-
-              <h1 className="mx-auto mt-6 max-w-5xl text-5xl leading-[0.9] font-bold tracking-[-0.065em] text-balance text-foreground sm:text-6xl md:text-7xl lg:text-[6.25rem] dark:text-white">
+              <h1 className="mx-auto mt-4 max-w-3xl text-center text-3xl leading-tight font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl dark:text-white">
                 Turn scattered data
                 <span className="block">into</span>
                 <span className="relative inline-block">
                   <span
                     aria-hidden="true"
-                    className="absolute inset-x-0 bottom-3 h-6 rounded-full bg-gradient-to-r from-primary/45 via-cyan-300/25 to-primary/45 blur-2xl sm:bottom-4 sm:h-8"
+                    className="absolute inset-x-0 bottom-1.5 h-3 rounded-full bg-linear-to-r from-primary/40 via-cyan-300/20 to-primary/40 blur-xl"
                   />
-                  <span className="relative bg-gradient-to-r from-orange-200 via-cyan-200 to-orange-200 bg-clip-text text-transparent">
+                  <span className="relative bg-linear-to-r from-orange-200 via-cyan-200 to-orange-200 bg-clip-text text-transparent">
                     clear decisions
                   </span>
                 </span>
               </h1>
 
-              <p className="mx-auto mt-7 max-w-2xl text-[15px] leading-7 text-pretty text-muted-foreground sm:text-base dark:text-white/70">
-                Bring dashboards, campaigns, customer insights, and performance
-                reports into one polished workspace built for speed, clarity,
-                and growth.
+              <p className="mx-auto mt-4 max-w-xl text-center text-sm leading-6 text-muted-foreground dark:text-white/70">
+                Bring dashboards, campaigns, and insights into one fast, clean
+                workspace.
               </p>
 
-              <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row">
                 <a
                   href="#pricing"
                   className={cn(
-                    buttonVariants({ size: "lg" }),
-                    "group relative overflow-hidden rounded-full px-8 text-sm font-semibold shadow-xl shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-primary/35 active:scale-[0.98]"
+                    buttonVariants({ size: "sm" }),
+                    "rounded-full px-6 text-xs font-semibold shadow-md transition-all hover:scale-[1.02]"
                   )}
                 >
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]"
-                  />
-                  Start free today
-                  <Icon
-                    icon="solar:arrow-right-bold"
-                    className="ml-1.5 size-4 transition-transform duration-300 group-hover:translate-x-1"
-                  />
+                  Start free
                 </a>
 
                 <a
                   href="#features"
                   className={cn(
-                    buttonVariants({ variant: "outline", size: "lg" }),
-                    "group rounded-full bg-background/80 px-8 text-sm text-foreground ring-1 ring-border/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-background hover:ring-primary/25 active:scale-[0.98] dark:bg-white/[0.035] dark:text-white dark:ring-white/10 dark:hover:bg-white/[0.06]"
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                    "rounded-full px-6 text-xs"
                   )}
                 >
-                  Explore features
-                  <Icon
-                    icon="solar:arrow-down-bold"
-                    className="ml-1.5 size-3.5 transition-transform duration-300 group-hover:translate-y-0.5"
-                  />
+                  Features
                 </a>
               </div>
 
-              <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground dark:text-white/45">
-                <span>No credit card required</span>
-                <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
-                <span>14-day free trial</span>
-                <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[10px] text-muted-foreground dark:text-white/50">
+                <span>No card</span>
+                <span>•</span>
+                <span>14-day trial</span>
+                <span>•</span>
                 <span>Cancel anytime</span>
               </div>
 
-              <TrustPills />
-
-              <div className="mx-auto mt-9 grid max-w-4xl gap-3 sm:grid-cols-3">
+              <div className="mt-6 grid max-w-3xl gap-2 sm:grid-cols-3">
                 {heroStats.map((item) => (
-                  <HeroStatCard
-                    key={item.label}
-                    label={item.label}
-                    value={item.value}
-                    description={item.description}
-                    icon={item.icon}
-                  />
+                  <HeroStatCard key={item.label} {...item} />
                 ))}
               </div>
             </div>
