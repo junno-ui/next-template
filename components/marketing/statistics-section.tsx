@@ -47,8 +47,8 @@ function StatCard({
   return (
     <article
       className={cn(
-        "animate-slide-up-fade group relative overflow-hidden rounded-[1.75rem] border border-border/40 bg-background/72 p-6 text-center shadow-2xl shadow-black/[0.10] backdrop-blur-xl transition-all duration-500 dark:border-white/10 dark:bg-white/[0.025]",
-        "hover:border-primary/25 hover:bg-background/90 hover:shadow-primary/10 dark:hover:bg-white/[0.045]",
+        "animate-slide-up-fade group relative overflow-hidden rounded-[1.75rem] border border-border/40 bg-background/72 p-6 text-center shadow-2xl shadow-black/10 backdrop-blur-xl transition-all duration-500 dark:border-white/10 dark:bg-white/2.5",
+        "hover:border-primary/25 hover:bg-background/90 hover:shadow-primary/10 dark:hover:bg-white/4.5",
         stat.hover
       )}
       style={{
@@ -59,13 +59,13 @@ function StatCard({
       {/* soft hover wash */}
       <div
         className={cn(
-          "pointer-events-none absolute inset-0 bg-gradient-to-br via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100",
+          "pointer-events-none absolute inset-0 bg-linear-to-br via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100",
           stat.accent
         )}
       />
 
       {/* top shine */}
-      <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-white/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
       {/* corner glow */}
       <div className="pointer-events-none absolute -top-16 -right-16 size-40 rounded-full bg-primary/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
@@ -82,7 +82,7 @@ function StatCard({
         {stat.label}
       </p>
 
-      <p className="relative mx-auto mt-3 max-w-[14rem] text-sm leading-6 text-muted-foreground dark:text-white/50">
+      <p className="relative mx-auto mt-3 max-w-56 text-sm leading-6 text-muted-foreground dark:text-white/50">
         {stat.description}
       </p>
     </article>
@@ -100,12 +100,12 @@ export default function StatisticsSection() {
         <div className="absolute inset-0 bg-background" />
         <div className="bg-hex-dots absolute inset-0 opacity-[0.14]" />
 
-        <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-background to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-36 bg-linear-to-b from-background to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-36 bg-linear-to-t from-background to-transparent" />
 
-        <div className="absolute top-1/2 left-1/2 h-[420px] w-[min(90vw,820px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.08] blur-[120px]" />
-        <div className="absolute top-[20%] left-[-10%] h-[360px] w-[520px] rounded-full bg-chart-2/[0.045] blur-[110px]" />
-        <div className="absolute right-[-10%] bottom-[12%] h-[360px] w-[520px] rounded-full bg-primary/[0.045] blur-[110px]" />
+        <div className="absolute top-1/2 left-1/2 h-105 w-[min(90vw,820px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/8 blur-[120px]" />
+        <div className="absolute top-[20%] left-[-10%] h-90 w-130 rounded-full bg-chart-2/4.5 blur-[110px]" />
+        <div className="absolute right-[-10%] bottom-[12%] h-90 w-130 rounded-full bg-primary/4.5 blur-[110px]" />
 
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_45%,transparent_8%,rgba(255,255,255,0.34)_72%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_70%_55%_at_50%_45%,transparent_8%,rgba(0,0,0,0.48)_72%,rgba(0,0,0,0.78)_100%)]" />
       </div>
@@ -113,7 +113,7 @@ export default function StatisticsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-4 py-2 text-[11px] font-semibold tracking-[0.22em] text-primary uppercase backdrop-blur-xl dark:bg-white/[0.03]">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-4 py-2 text-[11px] font-semibold tracking-[0.22em] text-primary uppercase backdrop-blur-xl dark:bg-white/3">
             <span className="relative flex size-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
               <span className="relative inline-flex size-2 rounded-full bg-primary" />
@@ -142,7 +142,7 @@ export default function StatisticsSection() {
         </div>
 
         {/* Bottom trust strip */}
-        <div className="mx-auto mt-8 max-w-4xl rounded-[1.5rem] border border-border/40 bg-background/72 px-5 py-4 text-center backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.025]">
+        <div className="mx-auto mt-8 max-w-4xl rounded-[1.5rem] border border-border/40 bg-background/72 px-5 py-4 text-center backdrop-blur-xl dark:border-white/10 dark:bg-white/2.5">
           <p className="text-sm leading-6 text-muted-foreground dark:text-white/52">
             Built for teams that need clarity, reliability, and fast decision
             cycles without adding more operational noise.

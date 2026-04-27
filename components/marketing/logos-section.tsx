@@ -19,7 +19,7 @@ export default function LogosSection() {
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
       >
-        <div className="absolute top-1/2 left-1/2 h-[260px] w-[min(90vw,760px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.045] blur-[110px]" />
+        <div className="absolute top-1/2 left-1/2 h-65 w-[min(90vw,760px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.045] blur-[110px]" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

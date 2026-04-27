@@ -61,8 +61,8 @@ function TestimonialCard({
   return (
     <article
       className={cn(
-        "group flex h-full w-[320px] shrink-0 flex-col justify-between rounded-[1.75rem] bg-background/72 p-5 ring-1 ring-border/40 backdrop-blur-xl dark:bg-white/[0.025] dark:ring-white/10",
-        "transition-all duration-300 hover:-translate-y-1 hover:bg-background/90 hover:ring-primary/25 dark:hover:bg-white/[0.045]"
+        "group flex h-full w-[320px] shrink-0 flex-col justify-between rounded-[1.75rem] bg-background/72 p-5 ring-1 ring-border/40 backdrop-blur-xl dark:bg-white/2.5 dark:ring-white/10",
+        "transition-all duration-300 hover:-translate-y-1 hover:bg-background/90 hover:ring-primary/25 dark:hover:bg-white/4.5"
       )}
     >
       <div>
@@ -143,10 +143,10 @@ export default function TestimonialsSection() {
       >
         <div className="absolute inset-0 bg-background" />
         <div className="bg-hex-dots absolute inset-0 opacity-[0.1]" />
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background via-background/80 to-transparent" />
-        <div className="absolute top-[22%] left-1/2 h-[460px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[130px]" />
-        <div className="absolute bottom-[-12%] left-1/2 h-[360px] w-[720px] -translate-x-1/2 rounded-full bg-chart-2/[0.04] blur-[120px]" />
+        <div className="absolute inset-x-0 top-0 h-44 bg-linear-to-b from-background via-background/80 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-44 bg-linear-to-t from-background via-background/80 to-transparent" />
+        <div className="absolute top-[22%] left-1/2 h-115 w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/6 blur-[130px]" />
+        <div className="absolute bottom-[-12%] left-1/2 h-90 w-180 -translate-x-1/2 rounded-full bg-chart-2/4 blur-[120px]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
       </div>
 
@@ -174,8 +174,8 @@ export default function TestimonialsSection() {
         </div>
 
         <div className="relative">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background via-background/90 to-transparent dark:from-black dark:via-black/80" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background via-background/90 to-transparent dark:from-black dark:via-black/80" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-linear-to-r from-background via-background/90 to-transparent dark:from-black dark:via-black/80" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l from-background via-background/90 to-transparent dark:from-black dark:via-black/80" />
 
           <div className="space-y-4">
             <TestimonialsMarquee speed={42} />
