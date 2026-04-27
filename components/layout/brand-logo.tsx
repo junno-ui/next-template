@@ -13,6 +13,7 @@ type LogoSize = "6" | "7" | "8" | "9" | "10"
 export interface BrandLogoProps {
   className?: string
   iconOnly?: boolean
+  showText?: boolean
   size?: LogoSize
 }
 
@@ -140,7 +141,7 @@ function Wordmark({ size = "8" }: { size?: LogoSize }) {
 
 export function BrandLogo({
   className,
-  iconOnly = false,
+  showText = true,
   size = "8",
 }: BrandLogoProps) {
   return (
@@ -154,18 +155,17 @@ export function BrandLogo({
       )}
     >
       <LogoMark size={size} />
-      {!iconOnly && <Wordmark size={size} />}
+      {showText && <Wordmark size={size} />}
     </Link>
   )
 }
-
 /* -------------------------------------------------------------------------- */
 /*  BrandMark - non-clickable                                                   */
 /* -------------------------------------------------------------------------- */
 
 export function BrandMark({
   className,
-  iconOnly = false,
+  showText = true,
   size = "8",
 }: BrandLogoProps) {
   return (
@@ -177,7 +177,7 @@ export function BrandMark({
       aria-label={brandName}
     >
       <LogoMark size={size} />
-      {!iconOnly && <Wordmark size={size} />}
+      {showText && <Wordmark size={size} />}
     </div>
   )
 }
