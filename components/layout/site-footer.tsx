@@ -54,17 +54,17 @@ export function SiteFooter() {
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-hex-dots opacity-[0.08]" />
+        <div className="bg-hex-dots absolute inset-0 opacity-[0.08]" />
 
         <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
 
-        <div className="absolute left-1/2 top-0 h-[420px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.055] blur-[130px]" />
+        <div className="absolute top-0 left-1/2 h-[420px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.055] blur-[130px]" />
         <div className="absolute right-[-12%] bottom-[-20%] h-[340px] w-[620px] rounded-full bg-chart-2/[0.035] blur-[120px]" />
 
-        <div className="absolute left-1/2 top-0 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
+        <div className="absolute top-0 left-1/2 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
         {/* Top CTA strip */}
         <div className="mb-10 overflow-hidden rounded-[2rem] bg-background/72 p-5 ring-1 ring-border/40 backdrop-blur-xl sm:p-6 dark:bg-white/[0.025] dark:ring-white/10">
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
@@ -84,10 +84,7 @@ export function SiteFooter() {
                 className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-xl shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-primary/35 active:scale-[0.98]"
               >
                 Start free
-                <Icon
-                  icon="solar:arrow-right-bold"
-                  className="ml-1.5 size-4"
-                />
+                <Icon icon="solar:arrow-right-bold" className="ml-1.5 size-4" />
               </Link>
 
               <Link
@@ -149,7 +146,7 @@ export function SiteFooter() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             {Object.entries(footerLinks).map(([group, links]) => (
               <div key={group}>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+                <p className="text-[11px] font-semibold tracking-[0.22em] text-primary uppercase">
                   {group}
                 </p>
 

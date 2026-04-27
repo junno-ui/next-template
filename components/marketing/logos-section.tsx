@@ -19,13 +19,13 @@ export default function LogosSection() {
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
       >
-        <div className="absolute left-1/2 top-1/2 h-[260px] w-[min(90vw,760px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.045] blur-[110px]" />
+        <div className="absolute top-1/2 left-1/2 h-[260px] w-[min(90vw,760px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.045] blur-[110px]" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto mb-9 max-w-2xl text-center">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-primary">
+          <p className="text-[10px] font-semibold tracking-[0.28em] text-primary uppercase">
             Trusted by industry leaders
           </p>
 
@@ -60,7 +60,7 @@ export default function LogosSection() {
                   />
                 </span>
 
-                <span className="whitespace-nowrap text-sm font-semibold tracking-tight">
+                <span className="text-sm font-semibold tracking-tight whitespace-nowrap">
                   {logo.name}
                 </span>
               </div>

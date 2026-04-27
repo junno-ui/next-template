@@ -90,7 +90,10 @@ export const themeColors: ThemeColor[] = [
   {
     name: "sapphire",
     label: "Sapphire",
-    activeColor: { light: "hsl(221.2 83.2% 53.3%)", dark: "hsl(217.2 91.2% 59.8%)" },
+    activeColor: {
+      light: "hsl(221.2 83.2% 53.3%)",
+      dark: "hsl(217.2 91.2% 59.8%)",
+    },
     cssVars: {
       light: {
         "--background": "hsl(0 0% 100%)",
@@ -163,7 +166,10 @@ export const themeColors: ThemeColor[] = [
   {
     name: "ruby",
     label: "Ruby",
-    activeColor: { light: "hsl(346.8 77.2% 49.8%)", dark: "hsl(346.8 77.2% 49.8%)" },
+    activeColor: {
+      light: "hsl(346.8 77.2% 49.8%)",
+      dark: "hsl(346.8 77.2% 49.8%)",
+    },
     cssVars: {
       light: {
         "--background": "hsl(0 0% 100%)",
@@ -236,7 +242,10 @@ export const themeColors: ThemeColor[] = [
   {
     name: "ember",
     label: "Ember",
-    activeColor: { light: "hsl(24.6 95% 53.1%)", dark: "hsl(20.5 90.2% 48.2%)" },
+    activeColor: {
+      light: "hsl(24.6 95% 53.1%)",
+      dark: "hsl(20.5 90.2% 48.2%)",
+    },
     cssVars: {
       light: {
         "--background": "hsl(0 0% 100%)",

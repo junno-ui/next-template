@@ -150,12 +150,12 @@ export default function TestimonialsSection() {
         aria-hidden="true"
       >
         <div className="absolute inset-0 bg-background" />
-        <div className="absolute inset-0 bg-hex-dots opacity-[0.1]" />
+        <div className="bg-hex-dots absolute inset-0 opacity-[0.1]" />
 
         <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background via-background/80 to-transparent" />
 
-        <div className="absolute left-1/2 top-[22%] h-[460px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[130px]" />
+        <div className="absolute top-[22%] left-1/2 h-[460px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[130px]" />
         <div className="absolute bottom-[-12%] left-1/2 h-[360px] w-[720px] -translate-x-1/2 rounded-full bg-chart-2/[0.04] blur-[120px]" />
 
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
@@ -164,7 +164,7 @@ export default function TestimonialsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary ring-1 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035]">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold tracking-[0.22em] text-primary uppercase ring-1 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035]">
             <span className="relative flex size-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
               <span className="relative inline-flex size-2 rounded-full bg-primary" />
@@ -172,14 +172,14 @@ export default function TestimonialsSection() {
             Testimonials
           </div>
 
-          <h2 className="text-balance text-3xl font-bold tracking-[-0.045em] text-foreground dark:text-white sm:text-4xl md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-bold tracking-[-0.045em] text-balance text-foreground sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
             Loved by teams that{" "}
             <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
               move with data.
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-pretty text-[15px] leading-7 text-muted-foreground dark:text-white/64 sm:text-base">
+          <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-7 text-pretty text-muted-foreground sm:text-base dark:text-white/64">
             Simple feedback from teams using the platform to make reporting,
             campaigns, and growth decisions easier.
           </p>

@@ -52,46 +52,60 @@ export default async function BlogPostPage({
 
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden text-foreground">
-      <div className="pointer-events-none fixed inset-0 -z-20" aria-hidden="true">
-        <div className="absolute inset-0 bg-radial-flares opacity-95" />
-        <div className="absolute inset-0 bg-noise-weave opacity-35" />
+      <div
+        className="pointer-events-none fixed inset-0 -z-20"
+        aria-hidden="true"
+      >
+        <div className="bg-radial-flares absolute inset-0 opacity-95" />
+        <div className="bg-noise-weave absolute inset-0 opacity-35" />
       </div>
       <SiteHeader />
       <main className="flex-1 pt-28 pb-18">
         <section className="relative">
-          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
-            <div className="absolute inset-0 bg-luxury-grid opacity-60" />
-            <div className="absolute left-[10%] top-16 h-[24rem] w-[24rem] rounded-full bg-primary/[0.1] blur-[110px]" />
-            <div className="absolute right-[10%] top-[10%] h-[18rem] w-[18rem] rounded-full bg-chart-2/[0.1] blur-[95px]" />
+          <div
+            className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+            aria-hidden="true"
+          >
+            <div className="bg-luxury-grid absolute inset-0 opacity-60" />
+            <div className="absolute top-16 left-[10%] h-[24rem] w-[24rem] rounded-full bg-primary/[0.1] blur-[110px]" />
+            <div className="absolute top-[10%] right-[10%] h-[18rem] w-[18rem] rounded-full bg-chart-2/[0.1] blur-[95px]" />
           </div>
 
           <article className="mx-auto max-w-6xl px-6">
             <div className="mx-auto max-w-4xl">
-              <div className="mb-7 flex flex-wrap items-center gap-2 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/55">
-                <Link href="/" className="transition-colors hover:text-foreground">
+              <div className="mb-7 flex flex-wrap items-center gap-2 text-[11px] font-medium tracking-[0.16em] text-muted-foreground/55 uppercase">
+                <Link
+                  href="/"
+                  className="transition-colors hover:text-foreground"
+                >
                   Home
                 </Link>
                 <Icon icon="solar:alt-arrow-right-outline" className="size-3" />
-                <Link href="/blog" className="transition-colors hover:text-foreground">
+                <Link
+                  href="/blog"
+                  className="transition-colors hover:text-foreground"
+                >
                   Blog
                 </Link>
                 <Icon icon="solar:alt-arrow-right-outline" className="size-3" />
-                <span className="text-muted-foreground/72">{post.category}</span>
+                <span className="text-muted-foreground/72">
+                  {post.category}
+                </span>
               </div>
 
-              <header className="surface-panel overflow-hidden rounded-[2.1rem] border border-white/50 p-7 shadow-2xl shadow-black/[0.08] dark:border-white/10 sm:p-8">
+              <header className="surface-panel overflow-hidden rounded-[2.1rem] border border-white/50 p-7 shadow-2xl shadow-black/[0.08] sm:p-8 dark:border-white/10">
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top_right,oklch(0.76_0.15_175_/_14%),transparent_42%)]" />
                 <div className="relative">
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+                    <span className="rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-primary uppercase">
                       {post.category}
                     </span>
-                    <span className="rounded-full border border-border/20 bg-background/65 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/65">
+                    <span className="rounded-full border border-border/20 bg-background/65 px-3 py-1 text-[11px] font-medium tracking-[0.16em] text-muted-foreground/65 uppercase">
                       {post.badge}
                     </span>
                   </div>
 
-                  <h1 className="mt-5 text-4xl font-bold leading-[1.04] tracking-tight sm:text-5xl">
+                  <h1 className="mt-5 text-4xl leading-[1.04] font-bold tracking-tight sm:text-5xl">
                     {post.title}
                   </h1>
                   <p className="mt-4 max-w-3xl text-[15px] leading-7 text-muted-foreground/72 sm:text-base">
@@ -113,7 +127,7 @@ export default async function BlogPostPage({
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-3 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/58">
+                    <div className="flex flex-wrap items-center gap-3 text-[11px] font-medium tracking-[0.16em] text-muted-foreground/58 uppercase">
                       <span>{post.date}</span>
                       <span className="size-1 rounded-full bg-border" />
                       <span>{post.readTime}</span>
@@ -124,14 +138,15 @@ export default async function BlogPostPage({
             </div>
 
             <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
-              <div className="surface-panel rounded-[2rem] border border-white/50 p-7 shadow-xl shadow-black/[0.05] dark:border-white/10 sm:p-8">
+              <div className="surface-panel rounded-[2rem] border border-white/50 p-7 shadow-xl shadow-black/[0.05] sm:p-8 dark:border-white/10">
                 <div className="space-y-6">
                   {post.content.map((paragraph, index) => (
                     <p
                       key={paragraph}
                       className={cn(
                         "text-[15px] leading-8 text-muted-foreground/80 sm:text-[16px]",
-                        index === 0 && "text-[17px] text-foreground/92 sm:text-[18px]"
+                        index === 0 &&
+                          "text-[17px] text-foreground/92 sm:text-[18px]"
                       )}
                     >
                       {paragraph}
@@ -140,7 +155,7 @@ export default async function BlogPostPage({
                 </div>
 
                 <div className="mt-10 rounded-[1.7rem] border border-border/15 bg-muted/22 p-5">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                  <p className="text-[11px] font-semibold tracking-[0.2em] text-primary uppercase">
                     Key Takeaways
                   </p>
                   <div className="mt-4 space-y-3">
@@ -165,11 +180,16 @@ export default async function BlogPostPage({
                       "rounded-full border-border/30 px-6 hover:bg-muted/30"
                     )}
                   >
-                    <Icon icon="solar:arrow-left-linear" className="mr-1.5 size-4" />
+                    <Icon
+                      icon="solar:arrow-left-linear"
+                      className="mr-1.5 size-4"
+                    />
                     All Articles
                   </Link>
                   <div className="flex items-center gap-3">
-                    <span className="text-xs text-muted-foreground/48">Share:</span>
+                    <span className="text-xs text-muted-foreground/48">
+                      Share:
+                    </span>
                     {[
                       { icon: "mdi:twitter", label: "Twitter" },
                       { icon: "mdi:linkedin", label: "LinkedIn" },
@@ -189,12 +209,12 @@ export default async function BlogPostPage({
 
               <aside className="space-y-5">
                 <div className="surface-panel rounded-[1.8rem] p-5">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                  <p className="text-[11px] font-semibold tracking-[0.2em] text-primary uppercase">
                     Reading Notes
                   </p>
                   <div className="mt-4 space-y-3">
                     <div className="rounded-[1.3rem] border border-border/15 bg-background/55 p-4">
-                      <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/55">
+                      <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground/55 uppercase">
                         Category
                       </p>
                       <p className="mt-2 text-sm font-semibold text-foreground">
@@ -202,7 +222,7 @@ export default async function BlogPostPage({
                       </p>
                     </div>
                     <div className="rounded-[1.3rem] border border-border/15 bg-background/55 p-4">
-                      <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/55">
+                      <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground/55 uppercase">
                         Read time
                       </p>
                       <p className="mt-2 text-sm font-semibold text-foreground">
@@ -210,7 +230,7 @@ export default async function BlogPostPage({
                       </p>
                     </div>
                     <div className="rounded-[1.3rem] border border-border/15 bg-background/55 p-4">
-                      <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/55">
+                      <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground/55 uppercase">
                         Published
                       </p>
                       <p className="mt-2 text-sm font-semibold text-foreground">
@@ -221,7 +241,7 @@ export default async function BlogPostPage({
                 </div>
 
                 <div className="surface-panel rounded-[1.8rem] p-5">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                  <p className="text-[11px] font-semibold tracking-[0.2em] text-primary uppercase">
                     Related Articles
                   </p>
                   <div className="mt-4 space-y-3">
@@ -231,10 +251,10 @@ export default async function BlogPostPage({
                         href={`/blog/${relatedPost.slug}`}
                         className="group block rounded-[1.3rem] border border-border/15 bg-background/55 p-4 transition-all hover:-translate-y-0.5 hover:border-border/35 hover:bg-background/80"
                       >
-                        <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/55">
+                        <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground/55 uppercase">
                           {relatedPost.category}
                         </p>
-                        <p className="mt-2 text-sm font-semibold leading-6 text-foreground transition-colors group-hover:text-primary">
+                        <p className="mt-2 text-sm leading-6 font-semibold text-foreground transition-colors group-hover:text-primary">
                           {relatedPost.title}
                         </p>
                       </Link>

@@ -3,6 +3,7 @@
 import { Icon } from "@iconify/react"
 
 import { buttonVariants } from "@/components/ui/button"
+import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import React from "react"
 
@@ -107,10 +108,10 @@ const months = [
 ]
 
 const countries = [
-  { country: "United States", flag: "🇺🇸", pct: 42, color: "bg-primary" },
-  { country: "Germany", flag: "🇩🇪", pct: 28, color: "bg-chart-2" },
-  { country: "Japan", flag: "🇯🇵", pct: 18, color: "bg-chart-3" },
-  { country: "France", flag: "🇫🇷", pct: 12, color: "bg-chart-4" },
+  { country: "United States", flag: "US", pct: 42, color: "bg-primary" },
+  { country: "Germany", flag: "DE", pct: 28, color: "bg-chart-2" },
+  { country: "Japan", flag: "JP", pct: 18, color: "bg-chart-3" },
+  { country: "France", flag: "FR", pct: 12, color: "bg-chart-4" },
 ]
 
 /* -------------------------------------------------------------------------- */
@@ -151,7 +152,7 @@ function HeroBadge() {
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
         <span className="relative inline-flex size-2 rounded-full bg-primary" />
       </span>
-      New SaaS dashboard experience
+      Free premium template from Junno UI
     </div>
   )
 }
@@ -581,7 +582,9 @@ function DashboardPreview() {
                   <div key={country.country} className="group/country">
                     <div className="mb-1.5 flex items-center justify-between">
                       <span className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <span className="text-sm">{country.flag}</span>
+                        <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-bold text-primary ring-1 ring-primary/15">
+                          {country.flag}
+                        </span>
                         {country.country}
                       </span>
 
@@ -696,7 +699,7 @@ export default function HeroSection() {
     <section id="home" className="relative isolate overflow-hidden">
       <HeroBackground />
 
-      <div className="mx-auto max-w-7xl px-4 pt-32 pb-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-52 pb-20 sm:px-6 sm:pt-44 lg:px-8">
         <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center">
           {/* Hero content */}
           <div className="relative w-full text-center">
@@ -704,7 +707,8 @@ export default function HeroSection() {
 
             <div className="animate-fade-up relative mx-auto mt-5 max-w-3xl px-4 delay-100">
               <p className="mx-auto max-w-xl text-xs leading-5 font-medium text-foreground/70 sm:text-sm dark:text-white/60">
-                Modern analytics, automation, and reporting tools for SaaS teams
+                A polished SaaS landing page starter with analytics-inspired
+                storytelling and premium UI details.
               </p>
               <h1 className="mx-auto mt-4 max-w-3xl text-center text-3xl leading-tight font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl dark:text-white">
                 Turn scattered data
@@ -737,23 +741,31 @@ export default function HeroSection() {
                 </a>
 
                 <a
-                  href="#features"
+                  href={siteConfig.templateUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   className={cn(
                     buttonVariants({ variant: "outline", size: "sm" }),
-                    "rounded-full px-6 text-xs"
+                    "rounded-full bg-background/80 px-6 text-xs backdrop-blur-xl"
                   )}
                 >
-                  Features
+                  Get template
+                  <Icon
+                    icon="solar:arrow-right-up-linear"
+                    className="ml-1 size-3.5"
+                  />
                 </a>
               </div>
 
               <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[10px] text-muted-foreground dark:text-white/50">
                 <span>No card</span>
-                <span>•</span>
+                <span className="size-1 rounded-full bg-muted-foreground/35" />
                 <span>14-day trial</span>
-                <span>•</span>
+                <span className="size-1 rounded-full bg-muted-foreground/35" />
                 <span>Cancel anytime</span>
               </div>
+
+              <TrustPills />
 
               <div className="mt-6 grid max-w-3xl gap-2 sm:grid-cols-3">
                 {heroStats.map((item) => (
@@ -763,7 +775,6 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Product preview */}
           {/* Product preview */}
           <div className="animate-slide-up-fade relative mx-auto mt-16 w-full max-w-7xl delay-300">
             <div

@@ -122,7 +122,7 @@ function Wordmark({ size = "8" }: { size?: LogoSize }) {
   return (
     <span
       className={cn(
-        "select-none font-bold tracking-[-0.035em] text-foreground transition-opacity duration-300 group-hover:opacity-85",
+        "font-bold tracking-[-0.035em] text-foreground transition-opacity duration-300 select-none group-hover:opacity-85",
         sizes.text
       )}
     >
@@ -135,7 +135,7 @@ function Wordmark({ size = "8" }: { size?: LogoSize }) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  BrandLogo — clickable                                                      */
+/*  BrandLogo - clickable                                                       */
 /* -------------------------------------------------------------------------- */
 
 export function BrandLogo({
@@ -148,7 +148,7 @@ export function BrandLogo({
       href="/"
       aria-label={`${brandName} home`}
       className={cn(
-        "group inline-flex items-center gap-2.5 rounded-2xl outline-none transition-all duration-300",
+        "group inline-flex items-center gap-2.5 rounded-2xl transition-all duration-300 outline-none",
         "focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         className
       )}
@@ -160,7 +160,7 @@ export function BrandLogo({
 }
 
 /* -------------------------------------------------------------------------- */
-/*  BrandMark — non-clickable                                                  */
+/*  BrandMark - non-clickable                                                   */
 /* -------------------------------------------------------------------------- */
 
 export function BrandMark({

@@ -19,9 +19,14 @@ const defaultConfig: ThemeConfig = {
   radius: 1,
 }
 
-type ConfigContextValue = [ThemeConfig, React.Dispatch<React.SetStateAction<ThemeConfig>>]
+type ConfigContextValue = [
+  ThemeConfig,
+  React.Dispatch<React.SetStateAction<ThemeConfig>>,
+]
 
-const ConfigContext = React.createContext<ConfigContextValue | undefined>(undefined)
+const ConfigContext = React.createContext<ConfigContextValue | undefined>(
+  undefined
+)
 
 export function useConfig() {
   const ctx = React.useContext(ConfigContext)
@@ -53,7 +58,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Persist on change
   React.useEffect(() => {
-    if (mounted) localStorage.setItem("clario-theme-config", JSON.stringify(config))
+    if (mounted)
+      localStorage.setItem("clario-theme-config", JSON.stringify(config))
   }, [config, mounted])
 
   return (

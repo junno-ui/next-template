@@ -13,7 +13,11 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 // ---------------------------------------------------------------------------
 // Public API
@@ -147,7 +151,7 @@ export function ThemeCustomizer({ className }: { className?: string }) {
                           onClick={() => set({ theme: t.name })}
                           className={cn(
                             "flex size-8 items-center justify-center rounded-full ring-1 ring-border/30 transition-all hover:scale-110 hover:ring-border/60",
-                            active && "ring-2 ring-primary scale-110"
+                            active && "scale-110 ring-2 ring-primary"
                           )}
                           style={{ background: color }}
                           aria-label={t.label}

@@ -64,14 +64,17 @@ export default function NotFound() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center">
         {/* Giant 404 */}
-        <h1 className="select-none text-[10rem] font-black leading-none tracking-tighter text-foreground/[0.04] sm:text-[14rem]">
+        <h1 className="text-[10rem] leading-none font-black tracking-tighter text-foreground/[0.04] select-none sm:text-[14rem]">
           404
         </h1>
 
         {/* Overlaying content */}
         <div className="-mt-20 flex flex-col items-center">
           <div className="mb-6 flex size-16 items-center justify-center rounded-2xl bg-primary/10 ring-1 ring-primary/20">
-            <Icon icon="mdi:compass-off-outline" className="size-8 text-primary" />
+            <Icon
+              icon="mdi:compass-off-outline"
+              className="size-8 text-primary"
+            />
           </div>
 
           <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
@@ -107,7 +110,11 @@ export default function NotFound() {
           {/* Quick links */}
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
             {[
-              { label: "Features", href: "/#features", icon: "mdi:star-four-points" },
+              {
+                label: "Features",
+                href: "/#features",
+                icon: "mdi:star-four-points",
+              },
               { label: "Pricing", href: "/pricing", icon: "mdi:tag-outline" },
               { label: "FAQ", href: "/#faq", icon: "mdi:help-circle-outline" },
               { label: "Contact", href: "/contact", icon: "mdi:email-outline" },

@@ -22,7 +22,8 @@ export function ThemeStyles() {
 
     const stylePresets = {
       glass: {
-        surfaceLight: "linear-gradient(180deg, oklch(1 0 0 / 88%), oklch(1 0 0 / 70%))",
+        surfaceLight:
+          "linear-gradient(180deg, oklch(1 0 0 / 88%), oklch(1 0 0 / 70%))",
         surfaceDark:
           "linear-gradient(180deg, oklch(0.19 0.014 242 / 86%), oklch(0.16 0.014 242 / 70%))",
         cardLight: "oklch(1 0 0 / 70%)",
@@ -34,7 +35,8 @@ export function ThemeStyles() {
         blur: "22px",
       },
       solid: {
-        surfaceLight: "linear-gradient(180deg, oklch(0.99 0.004 200), oklch(0.97 0.008 220))",
+        surfaceLight:
+          "linear-gradient(180deg, oklch(0.99 0.004 200), oklch(0.97 0.008 220))",
         surfaceDark:
           "linear-gradient(180deg, oklch(0.2 0.016 240 / 96%), oklch(0.16 0.016 242 / 94%))",
         cardLight: "oklch(0.985 0.006 220 / 96%)",
@@ -46,7 +48,8 @@ export function ThemeStyles() {
         blur: "10px",
       },
       contrast: {
-        surfaceLight: "linear-gradient(180deg, oklch(1 0 0 / 96%), oklch(0.985 0.004 220 / 94%))",
+        surfaceLight:
+          "linear-gradient(180deg, oklch(1 0 0 / 96%), oklch(0.985 0.004 220 / 94%))",
         surfaceDark:
           "linear-gradient(180deg, oklch(0.16 0.014 242 / 98%), oklch(0.12 0.016 246 / 96%))",
         cardLight: "oklch(1 0 0 / 92%)",

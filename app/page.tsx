@@ -13,9 +13,12 @@ import CtaSection from "@/components/marketing/cta-section"
 export default function Home() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden text-foreground">
-      <div className="pointer-events-none fixed inset-0 -z-20" aria-hidden="true">
-        <div className="absolute inset-0 bg-radial-flares opacity-90" />
-        <div className="absolute inset-0 bg-noise-weave opacity-40" />
+      <div
+        className="pointer-events-none fixed inset-0 -z-20"
+        aria-hidden="true"
+      >
+        <div className="bg-radial-flares absolute inset-0 opacity-90" />
+        <div className="bg-noise-weave absolute inset-0 opacity-40" />
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,oklch(1_0_0_/_35%)_82%,oklch(1_0_0_/_82%))] dark:bg-[linear-gradient(to_bottom,transparent,oklch(0.13_0.01_240_/_30%)_82%,oklch(0.13_0.01_240_/_76%))]" />
       </div>
       <SiteHeader />
