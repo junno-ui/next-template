@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react"
 
+import { Reveal } from "@/components/marketing/_components/reveal"
 import { buttonVariants } from "@/components/ui/button"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
@@ -30,7 +31,7 @@ export default function CtaSection() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-primary/20 bg-[linear-gradient(135deg,var(--primary)_0%,oklch(0.72_0.15_198)_52%,oklch(0.36_0.08_240)_100%)] px-6 py-14 text-primary-foreground shadow-2xl shadow-primary/25 sm:px-10 sm:py-16 lg:px-16">
+        <Reveal className="relative overflow-hidden rounded-[2.5rem] border border-primary/20 bg-[linear-gradient(135deg,var(--primary)_0%,oklch(0.72_0.15_198)_52%,oklch(0.36_0.08_240)_100%)] px-6 py-14 text-primary-foreground shadow-2xl shadow-primary/25 sm:px-10 sm:py-16 lg:px-16">
           {/* Filled card effects */}
           <div
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.28),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.22),transparent_38%)]"
@@ -50,7 +51,7 @@ export default function CtaSection() {
           />
 
           <div className="relative mx-auto flex max-w-4xl flex-col items-center text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-[11px] font-bold tracking-[0.22em] text-white uppercase ring-1 ring-white/20 backdrop-blur-xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-[11px] font-bold text-white uppercase ring-1 ring-white/20 backdrop-blur-xl">
               <span className="relative flex size-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/70" />
                 <span className="relative inline-flex size-2 rounded-full bg-white" />
@@ -62,7 +63,7 @@ export default function CtaSection() {
               <Icon icon="solar:rocket-bold-duotone" className="size-8" />
             </div>
 
-            <h2 className="max-w-3xl text-4xl leading-[0.98] font-bold tracking-[-0.06em] text-balance text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            <h2 className="template-heading max-w-3xl text-4xl leading-none font-bold text-balance text-white sm:text-5xl md:text-6xl lg:text-7xl">
               Ready to launch a sharper product site?
             </h2>
 
@@ -119,7 +120,7 @@ export default function CtaSection() {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

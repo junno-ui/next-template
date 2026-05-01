@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react"
 
 import { buttonVariants } from "@/components/ui/button"
 import { siteConfig } from "@/config/site"
+import { heroStats } from "@/content/landing-page"
 import { cn } from "@/lib/utils"
 import React from "react"
 
@@ -23,27 +24,6 @@ const sidebarItems = [
   { icon: "solar:users-group-rounded-bold", label: "Customers", active: false },
   { icon: "solar:chart-2-bold-duotone", label: "Analytics", active: false },
   { icon: "solar:settings-bold-duotone", label: "Settings", active: false },
-]
-
-const heroStats = [
-  {
-    label: "Conversion lift",
-    value: "+28%",
-    description: "Average increase after launch",
-    icon: "solar:graph-up-bold-duotone",
-  },
-  {
-    label: "Setup time",
-    value: "12 min",
-    description: "Connect tools and go live",
-    icon: "solar:clock-circle-bold-duotone",
-  },
-  {
-    label: "Teams onboarded",
-    value: "2.4k+",
-    description: "Growing teams use it daily",
-    icon: "solar:users-group-rounded-bold-duotone",
-  },
 ]
 
 const dashboardStats = [
@@ -147,7 +127,7 @@ function HeroBackground() {
 
 function HeroBadge() {
   return (
-    <div className="animate-fade-up inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold tracking-[0.22em] text-primary uppercase shadow-xl ring-1 shadow-black/10 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035] dark:shadow-black/20">
+    <div className="animate-fade-up inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold text-primary uppercase shadow-xl ring-1 shadow-black/10 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035] dark:shadow-black/20">
       <span className="relative flex size-2">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
         <span className="relative inline-flex size-2 rounded-full bg-primary" />
@@ -225,10 +205,10 @@ function HeroStatCard({
 
       <div className="relative flex items-start justify-between gap-3">
         <div>
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase dark:text-white/45">
+          <p className="text-[11px] font-medium text-muted-foreground uppercase dark:text-white/45">
             {label}
           </p>
-          <p className="mt-2 text-2xl font-bold tracking-tight text-foreground dark:text-white">
+          <p className="mt-2 text-2xl font-bold text-foreground dark:text-white">
             {value}
           </p>
         </div>
@@ -334,7 +314,7 @@ function DashboardPreview() {
             </div>
 
             <div>
-              <p className="text-sm font-bold tracking-tight text-foreground dark:text-white">
+              <p className="text-sm font-bold text-foreground dark:text-white">
                 Clario
               </p>
               <p className="text-[11px] text-muted-foreground">Growth OS</p>
@@ -417,7 +397,7 @@ function DashboardPreview() {
               </div>
 
               <div>
-                <h3 className="text-base font-bold tracking-tight text-foreground dark:text-white">
+                <h3 className="text-base font-bold text-foreground dark:text-white">
                   {currentPage.title}
                 </h3>
                 <p className="mt-0.5 text-xs text-muted-foreground">
@@ -480,7 +460,7 @@ function DashboardPreview() {
                 className="group min-h-[118px] rounded-[1.5rem] bg-background/65 p-4 shadow-sm ring-1 shadow-black/[0.03] ring-border/45 transition-all duration-300 hover:-translate-y-0.5 hover:bg-background hover:ring-primary/20 dark:bg-white/[0.035] dark:shadow-black/20 dark:ring-white/10 dark:hover:bg-white/[0.06]"
               >
                 <div className="mb-3 flex items-center justify-between">
-                  <p className="text-[10px] font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+                  <p className="text-[10px] font-semibold text-muted-foreground uppercase">
                     {stat.label}
                   </p>
 
@@ -489,7 +469,7 @@ function DashboardPreview() {
                   </div>
                 </div>
 
-                <p className="text-xl font-bold tracking-tight text-foreground dark:text-white">
+                <p className="text-xl font-bold text-foreground dark:text-white">
                   {stat.value}
                 </p>
 
@@ -511,7 +491,7 @@ function DashboardPreview() {
             <div className="rounded-[1.5rem] bg-background/65 p-4 shadow-sm ring-1 shadow-black/[0.03] ring-border/45 transition-all duration-300 hover:bg-background hover:ring-primary/20 lg:col-span-3 dark:bg-white/[0.035] dark:shadow-black/20 dark:ring-white/10 dark:hover:bg-white/[0.06]">
               <div className="mb-4 flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-sm font-bold tracking-tight text-foreground dark:text-white">
+                  <p className="text-sm font-bold text-foreground dark:text-white">
                     Performance Overview
                   </p>
                   <p className="mt-1 text-[11px] text-muted-foreground">
@@ -564,7 +544,7 @@ function DashboardPreview() {
             <div className="rounded-[1.5rem] bg-background/65 p-4 shadow-sm ring-1 shadow-black/[0.03] ring-border/45 transition-all duration-300 hover:bg-background hover:ring-primary/20 lg:col-span-2 dark:bg-white/[0.035] dark:shadow-black/20 dark:ring-white/10 dark:hover:bg-white/[0.06]">
               <div className="mb-4 flex items-start justify-between">
                 <div>
-                  <p className="text-sm font-bold tracking-tight text-foreground dark:text-white">
+                  <p className="text-sm font-bold text-foreground dark:text-white">
                     Top by Country
                   </p>
                   <p className="mt-1 text-[11px] text-muted-foreground">
@@ -710,7 +690,7 @@ export default function HeroSection() {
                 A polished SaaS landing page starter with analytics-inspired
                 storytelling and premium UI details.
               </p>
-              <h1 className="mx-auto mt-5 max-w-4xl text-center text-4xl leading-[0.96] font-bold tracking-[-0.065em] text-foreground sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
+                <h1 className="template-heading mx-auto mt-5 max-w-4xl text-center text-4xl leading-none font-bold text-foreground sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
                 Turn scattered data
                 <span className="block">into</span>
                 <span className="relative inline-block">
@@ -790,7 +770,7 @@ export default function HeroSection() {
 
               <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-[1.75rem] bg-background/80 px-5 py-4 ring-1 ring-border/40 dark:bg-white/[0.025] dark:ring-white/10">
                 <div>
-                  <p className="text-[11px] font-semibold tracking-[0.2em] text-primary uppercase">
+                  <p className="text-[11px] font-semibold text-primary uppercase">
                     Product preview
                   </p>
                   <p className="mt-1 text-sm font-semibold text-foreground dark:text-white">

@@ -224,7 +224,7 @@ function FeatureVisual({ type }: { type: string }) {
               <p className="text-xs text-muted-foreground dark:text-white/42">
                 Revenue this month
               </p>
-              <p className="mt-1 text-3xl font-bold tracking-tight text-foreground dark:text-white">
+          <p className="mt-1 text-3xl font-bold text-foreground dark:text-white">
                 $12,199
               </p>
             </div>
@@ -664,7 +664,7 @@ function BentoCard({
           <motion.div
             whileHover={{ x: 3 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="mb-3 inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1.5 text-[10px] font-semibold tracking-[0.18em] text-primary uppercase ring-1 ring-border/40 dark:bg-white/[0.035] dark:ring-white/10"
+            className="mb-3 inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1.5 text-[10px] font-semibold text-primary uppercase ring-1 ring-border/40 dark:bg-white/[0.035] dark:ring-white/10"
           >
             <motion.span
               animate={{
@@ -685,7 +685,7 @@ function BentoCard({
             {feature.label}
           </motion.div>
 
-          <h3 className="max-w-sm text-xl font-bold tracking-tight text-foreground dark:text-white">
+          <h3 className="max-w-sm text-xl font-bold text-foreground dark:text-white">
             {feature.title}
           </h3>
 
@@ -789,7 +789,7 @@ export default function FeaturesSection() {
         >
           <motion.div
             variants={headerVariants}
-            className="mb-5 inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold tracking-[0.22em] text-primary uppercase ring-1 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035]"
+            className="mb-5 inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold text-primary uppercase ring-1 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035]"
           >
             <span className="relative flex size-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
@@ -800,7 +800,7 @@ export default function FeaturesSection() {
 
           <motion.h2
             variants={headerVariants}
-            className="text-4xl leading-[0.98] font-bold tracking-[-0.06em] text-balance text-foreground sm:text-5xl md:text-6xl dark:text-white"
+            className="template-heading text-4xl leading-none font-bold text-balance text-foreground sm:text-5xl md:text-6xl dark:text-white"
           >
             A premium bento system for{" "}
             <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
