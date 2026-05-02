@@ -17,8 +17,9 @@ export default function Icon() {
         alignItems: "center",
         justifyContent: "center",
         background:
-          "radial-gradient(circle at top left, rgba(255,255,255,0.34), transparent 38%), linear-gradient(135deg, #f97316 0%, #f59e0b 42%, #0f172a 100%)",
+          "radial-gradient(circle at 26% 18%, rgba(255,255,255,0.42), transparent 32%), radial-gradient(circle at 78% 76%, rgba(34,211,238,0.5), transparent 36%), linear-gradient(135deg, #f97316 0%, #fb923c 34%, #0ea5e9 66%, #0f172a 100%)",
         borderRadius: "8px",
+        boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.22)",
       }}
     >
       <svg
