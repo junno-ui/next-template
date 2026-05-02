@@ -33,7 +33,7 @@ export function ThemeModeToggle({ className }: { className?: string }) {
       variant="outline"
       size="icon"
       className={cn(
-        "size-9 rounded-full border-border/40 bg-background/80 shadow-lg shadow-black/10 backdrop-blur-xl transition-all hover:shadow-xl hover:shadow-primary/10",
+        "size-10 rounded-full border-border/40 bg-background/88 shadow-lg shadow-black/8 backdrop-blur-xl hover:border-primary/25 hover:shadow-xl hover:shadow-primary/10",
         className
       )}
       onClick={() => setTheme(isDark ? "light" : "dark")}
@@ -60,7 +60,7 @@ export function ThemeCustomizer({ className }: { className?: string }) {
               variant="outline"
               size="icon"
               className={cn(
-                "size-9 rounded-full border-border/40 bg-background/80 shadow-lg shadow-black/10 backdrop-blur-xl transition-all hover:shadow-xl hover:shadow-primary/10",
+                "size-10 rounded-full border-border/40 bg-background/88 shadow-lg shadow-black/8 backdrop-blur-xl hover:border-primary/25 hover:shadow-xl hover:shadow-primary/10",
                 className
               )}
               aria-label="Customize theme color"
@@ -78,7 +78,7 @@ export function ThemeCustomizer({ className }: { className?: string }) {
         side="top"
         align="end"
         sideOffset={12}
-        className="w-auto rounded-2xl border-border/30 bg-popover/95 p-3 shadow-xl backdrop-blur-xl"
+        className="w-auto rounded-2xl border-border/30 bg-popover/96 p-3 shadow-2xl shadow-black/10 backdrop-blur-xl dark:shadow-black/35"
       >
         <div className="grid grid-cols-5 gap-2">
           {themeColors.map((theme) => {

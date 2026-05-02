@@ -123,7 +123,7 @@ function Wordmark({ size = "8" }: { size?: LogoSize }) {
   return (
     <span
       className={cn(
-        "font-bold tracking-[-0.035em] text-foreground transition-opacity duration-300 select-none group-hover:opacity-85",
+        "font-bold text-foreground transition-opacity duration-300 select-none group-hover:opacity-85",
         sizes.text
       )}
     >
