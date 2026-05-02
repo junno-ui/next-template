@@ -17,7 +17,7 @@ export default function Icon() {
         alignItems: "center",
         justifyContent: "center",
         background:
-          "radial-gradient(circle at top left, rgba(255,255,255,0.25), transparent 38%), linear-gradient(135deg, #1d4ed8, #0f172a 72%)",
+          "radial-gradient(circle at top left, rgba(255,255,255,0.34), transparent 38%), linear-gradient(135deg, #f97316 0%, #f59e0b 42%, #0f172a 100%)",
         borderRadius: "8px",
       }}
     >

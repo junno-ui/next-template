@@ -1,7 +1,8 @@
 "use client"
 
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
+import { ActionLink } from "@/components/marketing/_components/action-link"
 import { buttonVariants } from "@/components/ui/button"
 import { siteConfig } from "@/config/site"
 import { heroStats } from "@/content/landing-page"
@@ -132,7 +133,7 @@ function HeroBadge() {
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
         <span className="relative inline-flex size-2 rounded-full bg-primary" />
       </span>
-      Free premium template from Junno UI
+      Created free by Junno UI
     </div>
   )
 }
@@ -687,11 +688,11 @@ export default function HeroSection() {
 
             <div className="animate-fade-up relative mx-auto mt-5 max-w-3xl px-4 delay-100">
               <p className="mx-auto max-w-2xl text-sm leading-6 font-medium text-foreground/70 sm:text-base dark:text-white/60">
-                A polished SaaS landing page starter with analytics-inspired
-                storytelling and premium UI details.
+                A free SaaS landing page template with polished typography,
+                smooth motion, and conversion-ready sections.
               </p>
                 <h1 className="template-heading mx-auto mt-5 max-w-4xl text-center text-4xl leading-none font-bold text-foreground sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
-                Turn scattered data
+                Launch a SaaS page
                 <span className="block">into</span>
                 <span className="relative inline-block">
                   <span
@@ -699,31 +700,35 @@ export default function HeroSection() {
                     className="absolute inset-x-0 bottom-1.5 h-3 rounded-full bg-linear-to-r from-primary/40 via-cyan-300/20 to-primary/40 blur-xl"
                   />
                   <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
-                    clear decisions
+                    a sharper story
                   </span>
                 </span>
               </h1>
 
               <p className="mx-auto mt-5 max-w-2xl text-center text-base leading-7 text-muted-foreground dark:text-white/70">
-                Bring dashboards, campaigns, and insights into one fast, clean
-                workspace.
+                Customize the copy, theme, sections, and interactions in a
+                clean structure made for real product teams.
               </p>
 
               <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row">
-                <a
+                <ActionLink
                   href="#pricing"
+                  toastTitle="Pricing is ready"
+                  toastDescription="Compare plans and pick the launch path that fits your team."
                   className={cn(
                     buttonVariants({ size: "sm" }),
                     "rounded-full px-6 text-xs font-semibold shadow-md transition-all hover:scale-[1.02]"
                   )}
                 >
                   Start free
-                </a>
+                </ActionLink>
 
-                <a
+                <ActionLink
                   href={siteConfig.templateUrl}
                   target="_blank"
                   rel="noreferrer"
+                  toastTitle="Opening Junno UI"
+                  toastDescription="You are heading to the free template page."
                   className={cn(
                     buttonVariants({ variant: "outline", size: "sm" }),
                     "rounded-full bg-background/80 px-6 text-xs backdrop-blur-xl"
@@ -734,15 +739,15 @@ export default function HeroSection() {
                     icon="solar:arrow-right-up-linear"
                     className="ml-1 size-3.5"
                   />
-                </a>
+                </ActionLink>
               </div>
 
               <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[10px] text-muted-foreground dark:text-white/50">
-                <span>No card</span>
+                <span>Free template</span>
                 <span className="size-1 rounded-full bg-muted-foreground/35" />
-                <span>14-day trial</span>
+                <span>Next.js ready</span>
                 <span className="size-1 rounded-full bg-muted-foreground/35" />
-                <span>Cancel anytime</span>
+                <span>Themeable</span>
               </div>
 
               <TrustPills />
@@ -774,7 +779,7 @@ export default function HeroSection() {
                     Product preview
                   </p>
                   <p className="mt-1 text-sm font-semibold text-foreground dark:text-white">
-                    Cleaner structure, stronger hierarchy, better visual rhythm
+                    Cleaner structure, stronger hierarchy, smoother interaction
                   </p>
                 </div>
 

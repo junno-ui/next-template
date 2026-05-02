@@ -4,7 +4,9 @@ import "./globals.css"
 
 import { cn } from "@/lib/utils"
 import { ThemeProvider, ThemeStyles } from "@/components/theme"
+import { SmoothScrollProvider } from "@/components/layout/smooth-scroll-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
+import { ToastProvider } from "@/components/ui/toast"
 import { siteConfig } from "@/config/site"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
@@ -13,11 +15,11 @@ const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Clario - Free Premium SaaS Landing Page Template",
+    default: "Clario - Free SaaS Landing Page Template by Junno UI",
     template: "%s | Clario",
   },
   description:
-    "Clario is a free premium SaaS landing page template from Junno UI, built with Next.js, shadcn/ui, polished dark and light themes, and clearer product storytelling.",
+    "Clario is a free premium SaaS landing page template created by Junno UI, built with Next.js, shadcn/ui, polished typography, toast feedback, scroll motion, and theme-ready sections.",
   keywords: [
     "Next.js",
     "SaaS",
@@ -28,9 +30,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Junno UI" }],
   openGraph: {
-    title: "Clario - Free Premium SaaS Landing Page Template",
+    title: "Clario - Free SaaS Landing Page Template by Junno UI",
     description:
-      "Launch a refined SaaS site with polished UX, dark and light themes, and stronger trust signals. Free from Junno UI.",
+      "Launch a refined SaaS site with polished UX, dark and light themes, toast feedback, scroll motion, and stronger trust signals. Free from Junno UI.",
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
@@ -38,8 +40,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Clario - Free Premium SaaS Landing Page Template",
-    description: "A free, refined launch-ready UX for modern SaaS products.",
+    title: "Clario - Free SaaS Landing Page Template by Junno UI",
+    description:
+      "A free, refined launch-ready UX for modern SaaS products.",
   },
   robots: {
     index: true,
@@ -63,7 +66,11 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <ThemeStyles />
-          <TooltipProvider>{children}</TooltipProvider>
+          <ToastProvider>
+            <TooltipProvider>
+              <SmoothScrollProvider>{children}</SmoothScrollProvider>
+            </TooltipProvider>
+          </ToastProvider>
         </ThemeProvider>
       </body>
     </html>

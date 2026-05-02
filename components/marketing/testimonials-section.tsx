@@ -1,4 +1,4 @@
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
 import { Reveal } from "@/components/marketing/_components/reveal"
 import {
@@ -93,13 +93,13 @@ export default function TestimonialsSection() {
         eyebrow="Testimonials"
         title={
           <>
-            Loved by teams that{" "}
+            Social proof that{" "}
             <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
-              move with data.
+              feels believable.
             </span>
           </>
         }
-        description="Simple feedback from teams using the platform to make reporting, campaigns, and growth decisions easier."
+        description="Replace these with customer quotes, beta feedback, or launch reactions to make your page feel trusted from the first scroll."
       />
 
         <Reveal className="relative">

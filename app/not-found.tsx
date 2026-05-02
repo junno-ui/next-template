@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 import * as React from "react"
 
 export default function NotFound() {

@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
 import { ScrollCard, Stagger } from "@/components/marketing/_components/reveal"
 import {
@@ -116,13 +116,13 @@ export default function FaqSection() {
         eyebrow="FAQ"
         title={
           <>
-            Questions before you{" "}
+            Answers that reduce{" "}
             <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
-              get started?
+              buyer hesitation.
             </span>
           </>
         }
-        description="Everything you need to know about trials, billing, security, integrations, support, and exporting your data."
+        description="Use this accordion to handle objections, explain customization, and give visitors confidence before they click."
       />
 
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.85fr_1.4fr]">
@@ -142,9 +142,8 @@ export default function FaqSection() {
             </h3>
 
             <p className="relative mt-3 text-sm leading-7 text-muted-foreground dark:text-white/55">
-              Can&apos;t find the answer you&apos;re looking for? Our team can
-              help you choose a plan, understand security, or set up
-              integrations.
+              Use this card for sales support, product onboarding, or a direct
+              path to your founder, team, or documentation.
             </p>
 
             <a

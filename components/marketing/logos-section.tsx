@@ -1,4 +1,4 @@
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
 import { Reveal } from "@/components/marketing/_components/reveal"
 import { brandLogos } from "@/content/landing-page"

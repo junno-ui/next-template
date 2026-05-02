@@ -1,8 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
+import { ActionLink } from "@/components/marketing/_components/action-link"
 import { ScrollCard, Stagger } from "@/components/marketing/_components/reveal"
 import {
   SectionHeader,
@@ -150,8 +151,10 @@ function PlanCard({ plan }: { plan: Plan }) {
         ))}
       </ul>
 
-      <a
+      <ActionLink
         href={plan.href}
+        toastTitle={`${plan.name} selected`}
+        toastDescription="Nice choice. The contact section is ready for the next step."
         className={cn(
           "relative mt-auto inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 active:scale-[0.98]",
           plan.highlighted
@@ -174,7 +177,7 @@ function PlanCard({ plan }: { plan: Plan }) {
           }
           className="ml-1.5 size-4 transition-transform duration-300 group-hover:translate-x-1"
         />
-      </a>
+      </ActionLink>
     </ScrollCard>
   )
 }
@@ -193,13 +196,13 @@ export default function PricingSection() {
         eyebrow="Pricing"
         title={
           <>
-            Simple pricing for{" "}
+            Pricing cards that{" "}
             <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
-              every stage of growth.
+              guide decisions.
             </span>
           </>
         }
-        description="Choose the package that matches your workflow today, with room to scale when reporting, automation, and collaboration become more complex."
+        description="Use the tabs, badges, feature lists, and button feedback as a polished starting point for your own product packaging."
       />
 
       <div className="-mt-8 mb-12">
@@ -222,11 +225,11 @@ export default function PricingSection() {
       </Stagger>
 
       <div className="mx-auto mt-10 flex max-w-4xl flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-[1.5rem] bg-background/72 px-5 py-4 text-center text-xs text-muted-foreground ring-1 ring-border/40 backdrop-blur-xl dark:bg-white/[0.025] dark:text-white/42 dark:ring-white/10">
-        <span>No credit card required</span>
+        <span>Easy to rename</span>
         <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
-        <span>Upgrade or cancel anytime</span>
+        <span>Plan tabs included</span>
         <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
-        <span>Secure team-ready workspace</span>
+        <span>Toast feedback ready</span>
       </div>
     </SectionShell>
   )

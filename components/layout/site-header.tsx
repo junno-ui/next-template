@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
 import { AuthPopover } from "@/components/layout/auth-popover"
 import { BrandMark } from "@/components/layout/brand-logo"

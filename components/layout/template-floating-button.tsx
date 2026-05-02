@@ -1,4 +1,4 @@
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"

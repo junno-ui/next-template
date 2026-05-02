@@ -1,5 +1,6 @@
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
+import { ActionLink } from "@/components/marketing/_components/action-link"
 import { Reveal } from "@/components/marketing/_components/reveal"
 import { buttonVariants } from "@/components/ui/button"
 import { siteConfig } from "@/config/site"
@@ -56,7 +57,7 @@ export default function CtaSection() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/70" />
                 <span className="relative inline-flex size-2 rounded-full bg-white" />
               </span>
-              Free Junno UI template
+              Created free by Junno UI
             </div>
 
             <div className="mb-6 flex size-16 items-center justify-center rounded-[1.35rem] bg-white/15 text-white shadow-xl ring-1 shadow-black/10 ring-white/20 transition-all duration-300 hover:scale-110 hover:rotate-3">
@@ -64,20 +65,22 @@ export default function CtaSection() {
             </div>
 
             <h2 className="template-heading max-w-3xl text-4xl leading-none font-bold text-balance text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              Ready to launch a sharper product site?
+              Start with a page that already feels premium.
             </h2>
 
             <p className="mt-5 max-w-2xl text-[15px] leading-7 text-pretty text-primary-foreground/85 sm:text-base">
-              Start with the free Clario template: cleaner UI, stronger trust
-              signals, and a polished structure that feels ready for real users
-              from day one.
+              Clario gives you refined typography, scroll motion, toast
+              feedback, strong trust sections, and a structure your users can
+              understand quickly.
             </p>
 
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
-              <a
+              <ActionLink
                 href={siteConfig.templateUrl}
                 target="_blank"
                 rel="noreferrer"
+                toastTitle="Opening the free template"
+                toastDescription="Junno UI will open in a new tab with the Clario download."
                 className={cn(
                   buttonVariants({ size: "lg" }),
                   "group rounded-full bg-white px-8 text-sm font-semibold text-primary shadow-xl shadow-black/15 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-2xl hover:shadow-black/20 active:scale-[0.98]"
@@ -88,10 +91,12 @@ export default function CtaSection() {
                   icon="solar:arrow-right-up-linear"
                   className="ml-1.5 size-4 transition-transform duration-300 group-hover:translate-x-1"
                 />
-              </a>
+              </ActionLink>
 
-              <a
+              <ActionLink
                 href="#faq"
+                toastTitle="FAQ is just below"
+                toastDescription="Quick answers first, then you can adapt the contact flow."
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
                   "group rounded-full border-white/25 bg-white/10 px-8 text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/15 active:scale-[0.98]"
@@ -102,7 +107,7 @@ export default function CtaSection() {
                   icon="solar:chat-round-dots-bold"
                   className="ml-1.5 size-4 transition-transform duration-300 group-hover:scale-110"
                 />
-              </a>
+              </ActionLink>
             </div>
 
             <div className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-medium text-white/70">

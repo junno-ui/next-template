@@ -2,19 +2,19 @@ export const heroStats = [
   {
     label: "Conversion lift",
     value: "+28%",
-    description: "Average increase after launch",
+    description: "Stronger action paths after launch",
     icon: "solar:graph-up-bold-duotone",
   },
   {
     label: "Setup time",
     value: "12 min",
-    description: "Connect tools and go live",
+    description: "Swap copy, colors, and sections fast",
     icon: "solar:clock-circle-bold-duotone",
   },
   {
     label: "Teams onboarded",
     value: "2.4k+",
-    description: "Growing teams use it daily",
+    description: "Built for founders and product teams",
     icon: "solar:users-group-rounded-bold-duotone",
   },
 ]
@@ -35,7 +35,7 @@ export const statistics = [
     value: "10K+",
     label: "Active Teams",
     icon: "mdi:account-group-outline",
-    description: "Operators rely on the platform every day.",
+    description: "Teams use the layout to explain value faster.",
     accent: "from-primary/20",
     hover: "hover:-translate-y-2 hover:rotate-[0.35deg]",
   },
@@ -43,7 +43,7 @@ export const statistics = [
     value: "50M+",
     label: "Signals Processed",
     icon: "mdi:send-outline",
-    description: "Data points converted into clear decisions.",
+    description: "Insights shaped into scan-friendly product stories.",
     accent: "from-chart-2/20",
     hover: "hover:-translate-y-1 hover:translate-x-1",
   },
@@ -51,7 +51,7 @@ export const statistics = [
     value: "99.9%",
     label: "Uptime",
     icon: "mdi:shield-check-outline",
-    description: "Reliable infrastructure for critical workflows.",
+    description: "A stable template foundation for real launch pages.",
     accent: "from-primary/20",
     hover: "hover:-translate-y-1 hover:-translate-x-1",
   },
@@ -59,7 +59,7 @@ export const statistics = [
     value: "4.9/5",
     label: "User Rating",
     icon: "mdi:star-outline",
-    description: "Loved for clarity, speed, and ease of use.",
+    description: "Visitors respond to clarity, rhythm, and polish.",
     accent: "from-amber-400/20",
     hover: "hover:-translate-y-2 hover:rotate-[-0.35deg]",
   },
@@ -71,7 +71,7 @@ export const testimonials = [
     role: "Head of Marketing",
     company: "TechCorp",
     quote:
-      "This platform completely transformed our campaign workflow. We saw a 40% increase in engagement within the first month.",
+      "The template gave our launch page instant structure. We shipped faster without sacrificing the premium feel.",
     avatar: "SC",
   },
   {
@@ -79,7 +79,7 @@ export const testimonials = [
     role: "Growth Lead",
     company: "ScaleUp Inc.",
     quote:
-      "The analytics dashboard is incredibly intuitive. Our team can now make data-driven decisions in real time.",
+      "The section flow makes the product easy to understand. Our team only had to update the copy and brand tokens.",
     avatar: "MJ",
   },
   {
@@ -87,7 +87,7 @@ export const testimonials = [
     role: "CMO",
     company: "BrightEdge",
     quote:
-      "We switched from three different tools to this single platform. The ROI was visible within weeks.",
+      "The design feels mature out of the box, especially the pricing, FAQ, and social proof sections.",
     avatar: "ER",
   },
   {
@@ -95,7 +95,7 @@ export const testimonials = [
     role: "Founder",
     company: "Launchly",
     quote:
-      "It helped us replace messy spreadsheets with one clear operating dashboard. The team adopted it instantly.",
+      "We used it as a clean base for a SaaS launch and had a polished first version in a day.",
     avatar: "DK",
   },
   {
@@ -103,7 +103,7 @@ export const testimonials = [
     role: "Marketing Director",
     company: "Northstar",
     quote:
-      "The reporting flow is simple, polished, and reliable. It saves our team hours every week.",
+      "The animations are subtle enough for a serious product, but still make the page feel alive.",
     avatar: "OM",
   },
   {
@@ -111,7 +111,7 @@ export const testimonials = [
     role: "Revenue Lead",
     company: "Orbit Labs",
     quote:
-      "The best part is how calm the product feels. We get the data we need without dashboard overload.",
+      "It is easy to customize because content, sections, and UI primitives are separated clearly.",
     avatar: "JW",
   },
 ]
@@ -119,27 +119,27 @@ export const testimonials = [
 export const faqs = [
   {
     q: "How does the free trial work?",
-    a: "You get full access to all features for 14 days. No credit card required. At the end of your trial, choose a plan that fits your needs or continue with our free tier.",
+    a: "The template is free to start from. Replace the brand, copy, pricing, and links with your own product details, then publish when the page feels ready.",
   },
   {
-    q: "Can I switch plans later?",
-    a: "Absolutely. You can upgrade, downgrade, or cancel your plan at any time from your dashboard. Changes take effect at the start of your next billing cycle.",
+    q: "Can I customize the sections?",
+    a: "Yes. The landing copy lives in content files, repeated layouts use shared section primitives, and each marketing section is isolated so you can remove or rearrange it safely.",
   },
   {
-    q: "Is my data secure?",
-    a: "Yes. We use AES-256 encryption at rest, TLS 1.3 in transit, and SOC 2 Type II compliance. Your data is stored in geo-redundant data centers with a 99.9% uptime SLA.",
+    q: "Does it support dark mode?",
+    a: "Yes. The visual system uses theme tokens, dark-mode variables, and generated favicon styling that follows the template's warm, polished brand direction.",
   },
   {
-    q: "Do you offer custom integrations?",
-    a: "Our Enterprise plan includes custom API integrations, dedicated engineering support, and webhook configurations tailored to your existing tech stack.",
+    q: "Can I use it for a real SaaS product?",
+    a: "Yes. The page includes hero, trust logos, stats, features, pricing, testimonials, FAQ, newsletter, CTA, responsive navigation, and theme customization.",
   },
   {
-    q: "What kind of support do you provide?",
-    a: "All plans include email support with 24-hour response time. Scaleup plans get priority chat support, and Enterprise customers receive a dedicated account manager.",
+    q: "Where should I edit the wording?",
+    a: "Start with content/landing-page.ts and config/site.ts. Those files hold the main template data, navigation links, metadata, pricing, testimonials, FAQ, and newsletter benefits.",
   },
   {
     q: "Can I export my data?",
-    a: "Yes. You can export all your campaign data, analytics reports, and contact lists in CSV, JSON, or PDF format at any time from the settings panel.",
+    a: "Yes. Use it for personal, client, or commercial projects. Keep the Junno UI attribution if you want to support the free template collection.",
   },
 ]
 
@@ -171,19 +171,19 @@ export const pricingTabs: Record<
     label: "Personal",
     eyebrow: "For individuals",
     description:
-      "Simple plans for founders, creators, and small operators who want cleaner dashboards without extra complexity.",
+      "Lean packages for makers, founders, and creators who want a polished launch page without design debt.",
     plans: [
       {
         name: "Starter",
         price: "$19",
         period: "/mo",
         description:
-          "For solo operators who need a clean place to track the basics.",
+          "For solo builders who need a sharp landing page foundation.",
         features: [
-          "3 active dashboards",
-          "Basic campaign tracking",
-          "Weekly reports",
-          "Email support",
+          "Hero, CTA, and trust sections",
+          "Theme-ready component tokens",
+          "Responsive marketing layout",
+          "Clean content structure",
         ],
         cta: "Start Starter",
         href: "#contact",
@@ -193,12 +193,12 @@ export const pricingTabs: Record<
         price: "$39",
         period: "/mo",
         description:
-          "For creators and consultants who want stronger insights and automation.",
+          "For makers who want more proof, pricing, and conversion sections.",
         features: [
-          "10 active dashboards",
-          "Advanced tracking",
-          "AI signal summaries",
-          "Priority email support",
+          "Full landing page system",
+          "Pricing and FAQ sections",
+          "Toast feedback patterns",
+          "Scroll reveal animations",
         ],
         cta: "Start Creator",
         href: "#contact",
@@ -210,12 +210,12 @@ export const pricingTabs: Record<
         price: "$79",
         period: "/mo",
         description:
-          "For power users managing multiple projects, channels, and reports.",
+          "For teams adapting the template across multiple product pages.",
         features: [
-          "Unlimited dashboards",
-          "Custom reporting views",
-          "Automation workflows",
-          "Priority support",
+          "Reusable section primitives",
+          "Centralized landing content",
+          "Dark and light themes",
+          "Launch-ready page flow",
         ],
         cta: "Start Pro",
         href: "#contact",
@@ -226,19 +226,19 @@ export const pricingTabs: Record<
     label: "Business",
     eyebrow: "For teams",
     description:
-      "Scalable plans for teams that need deeper reporting, better collaboration, and reliable workflows.",
+      "Team-ready options for products that need sharper storytelling, stronger trust, and room to scale.",
     plans: [
       {
         name: "Startup",
         price: "$60",
         period: "/mo",
         description:
-          "For lean teams that need polished reporting without extra complexity.",
+          "For lean teams validating a product with a credible first page.",
         features: [
-          "Essential campaign tracking",
-          "5 active dashboards",
-          "Clean reporting",
-          "Email support",
+          "Conversion-focused hero",
+          "Logo and statistics rows",
+          "Responsive navigation",
+          "Newsletter capture",
         ],
         cta: "Choose Startup",
         href: "#contact",
@@ -248,12 +248,12 @@ export const pricingTabs: Record<
         price: "$100",
         period: "/mo",
         description:
-          "For fast-moving teams ready for deeper insights and workflow automation.",
+          "For fast-moving teams that need a complete marketing site starter.",
         features: [
-          "Advanced campaign tracking",
-          "Unlimited dashboards",
-          "AI signal scoring",
-          "Priority support",
+          "Feature bento grid",
+          "Pricing interaction states",
+          "Testimonials marquee",
+          "FAQ accordion",
         ],
         cta: "Choose Scaleup",
         href: "#contact",
@@ -264,12 +264,12 @@ export const pricingTabs: Record<
         name: "Enterprise",
         price: "Custom",
         description:
-          "For larger teams that need tailored solutions, security, and scale.",
+          "For teams turning the template into a larger branded system.",
         features: [
-          "Dedicated account manager",
-          "Custom integrations",
-          "SLA guarantees",
-          "White-label options",
+          "Extended content model",
+          "Custom brand direction",
+          "Advanced component variants",
+          "Production handoff support",
         ],
         cta: "Contact sales",
         href: "#contact",
@@ -280,7 +280,7 @@ export const pricingTabs: Record<
 }
 
 export const newsletterBenefits = [
-  "Weekly growth insights and product updates",
-  "Early access to new features",
-  "Exclusive guides, templates, and case studies",
+  "Practical launch ideas and product storytelling notes",
+  "Early access to new Junno UI templates",
+  "Short guides for improving conversion and trust",
 ]

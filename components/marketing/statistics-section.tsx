@@ -1,4 +1,4 @@
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
 import { ScrollCard, Stagger } from "@/components/marketing/_components/reveal"
 import {
@@ -61,13 +61,13 @@ export default function StatisticsSection() {
         eyebrow="By the numbers"
         title={
           <>
-            Trusted performance,{" "}
+            Proof points that{" "}
             <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
-              proven at scale.
+              build confidence.
             </span>
           </>
         }
-        description="Clear metrics help visitors understand credibility quickly and make the landing page feel more trustworthy from the first scan."
+        description="Use this section to turn traction, reliability, and customer love into quick trust signals visitors can scan in seconds."
       />
 
       <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -78,8 +78,8 @@ export default function StatisticsSection() {
 
       <div className="mx-auto mt-8 max-w-4xl rounded-[1.5rem] border border-border/40 bg-background/72 px-5 py-4 text-center backdrop-blur-xl dark:border-white/10 dark:bg-white/2.5">
         <p className="text-sm leading-6 text-muted-foreground dark:text-white/52">
-          Built for teams that need clarity, reliability, and fast decision
-          cycles without adding more operational noise.
+          Swap these metrics with your real traction, customer outcomes, or
+          launch milestones to make the page feel immediately credible.
         </p>
       </div>
     </SectionShell>

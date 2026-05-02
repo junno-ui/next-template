@@ -1,8 +1,9 @@
 import Link from "next/link"
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
 import { siteConfig } from "@/config/site"
 import { BrandLogo } from "@/components/layout/brand-logo"
+import { JunnoMark } from "@/components/layout/junno-mark"
 import { cn } from "@/lib/utils"
 
 const footerLinks = {
@@ -192,9 +193,9 @@ export function SiteFooter() {
             </Link>
             <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
             <span className="inline-flex items-center gap-1">
-              Built with
-              <Icon icon="solar:heart-bold" className="size-3 text-rose-400" />
-              by JunZ
+              Created free by
+              <JunnoMark className="size-4 rounded-md bg-primary text-primary-foreground" />
+              Junno UI
             </span>
           </div>
         </div>

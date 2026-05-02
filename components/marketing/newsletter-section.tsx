@@ -1,25 +1,39 @@
 "use client"
 
 import * as React from "react"
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
 import { Reveal, Stagger } from "@/components/marketing/_components/reveal"
 import { buttonVariants } from "@/components/ui/button"
+import { useToast } from "@/components/ui/toast"
 import { newsletterBenefits } from "@/content/landing-page"
 import { cn } from "@/lib/utils"
 
 export default function NewsletterSection() {
   const [email, setEmail] = React.useState("")
   const [submitted, setSubmitted] = React.useState(false)
+  const { toast } = useToast()
 
   const isValidEmail = email.trim().length > 0 && /\S+@\S+\.\S+/.test(email)
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    if (!isValidEmail) return
+    if (!isValidEmail) {
+      toast({
+        title: "Almost there",
+        description: "Add a valid email and we will send the first growth note.",
+        tone: "info",
+      })
+      return
+    }
 
     setSubmitted(true)
+    toast({
+      title: "You are on the list",
+      description: "Your first concise growth digest is headed to your inbox.",
+      tone: "success",
+    })
   }
 
   return (
@@ -62,15 +76,15 @@ export default function NewsletterSection() {
               </div>
 
               <h2 className="template-heading text-4xl leading-none font-bold text-balance text-foreground sm:text-5xl md:text-6xl dark:text-white">
-                Stay ahead with smarter{" "}
+                Get the signals worth{" "}
                 <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
-                  growth insights.
+                  acting on.
                 </span>
               </h2>
 
               <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-7 text-pretty text-muted-foreground sm:text-base lg:mx-0 dark:text-white/64">
-                Get practical marketing trends, product updates, and actionable
-                ideas delivered to your inbox. Simple, useful, and easy to scan.
+                Receive one useful digest with product ideas, launch lessons,
+                and reporting patterns your team can apply the same week.
               </p>
 
               <Stagger className="mt-7 grid gap-3 sm:grid-cols-3 lg:max-w-3xl">
@@ -136,11 +150,11 @@ export default function NewsletterSection() {
                         htmlFor="newsletter-email"
                         className="text-sm font-semibold text-foreground dark:text-white"
                       >
-                        Join the weekly digest
+                      Join the weekly clarity digest
                       </label>
 
                       <p className="mt-1 text-xs leading-5 text-muted-foreground dark:text-white/45">
-                        One useful email per week. No spam, no noise.
+                        Sharp product and growth notes. No spam, no filler.
                       </p>
                     </div>
 

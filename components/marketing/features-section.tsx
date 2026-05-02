@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, type Variants } from "framer-motion"
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -802,9 +802,9 @@ export default function FeaturesSection() {
             variants={headerVariants}
             className="template-heading text-4xl leading-none font-bold text-balance text-foreground sm:text-5xl md:text-6xl dark:text-white"
           >
-            A premium bento system for{" "}
+            A flexible section system for{" "}
             <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
-              modern growth teams.
+              sharper SaaS launches.
             </span>
           </motion.h2>
 
@@ -812,8 +812,8 @@ export default function FeaturesSection() {
             variants={headerVariants}
             className="mx-auto mt-5 max-w-2xl text-[15px] leading-7 text-pretty text-muted-foreground sm:text-base dark:text-white/64"
           >
-            Dashboards, signals, workflows, reports, automation, security, and
-            AI assistance designed to reduce noise and help teams move faster.
+            Reusable cards, product visuals, hover states, and motion patterns
+            give you a strong base without locking you into one story.
           </motion.p>
         </motion.div>
 
@@ -862,8 +862,8 @@ export default function FeaturesSection() {
           className="mx-auto mt-14 max-w-3xl rounded-[2rem] bg-background/72 px-6 py-7 text-center ring-1 ring-border/40 backdrop-blur-xl transition-colors duration-300 hover:bg-background/90 hover:ring-primary/20 sm:px-8 dark:bg-white/[0.025] dark:ring-white/10 dark:hover:bg-white/[0.035]"
         >
           <p className="mx-auto max-w-xl text-sm leading-6 text-muted-foreground dark:text-white/55">
-            Build a calmer operating rhythm with dashboards, signals, reports,
-            automation, and AI guidance in one polished workspace.
+            Keep the sections you need, delete the ones you do not, and adapt
+            the content from one central place as your product story evolves.
           </p>
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
