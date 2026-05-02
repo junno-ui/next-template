@@ -691,7 +691,7 @@ export default function HeroSection() {
                 A free SaaS landing page template with polished typography,
                 smooth motion, and conversion-ready sections.
               </p>
-                <h1 className="template-heading mx-auto mt-5 max-w-4xl text-center text-4xl leading-none font-bold text-foreground sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
+              <h1 className="template-heading mx-auto mt-5 max-w-4xl text-center text-4xl leading-none font-bold text-foreground sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
                 Launch a SaaS page
                 <span className="block">into</span>
                 <span className="relative inline-block">
@@ -706,8 +706,8 @@ export default function HeroSection() {
               </h1>
 
               <p className="mx-auto mt-5 max-w-2xl text-center text-base leading-7 text-muted-foreground dark:text-white/70">
-                Customize the copy, theme, sections, and interactions in a
-                clean structure made for real product teams.
+                Customize the copy, theme, sections, and interactions in a clean
+                structure made for real product teams.
               </p>
 
               <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row">

@@ -126,7 +126,7 @@ const features = [
     label: "Channels",
     description:
       "Compare channel performance without jumping between disconnected tools.",
-    icon: "solar:megaphone-bold-duotone",
+    icon: "mdi:chart-timeline-variant-shimmer",
     visual: "progress",
     className: "lg:col-span-3",
     hover: {
@@ -224,7 +224,7 @@ function FeatureVisual({ type }: { type: string }) {
               <p className="text-xs text-muted-foreground dark:text-white/42">
                 Revenue this month
               </p>
-          <p className="mt-1 text-3xl font-bold text-foreground dark:text-white">
+              <p className="mt-1 text-3xl font-bold text-foreground dark:text-white">
                 $12,199
               </p>
             </div>

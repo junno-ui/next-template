@@ -22,7 +22,8 @@ export default function NewsletterSection() {
     if (!isValidEmail) {
       toast({
         title: "Almost there",
-        description: "Add a valid email and we will send the first growth note.",
+        description:
+          "Add a valid email and we will send the first growth note.",
         tone: "info",
       })
       return
@@ -97,7 +98,7 @@ export default function NewsletterSection() {
                     }}
                   >
                     <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary ring-1 ring-primary/15 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground">
-                      <Icon icon="solar:check-bold" className="size-4" />
+                      <Icon icon="mdi:check" className="size-4" />
                     </span>
 
                     <p className="text-sm leading-6 text-muted-foreground dark:text-white/62">
@@ -150,7 +151,7 @@ export default function NewsletterSection() {
                         htmlFor="newsletter-email"
                         className="text-sm font-semibold text-foreground dark:text-white"
                       >
-                      Join the weekly clarity digest
+                        Join the weekly clarity digest
                       </label>
 
                       <p className="mt-1 text-xs leading-5 text-muted-foreground dark:text-white/45">

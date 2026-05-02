@@ -31,17 +31,17 @@ const socialLinks = [
   {
     label: "Twitter / X",
     href: siteConfig.links.twitter,
-    icon: "solar:twitter-bold",
+    icon: "mdi:twitter",
   },
   {
     label: "GitHub",
     href: siteConfig.links.github,
-    icon: "solar:github-bold",
+    icon: "mdi:github",
   },
   {
     label: "LinkedIn",
     href: "#",
-    icon: "solar:linkedin-bold",
+    icon: "mdi:linkedin",
   },
 ]
 
