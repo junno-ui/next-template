@@ -102,23 +102,23 @@ export default function TestimonialsSection() {
         description="Replace these with customer quotes, beta feedback, or launch reactions to make your page feel trusted from the first scroll."
       />
 
-        <Reveal className="relative">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-linear-to-r from-background via-background/90 to-transparent dark:from-black dark:via-black/80" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l from-background via-background/90 to-transparent dark:from-black dark:via-black/80" />
+      <Reveal className="relative">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-linear-to-r from-background via-background/90 to-transparent dark:from-black dark:via-black/80" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l from-background via-background/90 to-transparent dark:from-black dark:via-black/80" />
 
-          <div className="space-y-4">
-            <TestimonialsMarquee speed={42} />
-            <TestimonialsMarquee reverse speed={52} />
-          </div>
-        </Reveal>
-
-        <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center text-xs text-muted-foreground dark:text-white/42">
-          <span>4.9/5 average rating</span>
-          <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
-          <span>Trusted by 10K+ teams</span>
-          <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
-          <span>Results visible within weeks</span>
+        <div className="space-y-4">
+          <TestimonialsMarquee speed={42} />
+          <TestimonialsMarquee reverse speed={52} />
         </div>
+      </Reveal>
+
+      <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center text-xs text-muted-foreground dark:text-white/42">
+        <span>4.9/5 average rating</span>
+        <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
+        <span>Trusted by 10K+ teams</span>
+        <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
+        <span>Results visible within weeks</span>
+      </div>
     </SectionShell>
   )
 }

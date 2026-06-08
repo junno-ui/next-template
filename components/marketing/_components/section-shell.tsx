@@ -39,8 +39,6 @@ export function SectionShell({
           />
           <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background via-background/80 to-transparent" />
-          <div className="absolute top-[18%] left-1/2 h-[480px] w-[min(92vw,980px)] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[130px]" />
-          <div className="absolute right-[-12%] bottom-[4%] h-[360px] w-[620px] rounded-full bg-chart-2/[0.04] blur-[120px]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
           <div className="absolute top-0 left-1/2 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
         </div>

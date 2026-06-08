@@ -8,7 +8,6 @@ import { siteConfig } from "@/config/site"
 import { heroStats } from "@/content/landing-page"
 import { cn } from "@/lib/utils"
 import React from "react"
-import BackgroundShader from "@/components/ui/background-shader"
 
 /* -------------------------------------------------------------------------- */
 /*  Data                                                                       */
@@ -95,31 +94,6 @@ const countries = [
   { country: "Japan", flag: "JP", pct: 18, color: "bg-chart-3" },
   { country: "France", flag: "FR", pct: 12, color: "bg-chart-4" },
 ]
-
-/* -------------------------------------------------------------------------- */
-/*  Background                                                                 */
-/* -------------------------------------------------------------------------- */
-
-function HeroBackground() {
-  return (
-    <div
-      className="pointer-events-none absolute inset-0 -z-20 overflow-hidden"
-      aria-hidden="true"
-    >
-      <div className="absolute inset-0 bg-background" />
-      
-      <div className="absolute inset-0 opacity-40 mix-blend-screen dark:opacity-20">
-        <BackgroundShader />
-      </div>
-
-      <div className="bg-luxury-grid absolute inset-0 opacity-20" />
-      <div className="bg-hero-pattern absolute inset-0 opacity-15" />
-      <div className="bg-noise-weave absolute inset-0 opacity-[0.07]" />
-      
-      <div className="absolute top-0 left-1/2 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
-    </div>
-  )
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Small pieces                                                               */
@@ -674,8 +648,6 @@ function DashboardPreview() {
 export default function HeroSection() {
   return (
     <section id="home" className="relative isolate overflow-hidden">
-      <HeroBackground />
-
       <div className="mx-auto max-w-7xl px-4 pt-52 pb-20 sm:px-6 sm:pt-44 lg:px-8">
         <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center">
           {/* Hero content */}
