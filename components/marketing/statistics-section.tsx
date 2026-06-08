@@ -1,73 +1,36 @@
-"use client"
+import { Icon } from "@/components/ui/app-icon"
 
-import { Icon } from "@iconify/react"
-
+import { ScrollCard, Stagger } from "@/components/marketing/_components/reveal"
+import {
+  SectionHeader,
+  SectionShell,
+} from "@/components/marketing/_components/section-shell"
+import { statistics } from "@/content/landing-page"
 import { cn } from "@/lib/utils"
-
-const stats = [
-  {
-    value: "10K+",
-    label: "Active Teams",
-    icon: "mdi:account-group-outline",
-    description: "Operators rely on the platform every day.",
-    accent: "from-primary/20",
-    hover: "hover:-translate-y-2 hover:rotate-[0.35deg]",
-  },
-  {
-    value: "50M+",
-    label: "Signals Processed",
-    icon: "mdi:send-outline",
-    description: "Data points converted into clear decisions.",
-    accent: "from-chart-2/20",
-    hover: "hover:-translate-y-1 hover:translate-x-1",
-  },
-  {
-    value: "99.9%",
-    label: "Uptime",
-    icon: "mdi:shield-check-outline",
-    description: "Reliable infrastructure for critical workflows.",
-    accent: "from-primary/20",
-    hover: "hover:-translate-y-1 hover:-translate-x-1",
-  },
-  {
-    value: "4.9/5",
-    label: "User Rating",
-    icon: "mdi:star-outline",
-    description: "Loved for clarity, speed, and ease of use.",
-    accent: "from-amber-400/20",
-    hover: "hover:-translate-y-2 hover:rotate-[-0.35deg]",
-  },
-]
 
 function StatCard({
   stat,
-  index,
 }: {
-  stat: (typeof stats)[number]
-  index: number
+  stat: (typeof statistics)[number]
 }) {
   return (
-    <article
+    <ScrollCard
       className={cn(
-        "animate-slide-up-fade group relative overflow-hidden rounded-[1.75rem] border border-border/40 bg-background/72 p-6 text-center shadow-2xl shadow-black/[0.10] backdrop-blur-xl transition-all duration-500 dark:border-white/10 dark:bg-white/[0.025]",
-        "hover:border-primary/25 hover:bg-background/90 hover:shadow-primary/10 dark:hover:bg-white/[0.045]",
+        "group relative overflow-hidden rounded-[1.75rem] border border-border/40 bg-background/72 p-6 text-center shadow-2xl shadow-black/10 backdrop-blur-xl transition-all duration-500 dark:border-white/10 dark:bg-white/2.5",
+        "hover:border-primary/25 hover:bg-background/90 hover:shadow-primary/10 dark:hover:bg-white/4.5",
         stat.hover
       )}
-      style={{
-        animationDelay: `${240 + index * 90}ms`,
-        animationFillMode: "both",
-      }}
     >
       {/* soft hover wash */}
       <div
         className={cn(
-          "pointer-events-none absolute inset-0 bg-gradient-to-br via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100",
+          "pointer-events-none absolute inset-0 bg-linear-to-br via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100",
           stat.accent
         )}
       />
 
       {/* top shine */}
-      <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-white/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
       {/* corner glow */}
 
@@ -75,7 +38,7 @@ function StatCard({
         <Icon icon={stat.icon} className="size-6" />
       </div>
 
-      <p className="relative text-4xl font-bold tracking-[-0.04em] text-foreground dark:text-white">
+      <p className="relative text-4xl font-bold text-foreground dark:text-white">
         {stat.value}
       </p>
 
@@ -83,69 +46,41 @@ function StatCard({
         {stat.label}
       </p>
 
-      <p className="relative mx-auto mt-3 max-w-[14rem] text-sm leading-6 text-muted-foreground dark:text-white/50">
+      <p className="relative mx-auto mt-3 max-w-56 text-sm leading-6 text-muted-foreground dark:text-white/50">
         {stat.description}
       </p>
-    </article>
+    </ScrollCard>
   )
 }
 
 export default function StatisticsSection() {
   return (
-    <section className="relative isolate overflow-hidden py-28">
-      {/* Background */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-0 bg-background" />
-        <div className="absolute inset-0 bg-hex-dots opacity-[0.14]" />
-
-        <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-background to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-background to-transparent" />
-
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_45%,transparent_8%,rgba(255,255,255,0.34)_72%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_70%_55%_at_50%_45%,transparent_8%,rgba(0,0,0,0.48)_72%,rgba(0,0,0,0.78)_100%)]" />
-      </div>
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="mx-auto mb-14 max-w-3xl text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary backdrop-blur-xl dark:bg-white/[0.03]">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
-              <span className="relative inline-flex size-2 rounded-full bg-primary" />
+    <SectionShell background="dense">
+      <SectionHeader
+        eyebrow="By the numbers"
+        title={
+          <>
+            Proof points that{" "}
+            <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
+              build confidence.
             </span>
-            By the numbers
-          </div>
+          </>
+        }
+        description="Use this section to turn traction, reliability, and customer love into quick trust signals visitors can scan in seconds."
+      />
 
-          <h2 className="text-balance text-3xl font-bold tracking-[-0.04em] text-foreground dark:text-white sm:text-4xl md:text-5xl">
-            Trusted performance,{" "}
-            <span className="text-primary">
-              proven at scale.
-            </span>
-          </h2>
+      <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {statistics.map((stat) => (
+          <StatCard key={stat.label} stat={stat} />
+        ))}
+      </Stagger>
 
-          <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-7 text-muted-foreground dark:text-white/60">
-            Clear metrics help visitors understand credibility quickly and make
-            the landing page feel more trustworthy from the first scan.
-          </p>
-        </div>
-
-        {/* Stats grid */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat, index) => (
-            <StatCard key={stat.label} stat={stat} index={index} />
-          ))}
-        </div>
-
-        {/* Bottom trust strip */}
-        <div className="mx-auto mt-8 max-w-4xl rounded-[1.5rem] border border-border/40 bg-background/72 px-5 py-4 text-center backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.025]">
-          <p className="text-sm leading-6 text-muted-foreground dark:text-white/52">
-            Built for teams that need clarity, reliability, and fast decision
-            cycles without adding more operational noise.
-          </p>
-        </div>
+      <div className="mx-auto mt-8 max-w-4xl rounded-[1.5rem] border border-border/40 bg-background/72 px-5 py-4 text-center backdrop-blur-xl dark:border-white/10 dark:bg-white/2.5">
+        <p className="text-sm leading-6 text-muted-foreground dark:text-white/52">
+          Swap these metrics with your real traction, customer outcomes, or
+          launch milestones to make the page feel immediately credible.
+        </p>
       </div>
-    </section>
+    </SectionShell>
   )
 }

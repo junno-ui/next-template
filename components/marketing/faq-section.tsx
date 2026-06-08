@@ -1,36 +1,15 @@
 "use client"
 
 import * as React from "react"
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
+import { ScrollCard, Stagger } from "@/components/marketing/_components/reveal"
+import {
+  SectionHeader,
+  SectionShell,
+} from "@/components/marketing/_components/section-shell"
+import { faqs } from "@/content/landing-page"
 import { cn } from "@/lib/utils"
-
-const faqs = [
-  {
-    q: "How does the free trial work?",
-    a: "You get full access to all features for 14 days. No credit card required. At the end of your trial, choose a plan that fits your needs or continue with our free tier.",
-  },
-  {
-    q: "Can I switch plans later?",
-    a: "Absolutely. You can upgrade, downgrade, or cancel your plan at any time from your dashboard. Changes take effect at the start of your next billing cycle.",
-  },
-  {
-    q: "Is my data secure?",
-    a: "Yes. We use AES-256 encryption at rest, TLS 1.3 in transit, and SOC 2 Type II compliance. Your data is stored in geo-redundant data centers with a 99.9% uptime SLA.",
-  },
-  {
-    q: "Do you offer custom integrations?",
-    a: "Our Enterprise plan includes custom API integrations, dedicated engineering support, and webhook configurations tailored to your existing tech stack.",
-  },
-  {
-    q: "What kind of support do you provide?",
-    a: "All plans include email support with 24-hour response time. Scaleup plans get priority chat support, and Enterprise customers receive a dedicated account manager.",
-  },
-  {
-    q: "Can I export my data?",
-    a: "Yes. You can export all your campaign data, analytics reports, and contact lists in CSV, JSON, or PDF format at any time from the settings panel.",
-  },
-]
 
 function FaqItem({
   faq,
@@ -47,16 +26,13 @@ function FaqItem({
   const triggerId = `faq-trigger-${index}`
 
   return (
-    <article
+    <ScrollCard
       className={cn(
-        "animate-slide-up-fade group relative overflow-hidden rounded-[1.5rem] bg-background/72 ring-1 ring-border/40 backdrop-blur-xl transition-all duration-300 dark:bg-white/[0.025] dark:ring-white/10",
+        "group relative overflow-hidden rounded-[1.5rem] bg-background/72 ring-1 ring-border/40 backdrop-blur-xl transition-all duration-300 dark:bg-white/[0.025] dark:ring-white/10",
         "hover:bg-background/90 hover:ring-primary/20 dark:hover:bg-white/[0.04]",
-        isOpen && "bg-background/90 ring-primary/25 shadow-2xl shadow-primary/5 dark:bg-white/[0.045]"
+        isOpen &&
+          "bg-background/90 shadow-2xl shadow-primary/5 ring-primary/25 dark:bg-white/[0.045]"
       )}
-      style={{
-        animationDelay: `${index * 70}ms`,
-        animationFillMode: "both",
-      }}
     >
       <div
         className={cn(
@@ -87,7 +63,7 @@ function FaqItem({
 
           <span
             className={cn(
-              "text-sm font-semibold leading-6 transition-colors sm:text-[15px]",
+              "text-sm leading-6 font-semibold transition-colors sm:text-[15px]",
               isOpen
                 ? "text-foreground dark:text-white"
                 : "text-foreground/80 group-hover:text-foreground dark:text-white/78 dark:group-hover:text-white"
@@ -121,11 +97,13 @@ function FaqItem({
         <div className="overflow-hidden">
           <div className="relative px-5 pb-5 pl-[4.75rem] sm:px-6 sm:pb-6 sm:pl-[5.25rem]">
             <div className="mb-4 h-px bg-gradient-to-r from-primary/25 via-white/10 to-transparent" />
-            <p className="text-sm leading-7 text-muted-foreground dark:text-white/58">{faq.a}</p>
+            <p className="text-sm leading-7 text-muted-foreground dark:text-white/58">
+              {faq.a}
+            </p>
           </div>
         </div>
       </div>
-    </article>
+    </ScrollCard>
   )
 }
 
@@ -133,64 +111,39 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = React.useState<number | null>(0)
 
   return (
-    <section
-      id="faq"
-      className="relative isolate overflow-hidden py-24 sm:py-28"
-    >
-      {/* Background */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-0 bg-background" />
-        <div className="absolute inset-0 bg-hex-dots opacity-[0.1]" />
-
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
-
-        <div className="absolute left-1/2 top-0 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
-      </div>
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-14">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary ring-1 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035]">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
-              <span className="relative inline-flex size-2 rounded-full bg-primary" />
+    <SectionShell id="faq">
+      <SectionHeader
+        eyebrow="FAQ"
+        title={
+          <>
+            Answers that reduce{" "}
+            <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
+              buyer hesitation.
             </span>
-            FAQ
-          </div>
+          </>
+        }
+        description="Use this accordion to handle objections, explain customization, and give visitors confidence before they click."
+      />
 
-          <h2 className="text-balance text-3xl font-bold tracking-[-0.045em] text-foreground dark:text-white sm:text-4xl md:text-5xl lg:text-6xl">
-            Questions before you{" "}
-            <span className="text-primary">
-              get started?
-            </span>
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-2xl text-pretty text-[15px] leading-7 text-muted-foreground dark:text-white/64 sm:text-base">
-            Everything you need to know about trials, billing, security,
-            integrations, support, and exporting your data.
-          </p>
-        </div>
-
-        {/* FAQ layout */}
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.85fr_1.4fr]">
           {/* Support card */}
           <aside className="relative h-fit overflow-hidden rounded-[2rem] bg-background/72 p-6 ring-1 ring-border/40 backdrop-blur-2xl dark:bg-white/[0.025] dark:ring-white/10">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,130,40,0.12),transparent_42%)]" />
 
             <div className="relative flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/15">
-              <Icon icon="solar:chat-round-dots-bold-duotone" className="size-6" />
+              <Icon
+                icon="solar:chat-round-dots-bold-duotone"
+                className="size-6"
+              />
             </div>
 
-            <h3 className="relative mt-5 text-xl font-bold tracking-tight text-foreground dark:text-white">
+            <h3 className="relative mt-5 text-xl font-bold text-foreground dark:text-white">
               Still need help?
             </h3>
 
             <p className="relative mt-3 text-sm leading-7 text-muted-foreground dark:text-white/55">
-              Can&apos;t find the answer you&apos;re looking for? Our team can
-              help you choose a plan, understand security, or set up integrations.
+              Use this card for sales support, product onboarding, or a direct
+              path to your founder, team, or documentation.
             </p>
 
             <a
@@ -198,10 +151,7 @@ export default function FaqSection() {
               className="relative mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-xl shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-primary/35 active:scale-[0.98]"
             >
               Contact support
-              <Icon
-                icon="solar:arrow-right-bold"
-                className="ml-1.5 size-4"
-              />
+              <Icon icon="solar:arrow-right-bold" className="ml-1.5 size-4" />
             </a>
 
             <div className="relative mt-6 grid gap-3 border-t border-border/30 pt-6 dark:border-white/10">
@@ -214,15 +164,19 @@ export default function FaqSection() {
                   key={label}
                   className="flex items-center justify-between text-sm"
                 >
-                  <span className="text-muted-foreground dark:text-white/45">{label}</span>
-                  <span className="font-semibold text-foreground/80 dark:text-white/75">{value}</span>
+                  <span className="text-muted-foreground dark:text-white/45">
+                    {label}
+                  </span>
+                  <span className="font-semibold text-foreground/80 dark:text-white/75">
+                    {value}
+                  </span>
                 </div>
               ))}
             </div>
           </aside>
 
           {/* Accordion */}
-          <div className="flex flex-col gap-3">
+          <Stagger className="flex flex-col gap-3">
             {faqs.map((faq, index) => (
               <FaqItem
                 key={faq.q}
@@ -234,9 +188,8 @@ export default function FaqSection() {
                 }
               />
             ))}
-          </div>
+          </Stagger>
         </div>
-      </div>
-    </section>
+    </SectionShell>
   )
 }

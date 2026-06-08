@@ -1,9 +1,11 @@
 export const siteConfig = {
   name: "Clario",
-  tagline: "Bring product clarity into every launch.",
+  creator: "Junno UI",
+  tagline: "Launch a clearer SaaS story in less time.",
   description:
-    "Clario is a refined Next.js template for SaaS and product teams that want clearer messaging, stronger trust, and a premium launch-ready experience.",
-  url: "https://clario.dev",
+    "Clario is a free, refined Next.js landing page template created by Junno UI for SaaS teams that want better messaging, smoother interactions, and a premium launch-ready experience.",
+  url: "https://junno-ui.com/template/clario-landing-page",
+  templateUrl: "https://junno-ui.com/template/clario-landing-page",
   links: {
     twitter: "https://twitter.com",
     github: "https://github.com",

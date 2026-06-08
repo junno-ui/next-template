@@ -1,10 +1,14 @@
 "use client"
 
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
+import { ActionLink } from "@/components/marketing/_components/action-link"
 import { buttonVariants } from "@/components/ui/button"
+import { siteConfig } from "@/config/site"
+import { heroStats } from "@/content/landing-page"
 import { cn } from "@/lib/utils"
 import React from "react"
+import BackgroundShader from "@/components/ui/background-shader"
 
 /* -------------------------------------------------------------------------- */
 /*  Data                                                                       */
@@ -13,32 +17,15 @@ import React from "react"
 const sidebarItems = [
   { icon: "solar:widget-5-bold-duotone", label: "Dashboard", active: true },
   { icon: "solar:box-minimalistic-bold", label: "Products", active: false },
-  { icon: "solar:cart-large-minimalistic-bold", label: "Orders", active: false },
+  {
+    icon: "solar:cart-large-minimalistic-bold",
+    label: "Orders",
+    active: false,
+  },
   { icon: "solar:megaphone-bold-duotone", label: "Campaigns", active: false },
   { icon: "solar:users-group-rounded-bold", label: "Customers", active: false },
   { icon: "solar:chart-2-bold-duotone", label: "Analytics", active: false },
   { icon: "solar:settings-bold-duotone", label: "Settings", active: false },
-]
-
-const heroStats = [
-  {
-    label: "Conversion lift",
-    value: "+28%",
-    description: "Average increase after launch",
-    icon: "solar:graph-up-bold-duotone",
-  },
-  {
-    label: "Setup time",
-    value: "12 min",
-    description: "Connect tools and go live",
-    icon: "solar:clock-circle-bold-duotone",
-  },
-  {
-    label: "Teams onboarded",
-    value: "2.4k+",
-    description: "Growing teams use it daily",
-    icon: "solar:users-group-rounded-bold-duotone",
-  },
 ]
 
 const dashboardStats = [
@@ -103,10 +90,10 @@ const months = [
 ]
 
 const countries = [
-  { country: "United States", flag: "🇺🇸", pct: 42, color: "bg-primary" },
-  { country: "Germany", flag: "🇩🇪", pct: 28, color: "bg-chart-2" },
-  { country: "Japan", flag: "🇯🇵", pct: 18, color: "bg-chart-3" },
-  { country: "France", flag: "🇫🇷", pct: 12, color: "bg-chart-4" },
+  { country: "United States", flag: "US", pct: 42, color: "bg-primary" },
+  { country: "Germany", flag: "DE", pct: 28, color: "bg-chart-2" },
+  { country: "Japan", flag: "JP", pct: 18, color: "bg-chart-3" },
+  { country: "France", flag: "FR", pct: 12, color: "bg-chart-4" },
 ]
 
 /* -------------------------------------------------------------------------- */
@@ -120,13 +107,16 @@ function HeroBackground() {
       aria-hidden="true"
     >
       <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 bg-luxury-grid opacity-20" />
-      <div className="absolute inset-0 bg-hero-pattern opacity-15" />
-      <div className="absolute inset-0 bg-noise-weave opacity-[0.07]" />
+      
+      <div className="absolute inset-0 opacity-40 mix-blend-screen dark:opacity-20">
+        <BackgroundShader />
+      </div>
 
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_74%_54%_at_50%_22%,transparent_8%,rgba(255,255,255,0.24)_64%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_74%_54%_at_50%_22%,transparent_8%,rgba(0,0,0,0.34)_64%,rgba(0,0,0,0.78)_100%)]" />
-
-      <div className="absolute left-1/2 top-0 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
+      <div className="bg-luxury-grid absolute inset-0 opacity-20" />
+      <div className="bg-hero-pattern absolute inset-0 opacity-15" />
+      <div className="bg-noise-weave absolute inset-0 opacity-[0.07]" />
+      
+      <div className="absolute top-0 left-1/2 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
     </div>
   )
 }
@@ -137,12 +127,12 @@ function HeroBackground() {
 
 function HeroBadge() {
   return (
-    <div className="animate-fade-up inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary shadow-xl shadow-black/10 ring-1 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035] dark:shadow-black/20">
+    <div className="animate-fade-up inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-[11px] font-semibold text-primary uppercase shadow-xl ring-1 shadow-black/10 ring-primary/20 backdrop-blur-xl dark:bg-white/[0.035] dark:shadow-black/20">
       <span className="relative flex size-2">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
         <span className="relative inline-flex size-2 rounded-full bg-primary" />
       </span>
-      New SaaS dashboard experience
+      Created free by Junno UI
     </div>
   )
 }
@@ -171,7 +161,10 @@ function TrustPills() {
 
         <span>
           Trusted by{" "}
-          <strong className="font-semibold text-foreground dark:text-white">2,400+</strong> teams
+          <strong className="font-semibold text-foreground dark:text-white">
+            2,400+
+          </strong>{" "}
+          teams
         </span>
       </div>
 
@@ -207,15 +200,15 @@ function HeroStatCard({
   icon: string
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-[1.5rem] bg-background/72 p-4 text-left ring-1 ring-border/40 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-background/90 hover:ring-primary/25 hover:shadow-2xl hover:shadow-primary/10 dark:bg-white/[0.025] dark:ring-white/10 dark:hover:bg-white/[0.05]">
+    <div className="group relative overflow-hidden rounded-[1.5rem] bg-background/72 p-4 text-left ring-1 ring-border/40 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-background/90 hover:shadow-2xl hover:shadow-primary/10 hover:ring-primary/25 dark:bg-white/[0.025] dark:ring-white/10 dark:hover:bg-white/[0.05]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,120,40,0.14),transparent_42%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       <div className="relative flex items-start justify-between gap-3">
         <div>
-          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground dark:text-white/45">
+          <p className="text-[11px] font-medium text-muted-foreground uppercase dark:text-white/45">
             {label}
           </p>
-          <p className="mt-2 text-2xl font-bold tracking-tight text-foreground dark:text-white">
+          <p className="mt-2 text-2xl font-bold text-foreground dark:text-white">
             {value}
           </p>
         </div>
@@ -289,10 +282,10 @@ function DashboardPreview() {
 
       <div className="flex min-h-[620px]">
         {/* Sidebar */}
-        <aside className="hidden w-60 shrink-0 flex-col bg-muted/25 backdrop-blur-xl ring-1 ring-border/35 dark:bg-black/10 dark:ring-white/[0.06] md:flex">
+        <aside className="hidden w-60 shrink-0 flex-col bg-muted/25 ring-1 ring-border/35 backdrop-blur-xl md:flex dark:bg-black/10 dark:ring-white/[0.06]">
           {/* Brand */}
           <div className="flex items-center gap-3 px-4 py-5">
-            <div className="flex size-9 items-center justify-center rounded-2xl bg-primary/10 text-primary shadow-sm shadow-primary/10 ring-1 ring-primary/15">
+            <div className="flex size-9 items-center justify-center rounded-2xl bg-primary/10 text-primary shadow-sm ring-1 shadow-primary/10 ring-primary/15">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -318,7 +311,7 @@ function DashboardPreview() {
             </div>
 
             <div>
-              <p className="text-sm font-bold tracking-tight text-foreground dark:text-white">
+              <p className="text-sm font-bold text-foreground dark:text-white">
                 Clario
               </p>
               <p className="text-[11px] text-muted-foreground">Growth OS</p>
@@ -401,7 +394,7 @@ function DashboardPreview() {
               </div>
 
               <div>
-                <h3 className="text-base font-bold tracking-tight text-foreground dark:text-white">
+                <h3 className="text-base font-bold text-foreground dark:text-white">
                   {currentPage.title}
                 </h3>
                 <p className="mt-0.5 text-xs text-muted-foreground">
@@ -461,10 +454,10 @@ function DashboardPreview() {
             {dashboardStats.map((stat) => (
               <div
                 key={stat.label}
-                className="group min-h-[118px] rounded-[1.5rem] bg-background/65 p-4 shadow-sm shadow-black/[0.03] ring-1 ring-border/45 transition-all duration-300 hover:-translate-y-0.5 hover:bg-background hover:ring-primary/20 dark:bg-white/[0.035] dark:shadow-black/20 dark:ring-white/10 dark:hover:bg-white/[0.06]"
+                className="group min-h-[118px] rounded-[1.5rem] bg-background/65 p-4 shadow-sm ring-1 shadow-black/[0.03] ring-border/45 transition-all duration-300 hover:-translate-y-0.5 hover:bg-background hover:ring-primary/20 dark:bg-white/[0.035] dark:shadow-black/20 dark:ring-white/10 dark:hover:bg-white/[0.06]"
               >
                 <div className="mb-3 flex items-center justify-between">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  <p className="text-[10px] font-semibold text-muted-foreground uppercase">
                     {stat.label}
                   </p>
 
@@ -473,7 +466,7 @@ function DashboardPreview() {
                   </div>
                 </div>
 
-                <p className="text-xl font-bold tracking-tight text-foreground dark:text-white">
+                <p className="text-xl font-bold text-foreground dark:text-white">
                   {stat.value}
                 </p>
 
@@ -492,10 +485,10 @@ function DashboardPreview() {
           {/* Content grid */}
           <div className="grid min-h-[310px] grid-cols-1 gap-3 lg:grid-cols-5">
             {/* Chart */}
-            <div className="rounded-[1.5rem] bg-background/65 p-4 shadow-sm shadow-black/[0.03] ring-1 ring-border/45 transition-all duration-300 hover:bg-background hover:ring-primary/20 dark:bg-white/[0.035] dark:shadow-black/20 dark:ring-white/10 dark:hover:bg-white/[0.06] lg:col-span-3">
+            <div className="rounded-[1.5rem] bg-background/65 p-4 shadow-sm ring-1 shadow-black/[0.03] ring-border/45 transition-all duration-300 hover:bg-background hover:ring-primary/20 lg:col-span-3 dark:bg-white/[0.035] dark:shadow-black/20 dark:ring-white/10 dark:hover:bg-white/[0.06]">
               <div className="mb-4 flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-sm font-bold tracking-tight text-foreground dark:text-white">
+                  <p className="text-sm font-bold text-foreground dark:text-white">
                     Performance Overview
                   </p>
                   <p className="mt-1 text-[11px] text-muted-foreground">
@@ -515,7 +508,7 @@ function DashboardPreview() {
                 </div>
               </div>
 
-              <div className="relative flex h-44 items-end gap-1.5 rounded-2xl bg-muted/35 px-3 pb-5 pt-4 dark:bg-black/10">
+              <div className="relative flex h-44 items-end gap-1.5 rounded-2xl bg-muted/35 px-3 pt-4 pb-5 dark:bg-black/10">
                 <div className="pointer-events-none absolute inset-x-3 bottom-12 h-px bg-border/50 dark:bg-white/10" />
                 <div className="pointer-events-none absolute inset-x-3 bottom-24 h-px bg-border/40 dark:bg-white/10" />
                 <div className="pointer-events-none absolute inset-x-3 bottom-36 h-px bg-border/30 dark:bg-white/10" />
@@ -545,10 +538,10 @@ function DashboardPreview() {
             </div>
 
             {/* Countries */}
-            <div className="rounded-[1.5rem] bg-background/65 p-4 shadow-sm shadow-black/[0.03] ring-1 ring-border/45 transition-all duration-300 hover:bg-background hover:ring-primary/20 dark:bg-white/[0.035] dark:shadow-black/20 dark:ring-white/10 dark:hover:bg-white/[0.06] lg:col-span-2">
+            <div className="rounded-[1.5rem] bg-background/65 p-4 shadow-sm ring-1 shadow-black/[0.03] ring-border/45 transition-all duration-300 hover:bg-background hover:ring-primary/20 lg:col-span-2 dark:bg-white/[0.035] dark:shadow-black/20 dark:ring-white/10 dark:hover:bg-white/[0.06]">
               <div className="mb-4 flex items-start justify-between">
                 <div>
-                  <p className="text-sm font-bold tracking-tight text-foreground dark:text-white">
+                  <p className="text-sm font-bold text-foreground dark:text-white">
                     Top by Country
                   </p>
                   <p className="mt-1 text-[11px] text-muted-foreground">
@@ -566,7 +559,9 @@ function DashboardPreview() {
                   <div key={country.country} className="group/country">
                     <div className="mb-1.5 flex items-center justify-between">
                       <span className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <span className="text-sm">{country.flag}</span>
+                        <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-bold text-primary ring-1 ring-primary/15">
+                          {country.flag}
+                        </span>
                         {country.country}
                       </span>
 
@@ -608,9 +603,21 @@ function DashboardPreview() {
           {/* Bottom activity row */}
           <div className="mt-3 grid gap-3 lg:grid-cols-3">
             {[
-              ["New campaign launched", "2 min ago", "solar:rocket-bold-duotone"],
-              ["Revenue report generated", "8 min ago", "solar:document-text-bold-duotone"],
-              ["Customer segment synced", "12 min ago", "solar:database-bold-duotone"],
+              [
+                "New campaign launched",
+                "2 min ago",
+                "solar:rocket-bold-duotone",
+              ],
+              [
+                "Revenue report generated",
+                "8 min ago",
+                "solar:document-text-bold-duotone",
+              ],
+              [
+                "Customer segment synced",
+                "12 min ago",
+                "solar:database-bold-duotone",
+              ],
             ].map(([title, time, icon]) => (
               <div
                 key={title}
@@ -669,125 +676,113 @@ export default function HeroSection() {
     <section id="home" className="relative isolate overflow-hidden">
       <HeroBackground />
 
-      <div className="mx-auto max-w-7xl px-4 pb-20 pt-32 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-52 pb-20 sm:px-6 sm:pt-44 lg:px-8">
         <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center">
           {/* Hero content */}
           <div className="relative w-full text-center">
             <HeroBadge />
 
-            <div className="animate-fade-up delay-100 relative mx-auto mt-7 max-w-5xl">
-
-              <p className="mx-auto max-w-2xl text-sm font-medium leading-6 text-foreground/70 dark:text-white/62 sm:text-base">
-                Modern analytics, automation, and reporting tools for SaaS teams
-                that want cleaner workflows and faster decisions.
+            <div className="animate-fade-up relative mx-auto mt-5 max-w-3xl px-4 delay-100">
+              <p className="mx-auto max-w-2xl text-sm leading-6 font-medium text-foreground/70 sm:text-base dark:text-white/60">
+                A free SaaS landing page template with polished typography,
+                smooth motion, and conversion-ready sections.
               </p>
-
-              <h1 className="mx-auto mt-6 max-w-5xl text-balance text-5xl font-bold leading-[0.9] tracking-[-0.065em] text-foreground dark:text-white sm:text-6xl md:text-7xl lg:text-[6.25rem]">
-                Turn scattered data
+              <h1 className="template-heading mx-auto mt-5 max-w-4xl text-center text-4xl leading-none font-bold text-foreground sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
+                Launch a SaaS page
                 <span className="block">into</span>
                 <span className="relative inline-block">
-                  <span className="relative text-primary">
-                    clear decisions
+                  <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
+                    a sharper story
                   </span>
                 </span>
               </h1>
 
-              <p className="mx-auto mt-7 max-w-2xl text-pretty text-[15px] leading-7 text-muted-foreground dark:text-white/70 sm:text-base">
-                Bring dashboards, campaigns, customer insights, and performance
-                reports into one polished workspace built for speed, clarity,
-                and growth.
+              <p className="mx-auto mt-5 max-w-2xl text-center text-base leading-7 text-muted-foreground dark:text-white/70">
+                Customize the copy, theme, sections, and interactions in a clean
+                structure made for real product teams.
               </p>
 
-              <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <a
+              <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row">
+                <ActionLink
                   href="#pricing"
+                  toastTitle="Pricing is ready"
+                  toastDescription="Compare plans and pick the launch path that fits your team."
                   className={cn(
-                    buttonVariants({ size: "lg" }),
-                    "group relative overflow-hidden rounded-full px-8 text-sm font-semibold shadow-xl shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-primary/35 active:scale-[0.98]"
+                    buttonVariants({ size: "sm" }),
+                    "rounded-full px-6 text-xs font-semibold shadow-md transition-all hover:scale-[1.02]"
                   )}
                 >
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]"
-                  />
-                  Start free today
-                  <Icon
-                    icon="solar:arrow-right-bold"
-                    className="ml-1.5 size-4 transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </a>
+                  Start free
+                </ActionLink>
 
-                <a
-                  href="#features"
+                <ActionLink
+                  href={siteConfig.templateUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  toastTitle="Opening Junno UI"
+                  toastDescription="You are heading to the free template page."
                   className={cn(
-                    buttonVariants({ variant: "outline", size: "lg" }),
-                    "group rounded-full bg-background/80 px-8 text-sm text-foreground ring-1 ring-border/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-background hover:ring-primary/25 active:scale-[0.98] dark:bg-white/[0.035] dark:text-white dark:ring-white/10 dark:hover:bg-white/[0.06]"
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                    "rounded-full bg-background/80 px-6 text-xs backdrop-blur-xl"
                   )}
                 >
-                  Explore features
+                  Get template
                   <Icon
-                    icon="solar:arrow-down-bold"
-                    className="ml-1.5 size-3.5 transition-transform duration-300 group-hover:translate-y-0.5"
+                    icon="solar:arrow-right-up-linear"
+                    className="ml-1 size-3.5"
                   />
-                </a>
+                </ActionLink>
               </div>
 
-              <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground dark:text-white/45">
-                <span>No credit card required</span>
-                <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
-                <span>14-day free trial</span>
-                <span className="hidden size-1 rounded-full bg-border sm:block dark:bg-white/20" />
-                <span>Cancel anytime</span>
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[10px] text-muted-foreground dark:text-white/50">
+                <span>Free template</span>
+                <span className="size-1 rounded-full bg-muted-foreground/35" />
+                <span>Next.js ready</span>
+                <span className="size-1 rounded-full bg-muted-foreground/35" />
+                <span>Themeable</span>
               </div>
 
               <TrustPills />
 
-              <div className="mx-auto mt-9 grid max-w-4xl gap-3 sm:grid-cols-3">
+              <div className="mt-6 grid max-w-3xl gap-2 sm:grid-cols-3">
                 {heroStats.map((item) => (
-                  <HeroStatCard
-                    key={item.label}
-                    label={item.label}
-                    value={item.value}
-                    description={item.description}
-                    icon={item.icon}
-                  />
+                  <HeroStatCard key={item.label} {...item} />
                 ))}
               </div>
             </div>
           </div>
 
           {/* Product preview */}
-          {/* Product preview */}
-<div className="animate-slide-up-fade delay-300 relative mx-auto mt-16 w-full max-w-7xl">
+          <div className="animate-slide-up-fade relative mx-auto mt-16 w-full max-w-7xl delay-300">
 
-  <div className="relative overflow-hidden rounded-[2.5rem] bg-background/72 p-4 shadow-2xl shadow-black/20 ring-1 ring-border/40 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-background/90 hover:ring-primary/20 dark:bg-white/[0.025] dark:ring-white/10 dark:hover:bg-white/[0.035] sm:p-5">
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent"
-    />
+            <div className="relative overflow-hidden rounded-[2.5rem] bg-background/72 p-4 shadow-2xl ring-1 shadow-black/20 ring-border/40 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-background/90 hover:ring-primary/20 sm:p-5 dark:bg-white/[0.025] dark:ring-white/10 dark:hover:bg-white/[0.035]">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent"
+              />
 
-    <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-[1.75rem] bg-background/80 px-5 py-4 ring-1 ring-border/40 dark:bg-white/[0.025] dark:ring-white/10">
-      <div>
-        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
-          Product preview
-        </p>
-        <p className="mt-1 text-sm font-semibold text-foreground dark:text-white">
-          Cleaner structure, stronger hierarchy, better visual rhythm
-        </p>
-      </div>
+              <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-[1.75rem] bg-background/80 px-5 py-4 ring-1 ring-border/40 dark:bg-white/[0.025] dark:ring-white/10">
+                <div>
+                  <p className="text-[11px] font-semibold text-primary uppercase">
+                    Product preview
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-foreground dark:text-white">
+                    Cleaner structure, stronger hierarchy, smoother interaction
+                  </p>
+                </div>
 
-      <div className="flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary ring-1 ring-primary/20">
-        <span className="relative flex size-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
-          <span className="relative inline-flex size-2 rounded-full bg-primary" />
-        </span>
-        Live preview
-      </div>
-    </div>
+                <div className="flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary ring-1 ring-primary/20">
+                  <span className="relative flex size-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
+                    <span className="relative inline-flex size-2 rounded-full bg-primary" />
+                  </span>
+                  Live preview
+                </div>
+              </div>
 
-    <DashboardPreview />
-  </div>
-</div>
+              <DashboardPreview />
+            </div>
+          </div>
         </div>
       </div>
     </section>

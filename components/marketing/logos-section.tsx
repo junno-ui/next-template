@@ -1,15 +1,7 @@
-import { Icon } from "@iconify/react"
+import { Icon } from "@/components/ui/app-icon"
 
-const logos = [
-  { icon: "mdi:instagram", name: "Instagram" },
-  { icon: "mdi:shopify", name: "Shopify" },
-  { icon: "mdi:microsoft", name: "Microsoft" },
-  { icon: "mdi:google", name: "Google" },
-  { icon: "mdi:slack", name: "Slack" },
-  { icon: "mdi:github", name: "GitHub" },
-  { icon: "mdi:spotify", name: "Spotify" },
-  { icon: "mdi:apple", name: "Apple" },
-]
+import { Reveal } from "@/components/marketing/_components/reveal"
+import { brandLogos } from "@/content/landing-page"
 
 export default function LogosSection() {
   return (
@@ -23,8 +15,8 @@ export default function LogosSection() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto mb-9 max-w-2xl text-center">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-primary">
+        <Reveal className="mx-auto mb-9 max-w-2xl text-center">
+          <p className="text-[10px] font-semibold text-primary uppercase">
             Trusted by industry leaders
           </p>
 
@@ -32,7 +24,7 @@ export default function LogosSection() {
             Used by teams across commerce, SaaS, product operations, and modern
             growth workflows.
           </p>
-        </div>
+        </Reveal>
 
         {/* Marquee */}
         <div className="relative overflow-hidden">
@@ -47,7 +39,7 @@ export default function LogosSection() {
           />
 
           <div className="flex w-max animate-[scroll_34s_linear_infinite] items-center gap-14 hover:[animation-play-state:paused]">
-            {[...logos, ...logos].map((logo, index) => (
+            {[...brandLogos, ...brandLogos].map((logo, index) => (
               <div
                 key={`${logo.name}-${index}`}
                 className="group flex shrink-0 items-center gap-3 text-muted-foreground/35 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:text-foreground"
@@ -59,7 +51,7 @@ export default function LogosSection() {
                   />
                 </span>
 
-                <span className="whitespace-nowrap text-sm font-semibold tracking-tight">
+                <span className="text-sm font-semibold whitespace-nowrap">
                   {logo.name}
                 </span>
               </div>

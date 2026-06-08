@@ -15,13 +15,18 @@ export type ThemeConfig = {
 
 const defaultConfig: ThemeConfig = {
   style: "glass",
-  theme: "sapphire",
-  radius: 1,
+  theme: "ember",
+  radius: 1.25,
 }
 
-type ConfigContextValue = [ThemeConfig, React.Dispatch<React.SetStateAction<ThemeConfig>>]
+type ConfigContextValue = [
+  ThemeConfig,
+  React.Dispatch<React.SetStateAction<ThemeConfig>>,
+]
 
-const ConfigContext = React.createContext<ConfigContextValue | undefined>(undefined)
+const ConfigContext = React.createContext<ConfigContextValue | undefined>(
+  undefined
+)
 
 export function useConfig() {
   const ctx = React.useContext(ConfigContext)
@@ -53,7 +58,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Persist on change
   React.useEffect(() => {
-    if (mounted) localStorage.setItem("clario-theme-config", JSON.stringify(config))
+    if (mounted)
+      localStorage.setItem("clario-theme-config", JSON.stringify(config))
   }, [config, mounted])
 
   return (
@@ -82,7 +88,9 @@ function ThemeHotkey() {
     function onKeyDown(e: KeyboardEvent) {
       if (e.defaultPrevented || e.repeat) return
       if (e.metaKey || e.ctrlKey || e.altKey) return
-      if (e.key?.toLowerCase() !== "d") return
+
+      const key = typeof e.key === "string" ? e.key.toLowerCase() : ""
+      if (key !== "d") return
 
       const t = e.target
       if (

@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Icon } from "@iconify/react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -45,7 +44,7 @@ export function AuthPopover({ className }: { className?: string }) {
       <PopoverContent
         align="end"
         sideOffset={12}
-        className="w-[min(92vw,380px)] overflow-hidden rounded-[1.75rem] border-0 bg-background/95 p-0 shadow-2xl shadow-black/20 ring-1 ring-white/10 backdrop-blur-2xl"
+        className="w-[min(92vw,380px)] overflow-hidden rounded-[1.75rem] border-0 bg-background/95 p-0 shadow-2xl ring-1 shadow-black/20 ring-white/10 backdrop-blur-2xl"
       >
         <div className="relative">
           <div
@@ -240,7 +239,7 @@ function Field({
     <div className="space-y-1.5">
       <Label
         htmlFor={htmlFor}
-        className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/60"
+        className="text-[11px] font-semibold tracking-[0.18em] text-muted-foreground/60 uppercase"
       >
         {label}
       </Label>
