@@ -74,7 +74,7 @@ export default function NewsletterSection() {
 
               <h2 className="template-heading text-4xl leading-none font-bold text-balance text-foreground sm:text-5xl md:text-6xl dark:text-white">
                 Get the signals worth{" "}
-                <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
+                <span className="relative text-primary">
                   acting on.
                 </span>
               </h2>

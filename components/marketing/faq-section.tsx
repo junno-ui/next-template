@@ -31,7 +31,7 @@ function FaqItem({
         "group relative overflow-hidden rounded-[1.5rem] bg-background/72 ring-1 ring-border/40 backdrop-blur-xl transition-all duration-300 dark:bg-white/[0.025] dark:ring-white/10",
         "hover:bg-background/90 hover:ring-primary/20 dark:hover:bg-white/[0.04]",
         isOpen &&
-          "bg-background/90 shadow-2xl shadow-primary/5 ring-primary/25 dark:bg-white/[0.045]"
+        "bg-background/90 shadow-2xl shadow-primary/5 ring-primary/25 dark:bg-white/[0.045]"
       )}
     >
       <div
@@ -117,7 +117,7 @@ export default function FaqSection() {
         title={
           <>
             Answers that reduce{" "}
-            <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
+            <span className="relative text-primary">
               buyer hesitation.
             </span>
           </>
@@ -125,71 +125,71 @@ export default function FaqSection() {
         description="Use this accordion to handle objections, explain customization, and give visitors confidence before they click."
       />
 
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.85fr_1.4fr]">
-          {/* Support card */}
-          <aside className="relative h-fit overflow-hidden rounded-[2rem] bg-background/72 p-6 ring-1 ring-border/40 backdrop-blur-2xl dark:bg-white/[0.025] dark:ring-white/10">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,130,40,0.12),transparent_42%)]" />
+      <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.85fr_1.4fr]">
+        {/* Support card */}
+        <aside className="relative h-fit overflow-hidden rounded-[2rem] bg-background/72 p-6 ring-1 ring-border/40 backdrop-blur-2xl dark:bg-white/[0.025] dark:ring-white/10">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,130,40,0.12),transparent_42%)]" />
 
-            <div className="relative flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/15">
-              <Icon
-                icon="solar:chat-round-dots-bold-duotone"
-                className="size-6"
-              />
-            </div>
+          <div className="relative flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/15">
+            <Icon
+              icon="solar:chat-round-dots-bold-duotone"
+              className="size-6"
+            />
+          </div>
 
-            <h3 className="relative mt-5 text-xl font-bold text-foreground dark:text-white">
-              Still need help?
-            </h3>
+          <h3 className="relative mt-5 text-xl font-bold text-foreground dark:text-white">
+            Still need help?
+          </h3>
 
-            <p className="relative mt-3 text-sm leading-7 text-muted-foreground dark:text-white/55">
-              Use this card for sales support, product onboarding, or a direct
-              path to your founder, team, or documentation.
-            </p>
+          <p className="relative mt-3 text-sm leading-7 text-muted-foreground dark:text-white/55">
+            Use this card for sales support, product onboarding, or a direct
+            path to your founder, team, or documentation.
+          </p>
 
-            <a
-              href="#contact"
-              className="relative mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-xl shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-primary/35 active:scale-[0.98]"
-            >
-              Contact support
-              <Icon icon="solar:arrow-right-bold" className="ml-1.5 size-4" />
-            </a>
+          <a
+            href="#contact"
+            className="relative mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-xl shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-primary/35 active:scale-[0.98]"
+          >
+            Contact support
+            <Icon icon="solar:arrow-right-bold" className="ml-1.5 size-4" />
+          </a>
 
-            <div className="relative mt-6 grid gap-3 border-t border-border/30 pt-6 dark:border-white/10">
-              {[
-                ["Average reply", "< 24h"],
-                ["Enterprise support", "Dedicated"],
-                ["Data export", "Anytime"],
-              ].map(([label, value]) => (
-                <div
-                  key={label}
-                  className="flex items-center justify-between text-sm"
-                >
-                  <span className="text-muted-foreground dark:text-white/45">
-                    {label}
-                  </span>
-                  <span className="font-semibold text-foreground/80 dark:text-white/75">
-                    {value}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </aside>
-
-          {/* Accordion */}
-          <Stagger className="flex flex-col gap-3">
-            {faqs.map((faq, index) => (
-              <FaqItem
-                key={faq.q}
-                faq={faq}
-                index={index}
-                isOpen={openIndex === index}
-                onToggle={() =>
-                  setOpenIndex(openIndex === index ? null : index)
-                }
-              />
+          <div className="relative mt-6 grid gap-3 border-t border-border/30 pt-6 dark:border-white/10">
+            {[
+              ["Average reply", "< 24h"],
+              ["Enterprise support", "Dedicated"],
+              ["Data export", "Anytime"],
+            ].map(([label, value]) => (
+              <div
+                key={label}
+                className="flex items-center justify-between text-sm"
+              >
+                <span className="text-muted-foreground dark:text-white/45">
+                  {label}
+                </span>
+                <span className="font-semibold text-foreground/80 dark:text-white/75">
+                  {value}
+                </span>
+              </div>
             ))}
-          </Stagger>
-        </div>
+          </div>
+        </aside>
+
+        {/* Accordion */}
+        <Stagger className="flex flex-col gap-3">
+          {faqs.map((faq, index) => (
+            <FaqItem
+              key={faq.q}
+              faq={faq}
+              index={index}
+              isOpen={openIndex === index}
+              onToggle={() =>
+                setOpenIndex(openIndex === index ? null : index)
+              }
+            />
+          ))}
+        </Stagger>
+      </div>
     </SectionShell>
   )
 }

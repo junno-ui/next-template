@@ -73,7 +73,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         "group relative flex min-h-[520px] flex-col overflow-hidden rounded-[2rem] bg-background/72 p-6 shadow-2xl ring-1 shadow-black/[0.08] ring-border/40 backdrop-blur-2xl transition-all duration-500 dark:bg-white/[0.025] dark:ring-white/10",
         "hover:-translate-y-2 hover:bg-background/90 hover:shadow-primary/10 hover:ring-primary/25 dark:hover:bg-white/[0.045]",
         plan.highlighted &&
-          "bg-background/90 shadow-primary/10 ring-primary/25 dark:bg-white/[0.045]"
+        "bg-background/90 shadow-primary/10 ring-primary/25 dark:bg-white/[0.045]"
       )}
     >
       {/* Glow */}
@@ -159,13 +159,13 @@ function PlanCard({ plan }: { plan: Plan }) {
           "relative mt-auto inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 active:scale-[0.98]",
           plan.highlighted
             ? cn(
-                buttonVariants(),
-                "shadow-xl shadow-primary/25 hover:-translate-y-0.5 hover:shadow-primary/35"
-              )
+              buttonVariants(),
+              "shadow-xl shadow-primary/25 hover:-translate-y-0.5 hover:shadow-primary/35"
+            )
             : cn(
-                buttonVariants({ variant: "outline" }),
-                "border-border/40 bg-background/80 text-foreground hover:-translate-y-0.5 hover:border-primary/25 hover:bg-background dark:border-white/10 dark:bg-white/[0.035] dark:text-white dark:hover:bg-white/[0.06]"
-              )
+              buttonVariants({ variant: "outline" }),
+              "border-border/40 bg-background/80 text-foreground hover:-translate-y-0.5 hover:border-primary/25 hover:bg-background dark:border-white/10 dark:bg-white/[0.035] dark:text-white dark:hover:bg-white/[0.06]"
+            )
         )}
       >
         {plan.cta}
@@ -197,7 +197,7 @@ export default function PricingSection() {
         title={
           <>
             Pricing cards that{" "}
-            <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
+            <span className="relative text-primary">
               guide decisions.
             </span>
           </>

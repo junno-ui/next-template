@@ -61,7 +61,7 @@ export default function StatisticsSection() {
         title={
           <>
             Proof points that{" "}
-            <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
+            <span className="relative text-primary">
               build confidence.
             </span>
           </>

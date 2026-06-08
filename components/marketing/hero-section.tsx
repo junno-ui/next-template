@@ -663,7 +663,7 @@ export default function HeroSection() {
                 Launch a SaaS page
                 <span className="block">into</span>
                 <span className="relative inline-block">
-                  <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
+                  <span className="relative text-primary">
                     a sharper story
                   </span>
                 </span>

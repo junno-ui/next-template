@@ -94,7 +94,7 @@ export default function TestimonialsSection() {
         title={
           <>
             Social proof that{" "}
-            <span className="relative bg-linear-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
+            <span className="relative text-primary">
               feels believable.
             </span>
           </>
