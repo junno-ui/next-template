@@ -82,7 +82,7 @@ function ThemeHotkey() {
     function onKeyDown(e: KeyboardEvent) {
       if (e.defaultPrevented || e.repeat) return
       if (e.metaKey || e.ctrlKey || e.altKey) return
-      if (e.key.toLowerCase() !== "d") return
+      if (e.key?.toLowerCase() !== "d") return
 
       const t = e.target
       if (

@@ -61,8 +61,6 @@ export default async function BlogPostPage({
         <section className="relative">
           <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
             <div className="absolute inset-0 bg-luxury-grid opacity-60" />
-            <div className="absolute left-[10%] top-16 h-[24rem] w-[24rem] rounded-full bg-primary/[0.1] blur-[110px]" />
-            <div className="absolute right-[10%] top-[10%] h-[18rem] w-[18rem] rounded-full bg-chart-2/[0.1] blur-[95px]" />
           </div>
 
           <article className="mx-auto max-w-6xl px-6">

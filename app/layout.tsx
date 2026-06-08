@@ -34,6 +34,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  appleWebApp: {
+    title: "Clario",
+  },
 }
 
 export default function RootLayout({
@@ -45,7 +48,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("antialiased font-sans", geist.variable, geistMono.variable)}
     >
-      <body>
+      <body suppressHydrationWarning>
         <ThemeProvider>
           <ThemeStyles />
           <TooltipProvider>{children}</TooltipProvider>

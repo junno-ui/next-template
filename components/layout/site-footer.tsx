@@ -56,11 +56,6 @@ export function SiteFooter() {
       >
         <div className="absolute inset-0 bg-hex-dots opacity-[0.08]" />
 
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
-
-        <div className="absolute left-1/2 top-0 h-[420px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.055] blur-[130px]" />
-        <div className="absolute right-[-12%] bottom-[-20%] h-[340px] w-[620px] rounded-full bg-chart-2/[0.035] blur-[120px]" />
-
         <div className="absolute left-1/2 top-0 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
       </div>
 

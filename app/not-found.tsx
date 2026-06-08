@@ -23,14 +23,6 @@ export default function NotFound() {
       onMouseMove={handleMouseMove}
     >
       {/* Interactive glow that follows cursor */}
-      <div
-        className="pointer-events-none absolute h-[500px] w-[500px] rounded-full bg-primary/[0.06] blur-[120px] transition-all duration-500 ease-out"
-        style={{
-          left: `${mousePos.x}%`,
-          top: `${mousePos.y}%`,
-          transform: "translate(-50%, -50%)",
-        }}
-      />
 
       {/* Grid pattern */}
       <div

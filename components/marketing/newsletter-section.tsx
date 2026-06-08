@@ -36,12 +36,6 @@ export default function NewsletterSection() {
         <div className="absolute inset-0 bg-background" />
         <div className="absolute inset-0 bg-hex-dots opacity-[0.1]" />
 
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background via-background/80 to-transparent" />
-
-        <div className="absolute left-1/2 top-[20%] h-[460px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.065] blur-[130px]" />
-        <div className="absolute bottom-[-12%] right-[-10%] h-[360px] w-[620px] rounded-full bg-chart-2/[0.04] blur-[120px]" />
-
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
 
         <div className="absolute left-1/2 top-0 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
@@ -52,7 +46,6 @@ export default function NewsletterSection() {
           {/* Card effects */}
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,130,40,0.14),transparent_42%)]" />
           <div className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
-          <div className="pointer-events-none absolute -right-24 -top-24 size-64 rounded-full bg-primary/10 blur-3xl" />
 
           <div className="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             {/* Left content */}
@@ -67,7 +60,7 @@ export default function NewsletterSection() {
 
               <h2 className="text-balance text-3xl font-bold tracking-[-0.045em] text-foreground dark:text-white sm:text-4xl md:text-5xl">
                 Stay ahead with smarter{" "}
-                <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
+                <span className="text-primary">
                   growth insights.
                 </span>
               </h2>

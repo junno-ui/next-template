@@ -152,12 +152,6 @@ export default function TestimonialsSection() {
         <div className="absolute inset-0 bg-background" />
         <div className="absolute inset-0 bg-hex-dots opacity-[0.1]" />
 
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background via-background/80 to-transparent" />
-
-        <div className="absolute left-1/2 top-[22%] h-[460px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[130px]" />
-        <div className="absolute bottom-[-12%] left-1/2 h-[360px] w-[720px] -translate-x-1/2 rounded-full bg-chart-2/[0.04] blur-[120px]" />
-
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
       </div>
 
@@ -174,7 +168,7 @@ export default function TestimonialsSection() {
 
           <h2 className="text-balance text-3xl font-bold tracking-[-0.045em] text-foreground dark:text-white sm:text-4xl md:text-5xl lg:text-6xl">
             Loved by teams that{" "}
-            <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
+            <span className="text-primary">
               move with data.
             </span>
           </h2>

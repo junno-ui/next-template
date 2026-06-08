@@ -15,33 +15,13 @@ export default function CtaSection() {
       >
         <div className="absolute inset-0 bg-background" />
         <div className="absolute inset-0 bg-hex-dots opacity-[0.1]" />
-
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background via-background/80 to-transparent" />
-
-        <div className="absolute left-1/2 top-[30%] h-[520px] w-[min(92vw,1000px)] -translate-x-1/2 rounded-full bg-primary/[0.08] blur-[130px]" />
-        <div className="absolute right-[-12%] bottom-[-10%] h-[360px] w-[620px] rounded-full bg-chart-2/[0.045] blur-[120px]" />
-
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-primary/20 bg-[linear-gradient(135deg,hsl(var(--primary))_0%,color-mix(in_oklab,hsl(var(--primary))_82%,white_18%)_100%)] px-6 py-14 text-primary-foreground shadow-2xl shadow-primary/25 sm:px-10 sm:py-16 lg:px-16">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-primary/20 bg-primary px-6 py-14 text-primary-foreground shadow-2xl shadow-primary/25 sm:px-10 sm:py-16 lg:px-16">
           {/* Filled card effects */}
           <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.28),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.22),transparent_38%)]"
-            aria-hidden="true"
-          />
-          <div
             className="pointer-events-none absolute inset-0 bg-grid opacity-[0.12]"
-            aria-hidden="true"
-          />
-          <div
-            className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-white/20 blur-3xl"
-            aria-hidden="true"
-          />
-          <div
-            className="pointer-events-none absolute -bottom-28 left-1/2 size-80 -translate-x-1/2 rounded-full bg-black/20 blur-3xl"
             aria-hidden="true"
           />
 

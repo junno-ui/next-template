@@ -713,8 +713,6 @@ export default function FeaturesSection() {
         <div className="absolute inset-0 bg-background" />
         <div className="absolute inset-0 bg-hex-dots opacity-[0.12]" />
 
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background via-background/80 to-transparent" />
 
         <motion.div
           animate={{
@@ -785,7 +783,7 @@ export default function FeaturesSection() {
             className="text-balance text-3xl font-bold tracking-[-0.045em] text-foreground dark:text-white sm:text-4xl md:text-5xl lg:text-6xl"
           >
             A premium bento system for{" "}
-            <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
+            <span className="text-primary">
               modern growth teams.
             </span>
           </motion.h2>

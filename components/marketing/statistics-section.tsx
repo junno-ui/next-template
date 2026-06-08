@@ -70,7 +70,6 @@ function StatCard({
       <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
       {/* corner glow */}
-      <div className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-primary/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
       <div className="relative mx-auto mb-5 flex size-13 items-center justify-center rounded-2xl border border-border/40 bg-background/80 text-primary transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:border-primary/25 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-lg group-hover:shadow-primary/20 dark:border-white/10 dark:bg-white/[0.035]">
         <Icon icon={stat.icon} className="size-6" />
@@ -105,10 +104,6 @@ export default function StatisticsSection() {
         <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-background to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-background to-transparent" />
 
-        <div className="absolute left-1/2 top-1/2 h-[420px] w-[min(90vw,820px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.08] blur-[120px]" />
-        <div className="absolute left-[-10%] top-[20%] h-[360px] w-[520px] rounded-full bg-chart-2/[0.045] blur-[110px]" />
-        <div className="absolute right-[-10%] bottom-[12%] h-[360px] w-[520px] rounded-full bg-primary/[0.045] blur-[110px]" />
-
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_45%,transparent_8%,rgba(255,255,255,0.34)_72%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_70%_55%_at_50%_45%,transparent_8%,rgba(0,0,0,0.48)_72%,rgba(0,0,0,0.78)_100%)]" />
       </div>
 
@@ -125,7 +120,7 @@ export default function StatisticsSection() {
 
           <h2 className="text-balance text-3xl font-bold tracking-[-0.04em] text-foreground dark:text-white sm:text-4xl md:text-5xl">
             Trusted performance,{" "}
-            <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
+            <span className="text-primary">
               proven at scale.
             </span>
           </h2>

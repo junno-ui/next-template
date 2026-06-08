@@ -124,11 +124,6 @@ function HeroBackground() {
       <div className="absolute inset-0 bg-hero-pattern opacity-15" />
       <div className="absolute inset-0 bg-noise-weave opacity-[0.07]" />
 
-      <div className="absolute left-1/2 top-0 h-[560px] w-[min(92vw,1120px)] -translate-x-1/2 rounded-full bg-primary/[0.11] blur-[140px]" />
-      <div className="absolute left-[10%] top-[20%] h-[380px] w-[380px] rounded-full bg-primary/[0.055] blur-[120px]" />
-      <div className="absolute right-[8%] top-[30%] h-[360px] w-[360px] rounded-full bg-chart-2/[0.055] blur-[120px]" />
-      <div className="absolute bottom-[8%] left-1/2 h-[280px] w-[780px] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[110px]" />
-
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_74%_54%_at_50%_22%,transparent_8%,rgba(255,255,255,0.24)_64%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_74%_54%_at_50%_22%,transparent_8%,rgba(0,0,0,0.34)_64%,rgba(0,0,0,0.78)_100%)]" />
 
       <div className="absolute left-1/2 top-0 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
@@ -289,9 +284,6 @@ function DashboardPreview() {
         className="pointer-events-none absolute inset-0 -z-10"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/72 to-muted/55 dark:from-white/[0.05] dark:via-white/[0.025] dark:to-primary/[0.04]" />
-        <div className="absolute left-1/2 top-0 h-80 w-[82%] -translate-x-1/2 rounded-full bg-primary/[0.09] blur-[110px]" />
-        <div className="absolute bottom-[-18%] right-[-10%] h-72 w-96 rounded-full bg-chart-2/[0.09] blur-[100px]" />
-        <div className="absolute left-[-12%] top-[38%] h-72 w-80 rounded-full bg-primary/[0.055] blur-[110px]" />
         <div className="absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
       </div>
 
@@ -684,10 +676,6 @@ export default function HeroSection() {
             <HeroBadge />
 
             <div className="animate-fade-up delay-100 relative mx-auto mt-7 max-w-5xl">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[420px] w-[min(90vw,900px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.10] blur-[120px]"
-              />
 
               <p className="mx-auto max-w-2xl text-sm font-medium leading-6 text-foreground/70 dark:text-white/62 sm:text-base">
                 Modern analytics, automation, and reporting tools for SaaS teams
@@ -698,11 +686,7 @@ export default function HeroSection() {
                 Turn scattered data
                 <span className="block">into</span>
                 <span className="relative inline-block">
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-x-0 bottom-3 h-6 rounded-full bg-gradient-to-r from-primary/45 via-cyan-300/25 to-primary/45 blur-2xl sm:bottom-4 sm:h-8"
-                  />
-                  <span className="relative bg-gradient-to-r from-orange-200 via-cyan-200 to-orange-200 bg-clip-text text-transparent">
+                  <span className="relative text-primary">
                     clear decisions
                   </span>
                 </span>
@@ -775,10 +759,6 @@ export default function HeroSection() {
           {/* Product preview */}
           {/* Product preview */}
 <div className="animate-slide-up-fade delay-300 relative mx-auto mt-16 w-full max-w-7xl">
-  <div
-    aria-hidden="true"
-    className="pointer-events-none absolute -inset-10 -z-10 rounded-[3rem] bg-[radial-gradient(circle_at_top,rgba(255,120,40,0.14),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(6,182,212,0.10),transparent_35%)] blur-3xl"
-  />
 
   <div className="relative overflow-hidden rounded-[2.5rem] bg-background/72 p-4 shadow-2xl shadow-black/20 ring-1 ring-border/40 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-background/90 hover:ring-primary/20 dark:bg-white/[0.025] dark:ring-white/10 dark:hover:bg-white/[0.035] sm:p-5">
     <div

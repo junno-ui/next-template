@@ -335,13 +335,6 @@ export default function PricingSection() {
         <div className="absolute inset-0 bg-background" />
         <div className="absolute inset-0 bg-hex-dots opacity-[0.12]" />
 
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background via-background/80 to-transparent" />
-
-        <div className="absolute left-1/2 top-0 h-[520px] w-[min(92vw,1080px)] -translate-x-1/2 rounded-full bg-primary/[0.07] blur-[130px]" />
-        <div className="absolute right-[-12%] top-[34%] h-[420px] w-[620px] rounded-full bg-chart-2/[0.045] blur-[110px]" />
-        <div className="absolute left-[-14%] bottom-[8%] h-[360px] w-[560px] rounded-full bg-primary/[0.04] blur-[110px]" />
-
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(255,255,255,0.34)_70%,rgba(255,255,255,0.82)_100%)] dark:bg-[radial-gradient(ellipse_72%_48%_at_50%_20%,transparent_10%,rgba(0,0,0,0.48)_70%,rgba(0,0,0,0.84)_100%)]" />
 
         <div className="absolute left-1/2 top-0 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
@@ -360,7 +353,7 @@ export default function PricingSection() {
 
           <h2 className="text-balance text-3xl font-bold tracking-[-0.045em] text-foreground dark:text-white sm:text-4xl md:text-5xl lg:text-6xl">
             Simple pricing for{" "}
-            <span className="bg-gradient-to-r from-orange-300 via-cyan-300 to-orange-300 bg-clip-text text-transparent">
+            <span className="text-primary">
               every stage of growth.
             </span>
           </h2>
