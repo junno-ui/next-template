@@ -50,21 +50,6 @@ const trustItems = ["No credit card", "Fast setup", "Cancel anytime"]
 export function SiteFooter() {
   return (
     <footer className="relative isolate overflow-hidden border-t border-border/20 bg-background">
-      {/* Background */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10"
-        aria-hidden="true"
-      >
-        <div className="bg-hex-dots absolute inset-0 opacity-[0.08]" />
-
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/80 to-transparent" />
-
-        <div className="absolute top-0 left-1/2 h-[420px] w-[min(92vw,960px)] -translate-x-1/2 rounded-full bg-primary/[0.055] blur-[130px]" />
-        <div className="absolute right-[-12%] bottom-[-20%] h-[340px] w-[620px] rounded-full bg-chart-2/[0.035] blur-[120px]" />
-
-        <div className="absolute top-0 left-1/2 h-px w-[min(86vw,900px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
-      </div>
-
       <div className="mx-auto max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
         {/* Top CTA strip */}
         <div className="mb-10 overflow-hidden rounded-[2rem] bg-background/72 p-5 ring-1 ring-border/40 backdrop-blur-xl sm:p-6 dark:bg-white/[0.025] dark:ring-white/10">
